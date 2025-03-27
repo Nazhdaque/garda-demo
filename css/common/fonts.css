@@ -1,0 +1,8 @@
+/* https://gwfh.mranftl.com/fonts */
+
+@font-face {
+	font-family: "Roboto Flex";
+	font-display: swap;
+	font-weight: 100 900;
+	src: url(/fonts/RobotoFlex.ttf) format(truetype);
+}

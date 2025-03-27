@@ -1,0 +1,78 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	text-wrap: pretty;
+}
+
+* {
+	color: var(--clr-txt, #444444);
+}
+
+::selection {
+	background-color: hsl(var(--clr-1c-hsl), 0.5);
+}
+
+:where(img, picture, canvas, svg) {
+	max-width: 100%;
+	display: block;
+}
+
+:where(ul, ol) {
+	list-style: none;
+}
+
+:where(a, button, address) {
+	cursor: pointer;
+	font-size: inherit;
+	font-style: inherit;
+	color: inherit;
+	border: none;
+	outline: none;
+	background: none;
+	text-decoration: none;
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+	font-size: inherit;
+	font-weight: inherit;
+	display: inline-block;
+	overflow-wrap: break-word;
+	text-wrap: balance;
+}
+
+:where(p + p) {
+	margin-top: 0.5em;
+}
+
+html,
+body {
+	min-height: 100dvh;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: var(--ff-rg);
+	font-weight: var(--fw-sb);
+	font-size: var(--fs-rg);
+	line-height: var(--lh-rg);
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeSpeed;
+
+	position: relative;
+	overflow-x: hidden;
+	scroll-padding-top: var(--header-height);
+
+	display: grid;
+	grid-template-rows: 1fr auto;
+}
+
+.garda-bg {
+	background-color: var(--clr-0b);
+	padding-block: clamp(1rem, 6.25vw + -3rem, 2rem);
+}

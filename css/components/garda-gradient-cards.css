@@ -1,0 +1,79 @@
+.cards {
+	--col: 5;
+	--x: 5;
+	--gap-x: 0rem;
+	--gap-y: 0rem;
+	--shrink: 0.75;
+
+	display: grid;
+	place-self: center;
+	counter-reset: tile-num 0;
+	border-radius: var(--rad);
+	overflow: hidden;
+}
+.cards > *:not(:last-child) {
+	border: solid hsl(var(--clr-0a-hsl), 0.2);
+	border-width: var(--border);
+}
+.cards > :nth-child(1) {
+	--alpha: 0.2;
+}
+.cards > :nth-child(2) {
+	--alpha: 0.4;
+}
+.cards > :nth-child(3) {
+	--alpha: 0.6;
+}
+.cards > :nth-child(4) {
+	--alpha: 0.8;
+}
+
+.card {
+	--img-size: 6.8em;
+	--rad: 0;
+	--fit: contain;
+	--border: 0 1px 0 0;
+	--arrow-turn: -0.25turn;
+	--line: 5;
+
+	counter-increment: tile-num 1;
+	background-image: linear-gradient(
+		var(--deg, 0deg),
+		hsl(var(--clr-1a-hsl), var(--alpha, 1)) 0%,
+		hsl(var(--clr-1b-hsl), var(--alpha, 1)) 100%
+	);
+	padding: calc(var(--pad) / 1.25) var(--pad) calc(var(--pad) / 0.75);
+	display: grid;
+	gap: 4em 2em;
+	grid-row: span 3;
+	grid-template-rows: subgrid;
+	grid-template-columns: min-content 1fr min-content;
+	grid-template-areas:
+		"cntr .... arrw"
+		"icon icon icon"
+		"text text text";
+}
+.card::before {
+	grid-area: cntr;
+	content: counter(tile-num, decimal-leading-zero);
+	align-self: center;
+}
+.card::after {
+	grid-area: arrw;
+	content: "";
+	background-image: url(images/garda-tile-arrow-down.svg);
+	background-repeat: no-repeat;
+	min-width: 1.525em;
+	aspect-ratio: 32 / 42;
+	rotate: var(--arrow-turn);
+	place-self: end;
+}
+
+.card__icon {
+	grid-area: icon;
+	margin: auto;
+}
+
+.card__txt {
+	grid-area: text;
+}

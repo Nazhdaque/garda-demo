@@ -1,0 +1,41 @@
+:root {
+	--max-content-width: clamp(64rem, 100vw + 0rem, 85.375rem);
+
+	/* |||||||||| |||||||||| |||||||||| |||||||||| colors */
+	--clr-0a: #ffffff;
+	--clr-0a-hsl: 0, 0%, 100%;
+	--clr-0b: #010623;
+	--clr-0b-hsl: 231, 94%, 7%;
+	--clr-0c: #2c313b;
+	--clr-0c-hsl: 220, 15%, 20%;
+	--clr-1a: #4d5bd5;
+	--clr-1a-hsl: 234, 62%, 57%;
+	--clr-1b: #d21fff;
+	--clr-1b-hsl: 288, 100%, 56%;
+	--clr-1c: #b881db;
+	--clr-1c-hsl: 277, 56%, 68%;
+
+	--clr-1b-1a: linear-gradient(
+		var(--deg, 30deg),
+		hsl(var(--clr-1b-hsl), var(--alpha, 1)) 0,
+		hsl(var(--clr-1a-hsl), var(--alpha, 1)) 100%
+	);
+
+	--clr-txt: var(--clr-0a);
+
+	/* |||||||||| |||||||||| |||||||||| |||||||||| sizes */
+	/* 32px@1280px -> 16px@1024px */
+	--gap-x: clamp(1rem, 6.25vw + -3rem, 2rem);
+	/* 24px@1280px -> 16px@1024px */
+	--pad: clamp(1rem, 3.125vw + -1rem, 1.5rem);
+	/* 32px@1280px -> 20px@1024px */
+	--rad: clamp(1.25rem, 4.688vw + -1.75rem, 2rem);
+	--rad-inner: calc(var(--rad) - var(--pad));
+
+	/* |||||||||| |||||||||| |||||||||| |||||||||| grid sizes */
+	--col-1-of-4: calc((var(--max-content-width) - var(--gap-x) * 3) / 4);
+	--col-1-of-2: calc((var(--max-content-width) - var(--gap-x)) / 2);
+
+	/* |||||||||| |||||||||| |||||||||| |||||||||| transition */
+	--trn: 0.4s ease;
+}

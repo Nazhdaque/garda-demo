@@ -1,0 +1,14 @@
+.layout-body > * {
+	display: grid;
+	grid-template-columns: 1fr minmax(min-content, var(--max-content-width)) 1fr;
+	column-gap: clamp(1rem, 6.25vw + -3rem, 2rem);
+}
+.layout-body > * > * {
+	grid-column: 2;
+}
+
+.full-bleed {
+	display: grid;
+	grid-column: 1 / -1;
+	grid-template-columns: subgrid;
+}

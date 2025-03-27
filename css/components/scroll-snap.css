@@ -1,0 +1,18 @@
+.scroll-snap-inline {
+	display: grid;
+	column-gap: var(--gap-x);
+
+	overflow: auto hidden;
+	overscroll-behavior-x: contain;
+	scroll-snap-type: x mandatory;
+
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+.scroll-snap-inline::-webkit-scrollbar {
+	display: none;
+}
+.scroll-snap-inline > * {
+	scroll-snap-align: start;
+	scroll-snap-stop: always;
+}

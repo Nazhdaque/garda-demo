@@ -1,0 +1,65 @@
+/* |||||||||| |||||||||| |||||||||| |||||||||| md */
+@media (width <= 1024px) {
+	.cards {
+		--deg: 90deg;
+
+		max-width: var(--col-1-of-2);
+		grid-template-columns: none;
+		grid-auto-rows: min-content min-content 1fr;
+	}
+
+	.card {
+		--img-size: 2.675em;
+		--arrow-turn: 0;
+		--border: 0 0 1px 0;
+
+		align-items: center;
+		padding: var(--pad);
+		gap: var(--pad);
+		grid-template-areas:
+			"icon text cntr"
+			"icon text arrw"
+			"icon text arrw";
+	}
+}
+
+/* |||||||||| |||||||||| |||||||||| |||||||||| sm */
+@media (width <= 768px) {
+	.hero {
+		grid-template-areas: "motto motto motto";
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.sm-grid-area-auto {
+		grid-area: auto;
+	}
+
+	.sm-d-grid {
+		display: grid;
+	}
+}
+/* |||||||||| |||||||||| |||||||||| |||||||||| xs */
+@media (width <= 576px) {
+	.hero {
+		grid-auto-rows: calc(var(--col-1-of-4) * 1.345) var(--col-1-of-4);
+	}
+
+	.arrow-link {
+		.arrow {
+			--img-size: 2.2rem;
+
+			align-self: center;
+		}
+		.ellipsis {
+			max-width: var(--col-1-of-4);
+			white-space: normal;
+		}
+	}
+
+	.sm-txt-trunc {
+		display: -webkit-box;
+		-webkit-line-clamp: var(--line, 1);
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+}

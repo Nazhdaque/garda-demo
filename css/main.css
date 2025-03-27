@@ -1,0 +1,20 @@
+@layer common, components, parts, utilities, media;
+
+@import url(./common/fonts.css) layer(common);
+@import url(./common/root.css) layer(common);
+@import url(./common/typography.css) layer(common);
+@import url(./common/base.css) layer(common);
+@import url(./common/layout.css) layer(common);
+
+@import url(./components/demo.css) layer(components);
+@import url(./components/scroll-snap.css) layer(components);
+@import url(./components/garda-gradient-cards.css) layer(components);
+
+@import url(./parts/header.css) layer(parts);
+@import url(./parts/garda-hero.css) layer(components);
+@import url(./parts/footer.css) layer(parts);
+
+@import url(./common/utilities.css) layer(utilities);
+@import url(./common/media.css) layer(media);
+
+@import url(./common/xxx.css) layer(utilities); /* dev purposes only */

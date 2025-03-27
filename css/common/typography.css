@@ -1,0 +1,76 @@
+/* ---
+	https://fluidtypography.com/
+	--- */
+
+:root {
+	--ff-rg: "Roboto Flex", sans-serif;
+
+	/* --fw-tn: 100; */
+	/* --fw-el: 200; */
+	/* --fw-lt: 300; */
+	--fw-rg: 400;
+	/* --fw-md: 500; */
+	--fw-sb: 600;
+	--fw-bd: 700;
+	/* --fw-eb: 800; */
+	/* --fw-bk: 900; */
+
+	/* 30px@1024px -> 55px@1280px */
+	--fs-2xl: clamp(1.875rem, 9.766vw + -4.375rem, 3.438rem);
+	/* 1.1 -> 1.1 */
+	--lh-2xl: 1.1;
+
+	/* 16px@1024px -> 20px@1280px */
+	--fs-md: clamp(1rem, 1.563vw + 0rem, 1.25rem);
+	/* 1.25@1024px -> 1.15@1280px */
+	--lh-md: clamp(1.25rem, 1.172vw + 0.5rem, 1.438rem);
+
+	/* 14px@1024px -> 18px@1280px */
+	--fs-rg: clamp(0.875rem, 1.563vw + -0.125rem, 1.125rem);
+	/* 1.25@1024px -> 1.35@1280px */
+	--lh-rg: clamp(1.094rem, 2.656vw + -0.606rem, 1.519rem);
+
+	/* 12px@1024px -> 14px@1280px */
+	--fs-xs: clamp(0.75rem, 0.781vw + 0.25rem, 0.875rem);
+	/* 1.25@1024px -> 1.35@1280px */
+	--lh-xs: clamp(1.013rem, 0.508vw + 0.688rem, 1.094rem);
+}
+
+/* |||||||||| |||||||||| |||||||||| |||||||||| fonts */
+.fnt-2xl {
+	font-size: var(--fs-2xl);
+	line-height: var(--lh-2xl);
+	font-weight: var(--fw-bd);
+}
+.fnt-md {
+	font-size: var(--fs-md);
+	line-height: var(--lh-md);
+	font-weight: var(--fw-sb);
+}
+.fnt-rg {
+	font-size: var(--fs-rg);
+	line-height: var(--lh-rg);
+	font-weight: var(--fw-sb);
+}
+.fnt-xs {
+	font-size: var(--fs-xs);
+	line-height: var(--lh-xs);
+	font-weight: var(--fw-rg);
+}
+
+/* |||||||||| |||||||||| |||||||||| |||||||||| txt colors */
+.txt-clr-6 {
+	color: hsl(var(--clr-0a-hsl), 0.6);
+}
+.txt-clr-4 {
+	color: hsl(var(--clr-0a-hsl), 0.4);
+}
+
+/* |||||||||| |||||||||| |||||||||| |||||||||| font mods */
+.caps {
+	text-transform: uppercase;
+}
+
+.ital {
+	font-style: italic;
+}
