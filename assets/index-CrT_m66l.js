@@ -64,7 +64,7 @@ var g=Object.defineProperty;var p=(e,t,s)=>t in e?g(e,t,{enumerable:!0,configura
 							 src="images/icons/garda-arrow-angled-black.svg"\r
 							 alt="white arrow on black background">\r
 				</span>\r
-				<span class="ellipsis  sm-txt-trunc">Вместо платного Proxima Nova подключен шрифт Roboto Flex</span>\r
+				<span class="ellipsis sm-txt-trunc">Вместо платного Proxima Nova подключен шрифт Roboto Flex</span>\r
 			</a>\r
 		</div>\r
 \r
