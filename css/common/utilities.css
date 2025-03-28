@@ -145,6 +145,8 @@
 	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
+
+	filter: drop-shadow(1px 1px 1px var(--clr-0b));
 }
 .txt-1a {
 	color: var(--clr-1a);

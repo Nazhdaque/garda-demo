@@ -46,9 +46,7 @@
 
 	.arrow-link {
 		.arrow {
-			--img-size: 2.2rem;
-
-			align-self: center;
+			--img-size: calc(var(--line) * 1.25em);
 		}
 		.ellipsis {
 			max-width: var(--col-1-of-4);
