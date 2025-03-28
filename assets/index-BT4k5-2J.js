@@ -1,4 +1,4 @@
-var g=Object.defineProperty;var m=(a,t,s)=>t in a?g(a,t,{enumerable:!0,configurable:!0,writable:!0,value:s}):a[t]=s;var c=(a,t,s)=>m(a,typeof t!="symbol"?t+"":t,s);(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const r of document.querySelectorAll('link[rel="modulepreload"]'))i(r);new MutationObserver(r=>{for(const n of r)if(n.type==="childList")for(const e of n.addedNodes)e.tagName==="LINK"&&e.rel==="modulepreload"&&i(e)}).observe(document,{childList:!0,subtree:!0});function s(r){const n={};return r.integrity&&(n.integrity=r.integrity),r.referrerPolicy&&(n.referrerPolicy=r.referrerPolicy),r.crossOrigin==="use-credentials"?n.credentials="include":r.crossOrigin==="anonymous"?n.credentials="omit":n.credentials="same-origin",n}function i(r){if(r.ep)return;r.ep=!0;const n=s(r);fetch(r.href,n)}})();class p{constructor(t){c(this,"observer",t=>new ResizeObserver(s=>s.forEach(i=>{switch(this.prop){case"w":const r=i.borderBoxSize[0].inlineSize;t.forEach(e=>e.style.maxWidth=`${r}px`);break;case"h":const n=i.borderBoxSize[0].blockSize;t.forEach(e=>e.style.minHeight=`${n}px`);break}})));c(this,"initWith",t=>{t.forEach(([s,i],r)=>{const n=document.querySelector(`.${s}`),e=document.querySelectorAll(`.${i}`),l=r+1;n&&e?this.observer(e).observe(n):console.error(`SizeSetter: there is no master-${l} or slave-${l}`)})});this.prop=t}}const u=(a,t)=>{let s=0;return()=>{const i=new Date;i-s>=t&&(a(),s=i)}},y=(a,t)=>{const s=document.querySelector(a);let i=0,r=0;const n=()=>(r=window.scrollY-i,i=window.scrollY,r),e=d=>d<0?s.classList.remove(t):s.classList.add(t),l=()=>e(n());document.addEventListener("scroll",u(l,50))},x=`<div class="full-bleed garda-bg">\r
+var g=Object.defineProperty;var p=(e,t,s)=>t in e?g(e,t,{enumerable:!0,configurable:!0,writable:!0,value:s}):e[t]=s;var c=(e,t,s)=>p(e,typeof t!="symbol"?t+"":t,s);(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const r of document.querySelectorAll('link[rel="modulepreload"]'))i(r);new MutationObserver(r=>{for(const n of r)if(n.type==="childList")for(const a of n.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&i(a)}).observe(document,{childList:!0,subtree:!0});function s(r){const n={};return r.integrity&&(n.integrity=r.integrity),r.referrerPolicy&&(n.referrerPolicy=r.referrerPolicy),r.crossOrigin==="use-credentials"?n.credentials="include":r.crossOrigin==="anonymous"?n.credentials="omit":n.credentials="same-origin",n}function i(r){if(r.ep)return;r.ep=!0;const n=s(r);fetch(r.href,n)}})();class m{constructor(t){c(this,"observer",t=>new ResizeObserver(s=>s.forEach(i=>{switch(this.prop){case"w":const r=i.borderBoxSize[0].inlineSize;t.forEach(a=>a.style.maxWidth=`${r}px`);break;case"h":const n=i.borderBoxSize[0].blockSize;t.forEach(a=>a.style.minHeight=`${n}px`);break}})));c(this,"initWith",t=>{t.forEach(([s,i],r)=>{const n=document.querySelector(`.${s}`),a=document.querySelectorAll(`.${i}`),l=r+1;n&&a?this.observer(a).observe(n):console.error(`SizeSetter: there is no master-${l} or slave-${l}`)})});this.prop=t}}const u=(e,t)=>{let s=0;return()=>{const i=new Date;i-s>=t&&(e(),s=i)}},y=(e,t)=>{const s=document.querySelector(e);let i=0,r=0;const n=()=>(r=window.scrollY-i,i=window.scrollY,r),a=d=>d<0?s.classList.remove(t):s.classList.add(t),l=()=>a(n());document.addEventListener("scroll",u(l,50))},x=`<div class="full-bleed garda-bg">\r
 \r
 	<ol class="cards grid-x width-x">\r
 		<li class="card fnt-xs">\r
@@ -45,14 +45,14 @@ var g=Object.defineProperty;var m=(a,t,s)=>t in a?g(a,t,{enumerable:!0,configura
 			</p>\r
 		</li>\r
 	</ol>\r
-</div>`,h=`<div class="full-bleed garda-bg">\r
+</div>`,w=`<div class="full-bleed garda-bg">\r
 	<section class="hero">\r
 		<div class="img-box hero-tile motto">\r
 			<h1 class="fnt-2xl txt-trunc">Безопасность — основа будущего</h1>\r
 			<p class="sub fnt-md txt-clr-6 txt-trunc">Создаем решения в сфере безопасности данных\r
 				и сетевой инфраструктуры</p>\r
 \r
-			<a class="arrow-link"\r
+			<a class="arrow-link fnt-rg"\r
 				 href="#">\r
 				<span class="img-box arrow">\r
 					<img loading="lazy"\r
@@ -64,7 +64,7 @@ var g=Object.defineProperty;var m=(a,t,s)=>t in a?g(a,t,{enumerable:!0,configura
 							 src="images/icons/garda-arrow-angled-black.svg"\r
 							 alt="white arrow on black background">\r
 				</span>\r
-				<span class="ellipsis fnt-rg sm-txt-trunc">Вместо платного Proxima Nova подключен шрифт Roboto Flex</span>\r
+				<span class="ellipsis  sm-txt-trunc">Вместо платного Proxima Nova подключен шрифт Roboto Flex</span>\r
 			</a>\r
 		</div>\r
 \r
@@ -82,10 +82,10 @@ var g=Object.defineProperty;var m=(a,t,s)=>t in a?g(a,t,{enumerable:!0,configura
 				</div>\r
 				<span class="date fnt-xs">27.03.2025</span>\r
 				<div class="hero-tile__title">\r
-					<h2 class="txt-trunc fnt-md">Этот длинный заголовок обрежется\r
-						троеточием на 4 строке. Длина строк автоматически балансируется. Эти тайлы на ≤768px будут\r
-						скроллиться по\r
-						<span class="ital caps">shift + mouse wheel</span>, или тачпадом, или свайпаться\r
+					<h2 class="txt-trunc fnt-md">Этот заголовок обрежется\r
+						троеточием на 4 строке. Длина строк автоматически балансируется. Мелкие несоответствия макету,\r
+						например, размер стрелок и тегов в адаптивах, — это <span class="ital txt-gradient">мне так больше\r
+							нравится</span>\r
 					</h2>\r
 				</div>\r
 				<div class="img-box arrow">\r
@@ -113,7 +113,8 @@ var g=Object.defineProperty;var m=(a,t,s)=>t in a?g(a,t,{enumerable:!0,configura
 				</div>\r
 				<span class="date fnt-xs">27.03.2025</span>\r
 				<div class="hero-tile__title">\r
-					<h2 class="txt-trunc fnt-md">Оценивать надо в динамике, плавно изменяя ширину окна просмотра</h2>\r
+					<h2 class="txt-trunc fnt-md">Оценивать надо в динамике, <span class="ital txt-gradient">плавно</span> изменяя\r
+						ширину окна просмотра</h2>\r
 				</div>\r
 				<div class="img-box arrow">\r
 					<img loading="lazy"\r
@@ -140,10 +141,11 @@ var g=Object.defineProperty;var m=(a,t,s)=>t in a?g(a,t,{enumerable:!0,configura
 				</div>\r
 				<span class="date fnt-xs">27.03.2025</span>\r
 				<div class="hero-tile__title">\r
-					<h2 class="txt-trunc fnt-md">Lorem ipsum dolor sit amet consectetur adipisicing elit doloremque architecto\r
-						totam\r
-						dolor\r
-						est magnam laboriosam amet!</h2>\r
+					<h2 class="txt-trunc fnt-md">Эти тайлы <span class="ital txt-gradient">на ≤768px</span> будут\r
+						скроллиться по\r
+						<span class="ital caps txt-gradient">shift + mouse wheel</span>, или тачпадом, или\r
+						свайпаться\r
+					</h2>\r
 				</div>\r
 				<div class="img-box arrow">\r
 					<img loading="lazy"\r
@@ -158,7 +160,7 @@ var g=Object.defineProperty;var m=(a,t,s)=>t in a?g(a,t,{enumerable:!0,configura
 			</a>\r
 		</div>\r
 	</section>\r
-</div>`,w=`<ol class="demo grid-x"\r
+</div>`,h=`<ol class="demo grid-x"\r
 		style="--col: 12;">\r
 	<li></li>\r
 	<li></li>\r
@@ -175,8 +177,16 @@ var g=Object.defineProperty;var m=(a,t,s)=>t in a?g(a,t,{enumerable:!0,configura
 </ol>\r
 \r
 <div class="xxx full-bleed">\r
-	<ol class="demo grid-x"\r
-			style="--col: 3;">\r
+	<ol class="demo gta width-x"\r
+			style="--col: 12; --x: 6">\r
+		<li></li>\r
+		<li></li>\r
+		<li></li>\r
+		<li></li>\r
+		<li></li>\r
+		<li></li>\r
+		<li></li>\r
+		<li></li>\r
 		<li></li>\r
 		<li></li>\r
 		<li></li>\r
@@ -199,22 +209,6 @@ var g=Object.defineProperty;var m=(a,t,s)=>t in a?g(a,t,{enumerable:!0,configura
 	<li></li>\r
 	<li class="w-slave-1"></li>\r
 	<li class="w-slave-1"></li>\r
-</ol>\r
-\r
-<ol class="demo gta width-x"\r
-		style="--col: 12; --x: 6">\r
-\r
-	<li></li>\r
-	<li></li>\r
-	<li></li>\r
-	<li></li>\r
-	<li></li>\r
-	<li></li>\r
-	<li></li>\r
-	<li></li>\r
-	<li></li>\r
-	<li></li>\r
-	<li></li>\r
 </ol>\r
 \r
 <ol class="demo grid-x masonry"\r
@@ -264,4 +258,4 @@ var g=Object.defineProperty;var m=(a,t,s)=>t in a?g(a,t,{enumerable:!0,configura
 			style="--span-y: 4"></li>\r
 	<li class="span-y"\r
 			style="--span-y: 3"></li>\r
-</ol>`,o=document.querySelector(".main-content");o.insertAdjacentHTML("beforeend",h);o.insertAdjacentHTML("beforeend",x);o.insertAdjacentHTML("beforeend",w);const b=new p("w");b.initWith([["w-master-1","w-slave-1"]]);y(".main-header","-slide-up");console.log("%cCoded by ✨Nazhdaque✨","background: #222; color: chartreuse;");
+</ol>`,o=document.querySelector(".main-content");o.insertAdjacentHTML("beforeend",w);o.insertAdjacentHTML("beforeend",x);o.insertAdjacentHTML("beforeend",h);const b=new m("w");b.initWith([["w-master-1","w-slave-1"]]);y(".main-header","-slide-up");console.log("%cCoded by ✨Nazhdaque✨","background: #222; color: chartreuse;");
