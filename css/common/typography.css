@@ -53,6 +53,7 @@
 	font-weight: var(--fw-sb);
 }
 .fnt-xs {
+	font-size: 14px;
 	font-size: var(--fs-xs);
 	line-height: var(--lh-xs);
 	font-weight: var(--fw-rg);

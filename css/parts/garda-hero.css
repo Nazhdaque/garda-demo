@@ -120,27 +120,16 @@
 	position: relative;
 	display: grid;
 	place-items: center;
-	gap: 0.5em;
-	grid-template-columns: min-content 1fr;
+	gap: 0.575em;
+	grid-template-columns: min-content auto;
 
 	&::before {
 		content: "";
 		grid-area: 1 / 1;
-		background-color: var(--clr-0a);
-		width: 0.765em;
-		aspect-ratio: 1;
-		border-radius: 50% 50% 0 50%;
-		rotate: 45deg;
-	}
-
-	&::after {
-		content: "";
-		grid-area: 1 / 1;
-		border-radius: 50%;
-		background-color: var(--clr-0b);
-		width: 0.25em;
-		aspect-ratio: 1;
-		z-index: 1;
+		background-image: url(/images/icons/garda-icon-nav-point.svg);
+		width: 0.857em;
+		aspect-ratio: 12 / 15;
+		background-size: contain;
 	}
 }
 
