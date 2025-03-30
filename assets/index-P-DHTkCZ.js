@@ -33,7 +33,7 @@ var p=Object.defineProperty;var m=(a,r,s)=>r in a?p(a,r,{enumerable:!0,configura
 			<p class="card__txt fnt-md txt-trunc">Поворот градиента, ограничение ширины, белые цифры, выравнивание\r
 				текста по центру и стрелка вниз на ≤1024px\r
 				— это <span class="txt-gradient">мне\r
-					так больше нравится.</span> Сделать как на макете — проще.</p>\r
+					так больше нравится.</span></p>\r
 		</li>\r
 \r
 		<li class="card fnt-xs">\r
@@ -84,7 +84,7 @@ var p=Object.defineProperty;var m=(a,r,s)=>r in a?p(a,r,{enumerable:!0,configura
 				<div class="hero-tile__title">\r
 					<h2 class="txt-trunc fnt-md">Этот заголовок обрежется\r
 						троеточием на 4 строке. Длина строк автоматически балансируется. Мелкие несоответствия макету,\r
-						например, размер стрелок и тегов в адаптивах, — это <span class="txt-gradient">мне так больше\r
+						например, размер стрелок и тегов в адаптивах — <span class="txt-gradient">мне так больше\r
 							нравится</span>\r
 					</h2>\r
 				</div>\r
