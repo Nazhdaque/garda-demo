@@ -1,4 +1,4 @@
-var g=Object.defineProperty;var p=(e,t,s)=>t in e?g(e,t,{enumerable:!0,configurable:!0,writable:!0,value:s}):e[t]=s;var c=(e,t,s)=>p(e,typeof t!="symbol"?t+"":t,s);(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const r of document.querySelectorAll('link[rel="modulepreload"]'))i(r);new MutationObserver(r=>{for(const n of r)if(n.type==="childList")for(const a of n.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&i(a)}).observe(document,{childList:!0,subtree:!0});function s(r){const n={};return r.integrity&&(n.integrity=r.integrity),r.referrerPolicy&&(n.referrerPolicy=r.referrerPolicy),r.crossOrigin==="use-credentials"?n.credentials="include":r.crossOrigin==="anonymous"?n.credentials="omit":n.credentials="same-origin",n}function i(r){if(r.ep)return;r.ep=!0;const n=s(r);fetch(r.href,n)}})();class m{constructor(t){c(this,"observer",t=>new ResizeObserver(s=>s.forEach(i=>{switch(this.prop){case"w":const r=i.borderBoxSize[0].inlineSize;t.forEach(a=>a.style.maxWidth=`${r}px`);break;case"h":const n=i.borderBoxSize[0].blockSize;t.forEach(a=>a.style.minHeight=`${n}px`);break}})));c(this,"initWith",t=>{t.forEach(([s,i],r)=>{const n=document.querySelector(`.${s}`),a=document.querySelectorAll(`.${i}`),l=r+1;n&&a?this.observer(a).observe(n):console.error(`SizeSetter: there is no master-${l} or slave-${l}`)})});this.prop=t}}const u=(e,t)=>{let s=0;return()=>{const i=new Date;i-s>=t&&(e(),s=i)}},y=(e,t)=>{const s=document.querySelector(e);let i=0,r=0;const n=()=>(r=window.scrollY-i,i=window.scrollY,r),a=d=>d<0?s.classList.remove(t):s.classList.add(t),l=()=>a(n());document.addEventListener("scroll",u(l,50))},x=`<div class="full-bleed garda-bg">\r
+var p=Object.defineProperty;var m=(a,r,s)=>r in a?p(a,r,{enumerable:!0,configurable:!0,writable:!0,value:s}):a[r]=s;var c=(a,r,s)=>m(a,typeof r!="symbol"?r+"":r,s);(function(){const r=document.createElement("link").relList;if(r&&r.supports&&r.supports("modulepreload"))return;for(const t of document.querySelectorAll('link[rel="modulepreload"]'))e(t);new MutationObserver(t=>{for(const n of t)if(n.type==="childList")for(const i of n.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&e(i)}).observe(document,{childList:!0,subtree:!0});function s(t){const n={};return t.integrity&&(n.integrity=t.integrity),t.referrerPolicy&&(n.referrerPolicy=t.referrerPolicy),t.crossOrigin==="use-credentials"?n.credentials="include":t.crossOrigin==="anonymous"?n.credentials="omit":n.credentials="same-origin",n}function e(t){if(t.ep)return;t.ep=!0;const n=s(t);fetch(t.href,n)}})();class u{constructor(r){c(this,"observer",r=>new ResizeObserver(s=>s.forEach(e=>{switch(this.prop){case"w":const t=e.borderBoxSize[0].inlineSize;r.forEach(i=>i.style.maxWidth=`${t}px`);break;case"h":const n=e.borderBoxSize[0].blockSize;r.forEach(i=>i.style.minHeight=`${n}px`);break}})));c(this,"initWith",r=>{r.forEach(([s,e],t)=>{const n=document.querySelector(`.${s}`),i=document.querySelectorAll(`.${e}`),l=t+1;n&&i?this.observer(i).observe(n):console.error(`SizeSetter: there is no master-${l} or slave-${l}`)})});this.prop=r}}const d=(a,r=50)=>{let s=0;return(...e)=>{const t=new Date().getTime();if(!(t-s<r))return s=t,a(...e)}},y=(a,r)=>{const s=document.querySelector(a);let e=0,t=0;const n=()=>(t=window.scrollY-e,e=window.scrollY,t),i=g=>g<0?s.classList.remove(r):s.classList.add(r),l=()=>i(n());document.addEventListener("scroll",d(l))},x=(a,r)=>{document.querySelectorAll(a).forEach(s=>{const e=s.querySelector(r),t=n=>{if(e){const i=e.getBoundingClientRect();e.style.setProperty("--x",n.clientX-i.left),e.style.setProperty("--y",n.clientY-i.top)}};s.addEventListener("pointermove",d(t))})},h=`<div class="full-bleed garda-bg">\r
 \r
 	<ol class="cards grid-x width-x">\r
 		<li class="card fnt-xs">\r
@@ -32,8 +32,8 @@ var g=Object.defineProperty;var p=(e,t,s)=>t in e?g(e,t,{enumerable:!0,configura
 			</picture>\r
 			<p class="card__txt fnt-md txt-trunc">Поворот градиента, ограничение ширины, белые цифры, выравнивание\r
 				текста по центру и стрелка вниз на ≤1024px\r
-				— это мне\r
-				так больше нравится. Сделать как на макете — убрать / поменять пару-тройку строк стилей.</p>\r
+				— это <span class="txt-gradient">мне\r
+					так больше нравится.</span> Сделать как на макете — проще.</p>\r
 		</li>\r
 \r
 		<li class="card fnt-xs">\r
@@ -41,7 +41,7 @@ var g=Object.defineProperty;var p=(e,t,s)=>t in e?g(e,t,{enumerable:!0,configura
 				<img src="images/icons/garda-icon-users.svg"\r
 						 alt="icon badge">\r
 			</picture>\r
-			<p class="card__txt fnt-md txt-trunc">Lorem ipsum dolor.\r
+			<p class="card__txt fnt-md txt-trunc">Lorem ipsum dolor sit.\r
 			</p>\r
 		</li>\r
 	</ol>\r
@@ -84,7 +84,7 @@ var g=Object.defineProperty;var p=(e,t,s)=>t in e?g(e,t,{enumerable:!0,configura
 				<div class="hero-tile__title">\r
 					<h2 class="txt-trunc fnt-md">Этот заголовок обрежется\r
 						троеточием на 4 строке. Длина строк автоматически балансируется. Мелкие несоответствия макету,\r
-						например, размер стрелок и тегов в адаптивах, — это <span class="ital txt-gradient">мне так больше\r
+						например, размер стрелок и тегов в адаптивах, — это <span class="txt-gradient">мне так больше\r
 							нравится</span>\r
 					</h2>\r
 				</div>\r
@@ -113,7 +113,7 @@ var g=Object.defineProperty;var p=(e,t,s)=>t in e?g(e,t,{enumerable:!0,configura
 				</div>\r
 				<span class="date fnt-xs">27.03.2025</span>\r
 				<div class="hero-tile__title">\r
-					<h2 class="txt-trunc fnt-md">Оценивать надо в динамике, <span class="ital txt-gradient">плавно</span> изменяя\r
+					<h2 class="txt-trunc fnt-md">Оценивать надо в динамике, <span class="txt-gradient">плавно</span> изменяя\r
 						ширину окна просмотра</h2>\r
 				</div>\r
 				<div class="img-box arrow">\r
@@ -141,9 +141,9 @@ var g=Object.defineProperty;var p=(e,t,s)=>t in e?g(e,t,{enumerable:!0,configura
 				</div>\r
 				<span class="date fnt-xs">27.03.2025</span>\r
 				<div class="hero-tile__title">\r
-					<h2 class="txt-trunc fnt-md">Эти тайлы <span class="ital txt-gradient">на ≤768px</span> будут\r
+					<h2 class="txt-trunc fnt-md">Эти тайлы <span class="txt-gradient">на ≤768px</span> будут\r
 						скроллиться по\r
-						<span class="ital caps txt-gradient">shift + mouse wheel</span>, или тачпадом, или\r
+						<span class="caps txt-gradient">shift + mouse wheel</span>, или тачпадом, или\r
 						свайпаться\r
 					</h2>\r
 				</div>\r
@@ -160,7 +160,7 @@ var g=Object.defineProperty;var p=(e,t,s)=>t in e?g(e,t,{enumerable:!0,configura
 			</a>\r
 		</div>\r
 	</section>\r
-</div>`,h=`<ol class="demo grid-x"\r
+</div>`,f=`<ol class="demo grid-x"\r
 		style="--col: 12;">\r
 	<li></li>\r
 	<li></li>\r
@@ -179,6 +179,7 @@ var g=Object.defineProperty;var p=(e,t,s)=>t in e?g(e,t,{enumerable:!0,configura
 <div class="xxx full-bleed">\r
 	<ol class="demo gta width-x"\r
 			style="--col: 12; --x: 6">\r
+		<li></li>\r
 		<li></li>\r
 		<li></li>\r
 		<li></li>\r
@@ -258,4 +259,4 @@ var g=Object.defineProperty;var p=(e,t,s)=>t in e?g(e,t,{enumerable:!0,configura
 			style="--span-y: 4"></li>\r
 	<li class="span-y"\r
 			style="--span-y: 3"></li>\r
-</ol>`,o=document.querySelector(".main-content");o.insertAdjacentHTML("beforeend",w);o.insertAdjacentHTML("beforeend",x);o.insertAdjacentHTML("beforeend",h);const b=new m("w");b.initWith([["w-master-1","w-slave-1"]]);y(".main-header","-slide-up");console.log("%cCoded by ✨Nazhdaque✨","background: #222; color: chartreuse;");
+</ol>`,o=document.querySelector(".main-content");o.insertAdjacentHTML("beforeend",w);o.insertAdjacentHTML("beforeend",h);o.insertAdjacentHTML("beforeend",f);const b=new u("w");b.initWith([["w-master-1","w-slave-1"]]);y(".main-header","-slide-up");x(".hero-tile",".hero-tile__title");console.log("%cCoded by ✨Nazhdaque✨","background: #222; color: chartreuse;");
