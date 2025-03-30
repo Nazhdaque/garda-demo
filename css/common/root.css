@@ -18,7 +18,7 @@
 	--clr-1b-1a: linear-gradient(
 		var(--deg, 30deg),
 		hsl(var(--clr-1b-hsl), var(--alpha, 1)) 25%,
-		hsl(var(--clr-1a-hsl), var(--alpha, 1)) 100%
+		hsl(var(--clr-1a-hsl), var(--alpha, 1)) 125%
 	);
 
 	--clr-txt: var(--clr-0a);

@@ -126,13 +126,14 @@ export const getElements = array => {
 };
 
 //---
-export const throttle = (func, timeFrame) => {
-	let lastTime = 0;
-	return () => {
-		const now = new Date();
-		if (now - lastTime >= timeFrame) {
-			func();
-			lastTime = now;
+export const throttle = (fn, delay = 50) => {
+	let lastCall = 0;
+	return (...args) => {
+		const now = new Date().getTime();
+		if (now - lastCall < delay) {
+			return;
 		}
+		lastCall = now;
+		return fn(...args);
 	};
 };

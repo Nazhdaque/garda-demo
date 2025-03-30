@@ -16,5 +16,5 @@ export const slideHeader = (el, cls) => {
 
 	const handler = () => toggleHeaderState(getDeltaY());
 
-	document.addEventListener("scroll", throttle(handler, 50));
+	document.addEventListener("scroll", throttle(handler));
 };

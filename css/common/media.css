@@ -1,4 +1,4 @@
-/* |||||||||| |||||||||| |||||||||| |||||||||| md */
+/* |||||||||| |||||||||| |||||||||| md */
 @media (width <= 1024px) {
 	.cards {
 		--deg: 90deg;
@@ -9,7 +9,7 @@
 	}
 
 	.card {
-		--img-size: 2.675em;
+		--img-size: min(2.675em, 10dvw);
 		--arrow-turn: 0;
 		--border: 0 0 1px 0;
 
@@ -23,22 +23,23 @@
 	}
 }
 
-/* |||||||||| |||||||||| |||||||||| |||||||||| sm */
+/* |||||||||| |||||||||| sm */
 @media (width <= 768px) {
 	.hero {
 		grid-template-areas: "motto motto motto";
 		grid-template-columns: repeat(3, 1fr);
 	}
 
+	/* utilities */
 	.sm-grid-area-auto {
 		grid-area: auto;
 	}
-
 	.sm-d-grid {
 		display: grid;
 	}
 }
-/* |||||||||| |||||||||| |||||||||| |||||||||| xs */
+
+/* |||||||||| xs */
 @media (width <= 576px) {
 	.hero {
 		grid-auto-rows: calc(var(--col-1-of-4) * 1.345) var(--col-1-of-4);
@@ -54,6 +55,7 @@
 		}
 	}
 
+	/* utilities */
 	.sm-txt-trunc {
 		display: -webkit-box;
 		-webkit-line-clamp: var(--line, 1);
