@@ -186,18 +186,22 @@
 		left: -100% !important;
 		top: 100% !important;
 	}
+	> :nth-child(3) {
+		left: -200% !important;
+		top: 200% !important;
+	}
 }
 
 .news .arrow {
 	grid-area: arw;
 }
 
-.news:where(:hover, :focus-visible) {
+.news:where(:focus-visible, :hover) {
 	scale: 1.025;
 }
 
-.news:where(:hover, :focus-visible),
-.arrow-link:where(:hover, :focus-visible) {
+.news:where(:focus-visible, :hover),
+.arrow-link:where(:focus-visible, :hover) {
 	.arrow > :nth-child(1) {
 		left: 100% !important;
 		top: -100% !important;
@@ -206,4 +210,30 @@
 		left: 0% !important;
 		top: 0% !important;
 	}
+	.arrow > :nth-child(3) {
+		left: -100% !important;
+		top: 100% !important;
+	}
+}
+
+.news:active,
+.arrow-link:active {
+	.arrow > :nth-child(1) {
+		left: 200% !important;
+		top: -200% !important;
+	}
+	.arrow > :nth-child(2) {
+		left: 100% !important;
+		top: -100% !important;
+	}
+	.arrow > :nth-child(3) {
+		left: 0% !important;
+		top: 0% !important;
+	}
+}
+.news:active {
+	--arw-bg: var(--clr-0c);
+}
+.arrow-link:active {
+	--arw-bg: var(--clr-1c);
 }

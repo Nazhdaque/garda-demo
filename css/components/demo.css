@@ -198,10 +198,10 @@
 	.gta {
 		grid-template-areas:
 			"a a a a a b"
-			"d e e j f b"
-			"d i . . f b"
-			"d h . . k b"
-			"d h l g g b"
+			"d e e e f b"
+			"d h i j f b"
+			"d h l k f b"
+			"d h g g g b"
 			"d c c c c c";
 	}
 }
@@ -210,10 +210,10 @@
 	.gta {
 		grid-template-areas:
 			"a a a a a b"
-			"d e e e f b"
-			"d h i j f b"
-			"d h l k f b"
-			"d h g g g b"
+			"d e e j f b"
+			"d i . . f b"
+			"d h . . k b"
+			"d h l g g b"
 			"d c c c c c";
 	}
 }
