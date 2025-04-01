@@ -61,7 +61,7 @@
 .card::after {
 	grid-area: arrw;
 	content: "";
-	background-image: url(/images/garda-tile-arrow-down.svg);
+	background-image: url(/images/icons/garda-icon-arrow-down.svg);
 	background-repeat: no-repeat;
 	min-width: 1.525em;
 	aspect-ratio: 32 / 42;

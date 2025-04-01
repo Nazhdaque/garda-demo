@@ -30,6 +30,11 @@
 		grid-template-columns: repeat(3, 1fr);
 	}
 
+	.news:where(:focus-visible, :hover) {
+		scale: none;
+		outline-offset: calc(var(--outline-width) * -1);
+	}
+
 	/* utilities */
 	.sm-grid-area-auto {
 		grid-area: auto;

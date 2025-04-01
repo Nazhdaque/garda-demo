@@ -5,6 +5,7 @@
 	overflow: auto hidden;
 	overscroll-behavior-x: contain;
 	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;
 
 	-ms-overflow-style: none;
 	scrollbar-width: none;
