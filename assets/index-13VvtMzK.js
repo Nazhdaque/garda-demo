@@ -1,4 +1,4 @@
-var p=Object.defineProperty;var m=(i,r,s)=>r in i?p(i,r,{enumerable:!0,configurable:!0,writable:!0,value:s}):i[r]=s;var c=(i,r,s)=>m(i,typeof r!="symbol"?r+"":r,s);(function(){const r=document.createElement("link").relList;if(r&&r.supports&&r.supports("modulepreload"))return;for(const t of document.querySelectorAll('link[rel="modulepreload"]'))a(t);new MutationObserver(t=>{for(const n of t)if(n.type==="childList")for(const e of n.addedNodes)e.tagName==="LINK"&&e.rel==="modulepreload"&&a(e)}).observe(document,{childList:!0,subtree:!0});function s(t){const n={};return t.integrity&&(n.integrity=t.integrity),t.referrerPolicy&&(n.referrerPolicy=t.referrerPolicy),t.crossOrigin==="use-credentials"?n.credentials="include":t.crossOrigin==="anonymous"?n.credentials="omit":n.credentials="same-origin",n}function a(t){if(t.ep)return;t.ep=!0;const n=s(t);fetch(t.href,n)}})();class u{constructor(r){c(this,"observer",r=>new ResizeObserver(s=>s.forEach(a=>{switch(this.prop){case"w":const t=a.borderBoxSize[0].inlineSize;r.forEach(e=>e.style.maxWidth=`${t}px`);break;case"h":const n=a.borderBoxSize[0].blockSize;r.forEach(e=>e.style.minHeight=`${n}px`);break}})));c(this,"initWith",r=>{r.forEach(([s,a],t)=>{const n=document.querySelector(`.${s}`),e=document.querySelectorAll(`.${a}`),l=t+1;n&&e?this.observer(e).observe(n):console.error(`SizeSetter: there is no master-${l} or slave-${l}`)})});this.prop=r}}const d=(i,r=50)=>{let s=0;return(...a)=>{const t=new Date().getTime();if(!(t-s<r))return s=t,i(...a)}},y=(i,r)=>{const s=document.querySelector(i);let a=0,t=0;const n=()=>(t=window.scrollY-a,a=window.scrollY,t),e=g=>g<0?s.classList.remove(r):s.classList.add(r),l=()=>e(n());document.addEventListener("scroll",d(l))},w=(i,r)=>{document.querySelectorAll(i).forEach(s=>{const a=s.querySelector(r),t=n=>{if(a){const e=a.getBoundingClientRect();a.style.setProperty("--x",n.clientX-e.left),a.style.setProperty("--y",n.clientY-e.top)}};s.addEventListener("pointermove",d(t))})},x=`<div class="full-bleed garda-bg">\r
+var p=Object.defineProperty;var m=(e,r,s)=>r in e?p(e,r,{enumerable:!0,configurable:!0,writable:!0,value:s}):e[r]=s;var c=(e,r,s)=>m(e,typeof r!="symbol"?r+"":r,s);(function(){const r=document.createElement("link").relList;if(r&&r.supports&&r.supports("modulepreload"))return;for(const t of document.querySelectorAll('link[rel="modulepreload"]'))a(t);new MutationObserver(t=>{for(const n of t)if(n.type==="childList")for(const i of n.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&a(i)}).observe(document,{childList:!0,subtree:!0});function s(t){const n={};return t.integrity&&(n.integrity=t.integrity),t.referrerPolicy&&(n.referrerPolicy=t.referrerPolicy),t.crossOrigin==="use-credentials"?n.credentials="include":t.crossOrigin==="anonymous"?n.credentials="omit":n.credentials="same-origin",n}function a(t){if(t.ep)return;t.ep=!0;const n=s(t);fetch(t.href,n)}})();class u{constructor(r){c(this,"observer",r=>new ResizeObserver(s=>s.forEach(a=>{switch(this.prop){case"w":const t=a.borderBoxSize[0].inlineSize;r.forEach(i=>i.style.maxWidth=`${t}px`);break;case"h":const n=a.borderBoxSize[0].blockSize;r.forEach(i=>i.style.minHeight=`${n}px`);break}})));c(this,"initWith",r=>{r.forEach(([s,a],t)=>{const n=document.querySelector(`.${s}`),i=document.querySelectorAll(`.${a}`),l=t+1;n&&i?this.observer(i).observe(n):console.error(`SizeSetter: there is no master-${l} or slave-${l}`)})});this.prop=r}}const d=(e,r=50)=>{let s=0;return(...a)=>{const t=new Date().getTime();if(!(t-s<r))return s=t,e(...a)}},y=(e,r)=>{const s=document.querySelector(e);let a=0,t=0;const n=()=>(t=window.scrollY-a,a=window.scrollY,t),i=g=>g<0?s.classList.remove(r):s.classList.add(r),l=()=>i(n());document.addEventListener("scroll",d(l))},w=(e,r)=>{document.querySelectorAll(e).forEach(s=>{const a=s.querySelector(r),t=n=>{if(a){const i=a.getBoundingClientRect();a.style.setProperty("--x",n.clientX-i.left),a.style.setProperty("--y",n.clientY-i.top)}};s.addEventListener("pointermove",d(t))})},h=`<div class="full-bleed garda-bg">\r
 \r
 	<ol class="cards grid-x width-x">\r
 		<li class="card fnt-xs">\r
@@ -32,7 +32,7 @@ var p=Object.defineProperty;var m=(i,r,s)=>r in i?p(i,r,{enumerable:!0,configura
 			</picture>\r
 			<p class="card__txt fnt-md txt-trunc">Поворот градиента, ограничение ширины, белые цифры, выравнивание\r
 				текста по центру и стрелка вниз на ≤1024px\r
-				— это <span class="txt-gradient">мне\r
+				— <span class="txt-gradient">мне\r
 					так больше нравится.</span></p>\r
 		</li>\r
 \r
@@ -45,27 +45,27 @@ var p=Object.defineProperty;var m=(i,r,s)=>r in i?p(i,r,{enumerable:!0,configura
 			</p>\r
 		</li>\r
 	</ol>\r
-</div>`,h=`<div class="full-bleed garda-bg">\r
+</div>`,x=`<div class="full-bleed garda-bg">\r
 	<section class="hero">\r
 		<div class="img-box hero-tile motto">\r
 			<h1 class="fnt-2xl txt-trunc">Безопасность — основа будущего</h1>\r
 			<p class="sub fnt-md txt-clr-6 txt-trunc">Создаем решения в сфере безопасности данных\r
 				и сетевой инфраструктуры</p>\r
 \r
-			<a class="arrow-link fnt-rg"\r
+			<a class="arrow-link fnt-rg sm-focus"\r
 				 href="#">\r
 				<span class="img-box arrow">\r
 					<img loading="lazy"\r
 							 decoding="async"\r
-							 src="images/icons/garda-arrow-angled-white.svg"\r
+							 src="images/icons/garda-icon-arrow-angled-white.svg"\r
 							 alt="gradient arrow on white background">\r
 					<img loading="lazy"\r
 							 decoding="async"\r
-							 src="images/icons/garda-arrow-angled-black.svg"\r
+							 src="images/icons/garda-icon-arrow-angled-black.svg"\r
 							 alt="white arrow on black background">\r
 					<img loading="lazy"\r
 							 decoding="async"\r
-							 src="images/icons/garda-arrow-angled-purple.svg"\r
+							 src="images/icons/garda-icon-arrow-angled-purple.svg"\r
 							 alt="white arrow on purple background">\r
 				</span>\r
 				<span class="ellipsis sm-txt-trunc">Вместо платного Proxima Nova подключен шрифт Roboto Flex</span>\r
@@ -73,8 +73,9 @@ var p=Object.defineProperty;var m=(i,r,s)=>r in i?p(i,r,{enumerable:!0,configura
 		</div>\r
 \r
 		<div class="hero-news scroll-snap-inline sm-d-grid">\r
-			<a class="img-box hero-tile news sm-grid-area-auto"\r
-				 href="#">\r
+			<a class="img-box hero-tile news sm-focus sm-grid-area-auto"\r
+				 href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fnazhdaque.github.io%2Fgarda-demo%2F"\r
+				 target="_blank">\r
 				<picture class="img-box z-down">\r
 					<img loading="lazy"\r
 							 decoding="async"\r
@@ -95,20 +96,20 @@ var p=Object.defineProperty;var m=(i,r,s)=>r in i?p(i,r,{enumerable:!0,configura
 				<div class="img-box arrow">\r
 					<img loading="lazy"\r
 							 decoding="async"\r
-							 src="images/icons/garda-arrow-angled-white.svg"\r
+							 src="images/icons/garda-icon-arrow-angled-white.svg"\r
 							 alt="gradient arrow on white background">\r
 					<img loading="lazy"\r
 							 decoding="async"\r
-							 src="images/icons/garda-arrow-angled-purple.svg"\r
+							 src="images/icons/garda-icon-arrow-angled-purple.svg"\r
 							 alt="white arrow on purple background">\r
 					<img loading="lazy"\r
 							 decoding="async"\r
-							 src="images/icons/garda-arrow-angled-black.svg"\r
+							 src="images/icons/garda-icon-arrow-angled-black.svg"\r
 							 alt="white arrow on black background">\r
 				</div>\r
 			</a>\r
 \r
-			<a class="img-box hero-tile news sm-grid-area-auto"\r
+			<a class="img-box hero-tile news sm-focus sm-grid-area-auto"\r
 				 href="#">\r
 				<picture class="img-box z-down">\r
 					<img loading="lazy"\r
@@ -127,20 +128,20 @@ var p=Object.defineProperty;var m=(i,r,s)=>r in i?p(i,r,{enumerable:!0,configura
 				<div class="img-box arrow">\r
 					<img loading="lazy"\r
 							 decoding="async"\r
-							 src="images/icons/garda-arrow-angled-white.svg"\r
+							 src="images/icons/garda-icon-arrow-angled-white.svg"\r
 							 alt="gradient arrow on white background">\r
 					<img loading="lazy"\r
 							 decoding="async"\r
-							 src="images/icons/garda-arrow-angled-purple.svg"\r
+							 src="images/icons/garda-icon-arrow-angled-purple.svg"\r
 							 alt="white arrow on purple background">\r
 					<img loading="lazy"\r
 							 decoding="async"\r
-							 src="images/icons/garda-arrow-angled-black.svg"\r
+							 src="images/icons/garda-icon-arrow-angled-black.svg"\r
 							 alt="white arrow on black background">\r
 				</div>\r
 			</a>\r
 \r
-			<a class="img-box hero-tile news sm-grid-area-auto"\r
+			<a class="img-box hero-tile news sm-focus sm-grid-area-auto"\r
 				 href="#">\r
 				<picture class="img-box z-down">\r
 					<img loading="lazy"\r
@@ -162,15 +163,15 @@ var p=Object.defineProperty;var m=(i,r,s)=>r in i?p(i,r,{enumerable:!0,configura
 				<div class="img-box arrow">\r
 					<img loading="lazy"\r
 							 decoding="async"\r
-							 src="images/icons/garda-arrow-angled-white.svg"\r
+							 src="images/icons/garda-icon-arrow-angled-white.svg"\r
 							 alt="gradient arrow on white background">\r
 					<img loading="lazy"\r
 							 decoding="async"\r
-							 src="images/icons/garda-arrow-angled-purple.svg"\r
+							 src="images/icons/garda-icon-arrow-angled-purple.svg"\r
 							 alt="white arrow on purple background">\r
 					<img loading="lazy"\r
 							 decoding="async"\r
-							 src="images/icons/garda-arrow-angled-black.svg"\r
+							 src="images/icons/garda-icon-arrow-angled-black.svg"\r
 							 alt="white arrow on black background">\r
 				</div>\r
 			</a>\r
@@ -275,4 +276,4 @@ var p=Object.defineProperty;var m=(i,r,s)=>r in i?p(i,r,{enumerable:!0,configura
 			style="--span-y: 4"></li>\r
 	<li class="span-y"\r
 			style="--span-y: 3"></li>\r
-</ol>`,o=document.querySelector(".main-content");o.insertAdjacentHTML("beforeend",h);o.insertAdjacentHTML("beforeend",x);o.insertAdjacentHTML("beforeend",b);const f=new u("w");f.initWith([["w-master-1","w-slave-1"]]);y(".main-header","-slide-up");w(".hero-tile",".hero-tile__title");console.log("%cCoded by ✨Nazhdaque✨","background: #222; color: chartreuse;");
+</ol>`,o=document.querySelector(".main-content");o.insertAdjacentHTML("beforeend",x);o.insertAdjacentHTML("beforeend",h);o.insertAdjacentHTML("beforeend",b);const f=new u("w");f.initWith([["w-master-1","w-slave-1"]]);y(".main-header","-slide-up");w(".hero-tile",".hero-tile__title");console.log("%cCoded by ✨Nazhdaque✨","background: #222; color: chartreuse;");
