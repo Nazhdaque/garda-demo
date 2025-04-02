@@ -1,0 +1,42 @@
+.news-wrapper {
+	display: contents;
+	grid-column: 1 / -1;
+	grid-template-columns: repeat(3, var(--col-1-of-4));
+}
+.news-wrapper:focus-visible {
+	outline: transparent;
+}
+
+.hero-news {
+	gap: var(--pad);
+	grid-template-columns: 1fr min-content;
+	grid-template-areas:
+		"tag tag"
+		"ttl ttl"
+		"dat arw";
+	outline-offset: var(--outline-width);
+
+	&::after {
+		background-color: hsl(var(--clr-0b-hsl), 0.5);
+	}
+
+	&:nth-child(1) {
+		grid-area: news1;
+	}
+	&:nth-child(2) {
+		grid-area: news2;
+	}
+	&:nth-child(3) {
+		grid-area: news3;
+	}
+}
+
+.hero-news:focus-visible {
+	outline: var(--outline);
+}
+.hero-news:where(:focus-visible, :hover) {
+	transform: scale(1.025);
+}
+.hero-news:active {
+	--arw-bg: var(--clr-0c);
+}

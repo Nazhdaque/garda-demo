@@ -31,6 +31,13 @@
 	transition: var(--trn) scale;
 }
 
-.brand-logo:where(:hover, :focus-visible) {
+.brand-logo:focus-visible {
+	--rad: var(--rad-inner);
+
+	scale: 1.05;
+	outline: var(--outline);
+	outline-offset: var(--outline-width);
+}
+.brand-logo:where(:focus-visible, :hover) {
 	scale: 1.05;
 }

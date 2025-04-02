@@ -1,0 +1,18 @@
+.hero-news__date {
+	grid-area: dat;
+	place-self: center start;
+	position: relative;
+	display: grid;
+	place-items: center;
+	gap: 0.575em;
+	grid-template-columns: min-content auto;
+
+	&::before {
+		content: "";
+		grid-area: 1 / 1;
+		background-image: url(/images/icons/garda-icon-nav-point.svg);
+		width: 0.857em;
+		aspect-ratio: 12 / 15;
+		background-size: contain;
+	}
+}

@@ -8,10 +8,20 @@
 
 @import url(./components/demo.css) layer(components);
 @import url(./components/scroll-snap.css) layer(components);
-@import url(./components/garda-gradient-cards.css) layer(components);
+@import url(./components/cursor-glow.css) layer(components);
+@import url(./components/arrow.css) layer(components);
+@import url(./components/hero-tile.css) layer(components);
+@import url(./components/hero-motto.css) layer(components);
+@import url(./components/hero-motto__arrow-link.css) layer(components);
+@import url(./components/hero-news.css) layer(components);
+@import url(./components/hero-news__tag.css) layer(components);
+@import url(./components/hero-news__title.css) layer(components);
+@import url(./components/hero-news__date.css) layer(components);
+
+@import url(./components/gradient-cards.css) layer(components);
 
 @import url(./parts/header.css) layer(parts);
-@import url(./parts/garda-hero.css) layer(components);
+@import url(./parts/section-hero.css) layer(components);
 @import url(./parts/footer.css) layer(parts);
 
 @import url(./common/utilities.css) layer(utilities);

@@ -24,18 +24,22 @@
 	--clr-txt: var(--clr-0a);
 
 	/* |||||||||| |||||||||| |||||||||| |||||||||| sizes */
-	/* 32px@1280px -> 16px@1024px */
-	--gap-x: clamp(1rem, 6.25vw + -3rem, 2rem);
 	/* 24px@1280px -> 16px@1024px */
 	--pad: clamp(1rem, 3.125vw + -1rem, 1.5rem);
 	/* 32px@1280px -> 20px@1024px */
 	--rad: clamp(1.25rem, 4.688vw + -1.75rem, 2rem);
 	--rad-inner: calc(var(--rad) - var(--pad));
+	/* 32px@1280px -> 24px@1024px */
+	--arw-size: clamp(1.5rem, 3.125vw + -0.5rem, 2rem);
 
 	/* |||||||||| |||||||||| |||||||||| |||||||||| grid sizes */
+	/* 32px@1280px -> 16px@1024px */
+	--gap-x: clamp(1rem, 6.25vw + -3rem, 2rem);
 	--col-1-of-4: calc((var(--max-content-width) - var(--gap-x) * 3) / 4);
 	--col-1-of-2: calc((var(--max-content-width) - var(--gap-x)) / 2);
 
-	/* |||||||||| |||||||||| |||||||||| |||||||||| transition */
-	--trn: 0.4s ease;
+	/* |||||||||| |||||||||| |||||||||| |||||||||| misc */
+	--time: 0.4s;
+	--outline-width: 0.2em;
+	--outline: var(--outline-width) solid hsl(var(--clr-1c-hsl), 0.66);
 }

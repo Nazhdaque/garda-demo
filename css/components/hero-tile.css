@@ -1,0 +1,15 @@
+.hero-tile {
+	display: grid;
+	grid-template-rows: min-content 1fr min-content;
+	padding: var(--pad);
+	transition: transform var(--time) ease;
+	z-index: 1;
+
+	&::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		border-radius: var(--rad);
+		z-index: -1;
+	}
+}

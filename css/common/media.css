@@ -30,8 +30,8 @@
 		grid-template-columns: repeat(3, 1fr);
 	}
 
-	.news:where(:focus-visible, :hover) {
-		scale: none;
+	.hero-news:where(:focus-visible, :hover) {
+		transform: none;
 		outline-offset: calc(var(--outline-width) * -1);
 	}
 
@@ -50,7 +50,7 @@
 		grid-auto-rows: calc(var(--col-1-of-4) * 1.345) var(--col-1-of-4);
 	}
 
-	.arrow-link {
+	.hero-motto__arrow-link {
 		.arrow {
 			--img-size: calc(var(--line) * 1.25em);
 		}

@@ -1,0 +1,54 @@
+.arrow {
+	--img-size: var(--arw-size);
+	--asp: 1 / 1;
+	--fit: contain;
+	--rad: var(--rad-inner);
+
+	overflow: hidden;
+	background-color: var(--arw-bg, var(--clr-1c));
+
+	> * {
+		transition: var(--time) ease;
+	}
+
+	> :nth-child(2) {
+		left: -100% !important;
+		top: 100% !important;
+	}
+	> :nth-child(3) {
+		left: -200% !important;
+		top: 200% !important;
+	}
+}
+
+.hero-news:where(:focus-visible, :hover),
+.hero-motto__arrow-link:where(:focus-visible, :hover) {
+	.arrow > :nth-child(1) {
+		left: 100% !important;
+		top: -100% !important;
+	}
+	.arrow > :nth-child(2) {
+		left: 0% !important;
+		top: 0% !important;
+	}
+	.arrow > :nth-child(3) {
+		left: -100% !important;
+		top: 100% !important;
+	}
+}
+
+.hero-news:active,
+.hero-motto__arrow-link:active {
+	.arrow > :nth-child(1) {
+		left: 200% !important;
+		top: -200% !important;
+	}
+	.arrow > :nth-child(2) {
+		left: 100% !important;
+		top: -100% !important;
+	}
+	.arrow > :nth-child(3) {
+		left: 0% !important;
+		top: 0% !important;
+	}
+}

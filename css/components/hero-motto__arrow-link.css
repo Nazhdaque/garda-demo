@@ -1,0 +1,23 @@
+.hero-motto__arrow-link {
+	--arw-bg: var(--clr-0c);
+	--line: 2;
+
+	display: grid;
+	align-items: center;
+	gap: 1em;
+	grid-template-columns: repeat(2, auto);
+
+	padding-right: 0.5em;
+	border-radius: var(--rad-inner);
+	outline-offset: var(--outline-width);
+
+	.arrow {
+		align-self: end;
+	}
+}
+.hero-motto__arrow-link:focus-visible {
+	outline: var(--outline);
+}
+.hero-motto__arrow-link:active {
+	--arw-bg: var(--clr-1c);
+}

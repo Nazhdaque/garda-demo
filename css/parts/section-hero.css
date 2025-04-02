@@ -1,0 +1,14 @@
+.hero {
+	display: grid;
+	gap: var(--gap-x);
+	grid-auto-rows: var(--col-1-of-4);
+	grid-template-columns: minmax(var(--col-1-of-4), 1fr) repeat(
+			2,
+			minmax(0, var(--col-1-of-4))
+		);
+	grid-template-areas:
+		"motto news1 news1"
+		"motto news2 news3";
+
+	border-radius: var(--rad);
+}

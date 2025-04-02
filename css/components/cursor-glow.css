@@ -1,0 +1,27 @@
+.cursor-glow {
+	--x-px: calc(var(--x) * 1px);
+	--y-px: calc(var(--y) * 1px);
+
+	overflow: hidden;
+
+	&:before,
+	&:after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: radial-gradient(
+			30rem circle at var(--x-px) var(--y-px),
+			hsl(var(--clr-1b-hsl), 0.2),
+			transparent 66%
+		);
+		z-index: -2;
+	}
+	&:after {
+		z-index: -1;
+		opacity: 0;
+		transition: opacity 1.5s ease;
+	}
+	&:hover:after {
+		opacity: 1;
+	}
+}

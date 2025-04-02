@@ -1,0 +1,23 @@
+.hero-motto {
+	--line: 3;
+
+	grid-area: motto;
+	place-items: start;
+	gap: var(--gap-x) calc(var(--gap-x) / 2);
+
+	> :nth-child(1) {
+		max-width: 100%; /* for overflow-wrap: break-word; */
+	}
+
+	> :nth-child(2) {
+		text-wrap: balance;
+	}
+
+	> :nth-child(3) {
+		align-self: center;
+	}
+
+	&::after {
+		background-color: hsl(var(--clr-0a-hsl), 0.05);
+	}
+}

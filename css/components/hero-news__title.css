@@ -1,0 +1,9 @@
+.hero-news__title {
+	--line: 4;
+
+	grid-area: ttl;
+	padding: 1em;
+	border-radius: var(--rad-inner);
+	backdrop-filter: blur(5px);
+	background-color: hsl(var(--clr-0a-hsl), 0.2);
+}
