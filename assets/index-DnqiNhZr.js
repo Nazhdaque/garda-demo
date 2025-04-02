@@ -1,4 +1,4 @@
-var p=Object.defineProperty;var m=(e,r,s)=>r in e?p(e,r,{enumerable:!0,configurable:!0,writable:!0,value:s}):e[r]=s;var c=(e,r,s)=>m(e,typeof r!="symbol"?r+"":r,s);(function(){const r=document.createElement("link").relList;if(r&&r.supports&&r.supports("modulepreload"))return;for(const t of document.querySelectorAll('link[rel="modulepreload"]'))a(t);new MutationObserver(t=>{for(const n of t)if(n.type==="childList")for(const i of n.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&a(i)}).observe(document,{childList:!0,subtree:!0});function s(t){const n={};return t.integrity&&(n.integrity=t.integrity),t.referrerPolicy&&(n.referrerPolicy=t.referrerPolicy),t.crossOrigin==="use-credentials"?n.credentials="include":t.crossOrigin==="anonymous"?n.credentials="omit":n.credentials="same-origin",n}function a(t){if(t.ep)return;t.ep=!0;const n=s(t);fetch(t.href,n)}})();class u{constructor(r){c(this,"observer",r=>new ResizeObserver(s=>s.forEach(a=>{switch(this.prop){case"w":const t=a.borderBoxSize[0].inlineSize;r.forEach(i=>i.style.maxWidth=`${t}px`);break;case"h":const n=a.borderBoxSize[0].blockSize;r.forEach(i=>i.style.minHeight=`${n}px`);break}})));c(this,"initWith",r=>{r.forEach(([s,a],t)=>{const n=document.querySelector(`.${s}`),i=document.querySelectorAll(`.${a}`),l=t+1;n&&i?this.observer(i).observe(n):console.error(`SizeSetter: there is no master-${l} or slave-${l}`)})});this.prop=r}}const d=(e,r=50)=>{let s=0;return(...a)=>{const t=new Date().getTime();if(!(t-s<r))return s=t,e(...a)}},y=(e,r)=>{const s=document.querySelector(e);let a=0,t=0;const n=()=>(t=window.scrollY-a,a=window.scrollY,t),i=g=>g<0?s.classList.remove(r):s.classList.add(r),l=()=>i(n());document.addEventListener("scroll",d(l))},w=(e,r)=>{document.querySelectorAll(e).forEach(s=>{const a=s.querySelector(r),t=n=>{if(a){const i=a.getBoundingClientRect();a.style.setProperty("--x",n.clientX-i.left),a.style.setProperty("--y",n.clientY-i.top)}};s.addEventListener("pointermove",d(t))})},h=`<div class="full-bleed garda-bg">\r
+var p=Object.defineProperty;var m=(i,r,s)=>r in i?p(i,r,{enumerable:!0,configurable:!0,writable:!0,value:s}):i[r]=s;var o=(i,r,s)=>m(i,typeof r!="symbol"?r+"":r,s);(function(){const r=document.createElement("link").relList;if(r&&r.supports&&r.supports("modulepreload"))return;for(const t of document.querySelectorAll('link[rel="modulepreload"]'))a(t);new MutationObserver(t=>{for(const n of t)if(n.type==="childList")for(const e of n.addedNodes)e.tagName==="LINK"&&e.rel==="modulepreload"&&a(e)}).observe(document,{childList:!0,subtree:!0});function s(t){const n={};return t.integrity&&(n.integrity=t.integrity),t.referrerPolicy&&(n.referrerPolicy=t.referrerPolicy),t.crossOrigin==="use-credentials"?n.credentials="include":t.crossOrigin==="anonymous"?n.credentials="omit":n.credentials="same-origin",n}function a(t){if(t.ep)return;t.ep=!0;const n=s(t);fetch(t.href,n)}})();class u{constructor(r){o(this,"observer",r=>new ResizeObserver(s=>s.forEach(a=>{switch(this.prop){case"w":const t=a.borderBoxSize[0].inlineSize;r.forEach(e=>e.style.maxWidth=`${t}px`);break;case"h":const n=a.borderBoxSize[0].blockSize;r.forEach(e=>e.style.minHeight=`${n}px`);break}})));o(this,"initWith",r=>{r.forEach(([s,a],t)=>{const n=document.querySelector(`.${s}`),e=document.querySelectorAll(`.${a}`),l=t+1;n&&e?this.observer(e).observe(n):console.error(`SizeSetter: there is no master-${l} or slave-${l}`)})});this.prop=r}}const d=(i,r=50)=>{let s=0;return(...a)=>{const t=new Date().getTime();if(!(t-s<r))return s=t,i(...a)}},y=(i,r)=>{const s=document.querySelector(i);let a=0,t=0;const n=()=>(t=window.scrollY-a,a=window.scrollY,t),e=g=>g<0?s.classList.remove(r):s.classList.add(r),l=()=>e(n());document.addEventListener("scroll",d(l))},w=(i,r)=>{document.querySelectorAll(i).forEach(s=>{const a=s.querySelector(r),t=n=>{try{const e=a.getBoundingClientRect();a.style.setProperty("--x",n.clientX-e.left),a.style.setProperty("--y",n.clientY-e.top)}catch(e){console.error(e)}};s.addEventListener("pointermove",d(t))})},h=`<div class="full-bleed garda-bg">\r
 \r
 	<ol class="cards grid-x width-x">\r
 		<li class="card fnt-xs">\r
@@ -47,12 +47,12 @@ var p=Object.defineProperty;var m=(e,r,s)=>r in e?p(e,r,{enumerable:!0,configura
 	</ol>\r
 </div>`,x=`<div class="full-bleed garda-bg">\r
 	<section class="hero">\r
-		<div class="img-box hero-tile motto">\r
+		<div class="img-box hero-tile hero-motto">\r
 			<h1 class="fnt-2xl txt-trunc">Безопасность — основа будущего</h1>\r
 			<p class="sub fnt-md txt-clr-6 txt-trunc">Создаем решения в сфере безопасности данных\r
 				и сетевой инфраструктуры</p>\r
 \r
-			<a class="arrow-link fnt-rg sm-focus"\r
+			<a class="hero-motto__arrow-link fnt-rg sm-focus"\r
 				 href="#">\r
 				<span class="img-box arrow">\r
 					<img loading="lazy"\r
@@ -72,8 +72,8 @@ var p=Object.defineProperty;var m=(e,r,s)=>r in e?p(e,r,{enumerable:!0,configura
 			</a>\r
 		</div>\r
 \r
-		<div class="hero-news scroll-snap-inline sm-d-grid">\r
-			<a class="img-box hero-tile news sm-focus sm-grid-area-auto"\r
+		<div class="news-wrapper scroll-snap-inline sm-d-grid">\r
+			<a class="img-box hero-tile hero-news sm-focus sm-grid-area-auto"\r
 				 href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fnazhdaque.github.io%2Fgarda-demo%2F"\r
 				 target="_blank">\r
 				<picture class="img-box z-down">\r
@@ -82,11 +82,11 @@ var p=Object.defineProperty;var m=(e,r,s)=>r in e?p(e,r,{enumerable:!0,configura
 							 src="images/demo-720p.webp"\r
 							 alt="demo image">\r
 				</picture>\r
-				<div class="tag fnt-xs">\r
+				<div class="hero-news__tag fnt-xs">\r
 					<span class="ellipsis">Мероприятия</span>\r
 				</div>\r
-				<span class="date fnt-xs">27.03.2025</span>\r
-				<div class="hero-tile__title">\r
+				<span class="hero-news__date fnt-xs">27.03.2025</span>\r
+				<div class="hero-news__title cursor-glow">\r
 					<h2 class="txt-trunc fnt-md">Этот заголовок обрежется\r
 						троеточием на 4 строке. Длина строк автоматически балансируется. Мелкие несоответствия макету,\r
 						например, размер стрелок и тегов в адаптивах — <span class="txt-gradient">мне так больше\r
@@ -109,19 +109,19 @@ var p=Object.defineProperty;var m=(e,r,s)=>r in e?p(e,r,{enumerable:!0,configura
 				</div>\r
 			</a>\r
 \r
-			<a class="img-box hero-tile news sm-focus sm-grid-area-auto"\r
-				 href="#">\r
+			<a class="img-box hero-tile hero-news sm-focus sm-grid-area-auto"\r
+				 href="https://pagespeed.web.dev/analysis/https-nazhdaque-github-io-garda-demo/hrykf4xbyj?form_factor=mobile">\r
 				<picture class="img-box z-down">\r
 					<img loading="lazy"\r
 							 decoding="async"\r
 							 src="images/demo-720p.webp"\r
 							 alt="demo image">\r
 				</picture>\r
-				<div class="tag fnt-xs">\r
+				<div class="hero-news__tag fnt-xs">\r
 					<span class="ellipsis">Новости и аналитика</span>\r
 				</div>\r
-				<span class="date fnt-xs">27.03.2025</span>\r
-				<div class="hero-tile__title">\r
+				<span class="hero-news__date fnt-xs">27.03.2025</span>\r
+				<div class="hero-news__title cursor-glow">\r
 					<h2 class="txt-trunc fnt-md">Оценивать надо в динамике, <span class="txt-gradient">плавно</span> изменяя\r
 						ширину окна просмотра</h2>\r
 				</div>\r
@@ -141,7 +141,7 @@ var p=Object.defineProperty;var m=(e,r,s)=>r in e?p(e,r,{enumerable:!0,configura
 				</div>\r
 			</a>\r
 \r
-			<a class="img-box hero-tile news sm-focus sm-grid-area-auto"\r
+			<a class="img-box hero-tile hero-news sm-focus sm-grid-area-auto"\r
 				 href="#">\r
 				<picture class="img-box z-down">\r
 					<img loading="lazy"\r
@@ -149,11 +149,11 @@ var p=Object.defineProperty;var m=(e,r,s)=>r in e?p(e,r,{enumerable:!0,configura
 							 src="images/demo-720p.webp"\r
 							 alt="demo image">\r
 				</picture>\r
-				<div class="tag fnt-xs">\r
+				<div class="hero-news__tag fnt-xs">\r
 					<span class="ellipsis">Видео</span>\r
 				</div>\r
-				<span class="date fnt-xs">27.03.2025</span>\r
-				<div class="hero-tile__title">\r
+				<span class="hero-news__date fnt-xs">27.03.2025</span>\r
+				<div class="hero-news__title cursor-glow">\r
 					<h2 class="txt-trunc fnt-md">Эти тайлы <span class="txt-gradient">на ≤768px</span> будут\r
 						скроллиться по\r
 						<span class="caps txt-gradient">shift + mouse wheel</span>, или тачпадом, или\r
@@ -276,4 +276,4 @@ var p=Object.defineProperty;var m=(e,r,s)=>r in e?p(e,r,{enumerable:!0,configura
 			style="--span-y: 4"></li>\r
 	<li class="span-y"\r
 			style="--span-y: 3"></li>\r
-</ol>`,o=document.querySelector(".main-content");o.insertAdjacentHTML("beforeend",x);o.insertAdjacentHTML("beforeend",h);o.insertAdjacentHTML("beforeend",b);const f=new u("w");f.initWith([["w-master-1","w-slave-1"]]);y(".main-header","-slide-up");w(".hero-tile",".hero-tile__title");console.log("%cCoded by ✨Nazhdaque✨","background: #222; color: chartreuse;");
+</ol>`,c=document.querySelector(".main-content");c.insertAdjacentHTML("beforeend",x);c.insertAdjacentHTML("beforeend",h);c.insertAdjacentHTML("beforeend",b);const f=new u("w");f.initWith([["w-master-1","w-slave-1"]]);y(".main-header","-slide-up");w(".hero-news",".cursor-glow");console.log("%cCoded by ✨Nazhdaque✨","background: #222; color: chartreuse;");
