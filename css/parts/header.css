@@ -28,16 +28,16 @@
 	--rad: 0;
 
 	width: var(--img-w);
-	transition: var(--trn) scale;
+	transition: transform var(--time) ease;
 }
 
 .brand-logo:focus-visible {
 	--rad: var(--rad-inner);
 
-	scale: 1.05;
+	transform: scale(1.05);
 	outline: var(--outline);
 	outline-offset: var(--outline-width);
 }
 .brand-logo:where(:focus-visible, :hover) {
-	scale: 1.05;
+	transform: scale(1.05);
 }
