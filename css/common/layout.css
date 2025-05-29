@@ -1,9 +1,10 @@
-.layout-body > * {
+.layout-body :where(header, main, footer) {
 	display: grid;
 	grid-template-columns: 1fr minmax(min-content, var(--max-content-width)) 1fr;
-	column-gap: clamp(1rem, 6.25vw + -3rem, 2rem);
+	column-gap: var(--main-content-pad-x);
 }
-.layout-body > * > * {
+
+:where(header, main, footer) > * {
 	grid-column: 2;
 }
 

@@ -21,6 +21,21 @@
 			"icon text arrw"
 			"icon text arrw";
 	}
+
+	.cta-protect {
+		padding: var(--pad-xl);
+	}
+
+	/* utilities */
+	.md-js-auto {
+		justify-self: auto;
+	}
+	.md-gtc-auto {
+		grid-template-columns: auto;
+	}
+	.md-d-none {
+		display: none;
+	}
 }
 
 /* |||||||||| |||||||||| sm */
@@ -61,6 +76,9 @@
 	}
 
 	/* utilities */
+	.sm-d-none {
+		display: none;
+	}
 	.sm-txt-trunc {
 		display: -webkit-box;
 		-webkit-line-clamp: var(--line, 1);

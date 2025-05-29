@@ -8,7 +8,7 @@
 }
 
 * {
-	color: var(--clr-txt, #444444);
+	color: var(--clr-txt, chartreuse);
 }
 
 ::selection {
@@ -24,10 +24,11 @@
 	list-style: none;
 }
 
-:where(a, button, address) {
-	cursor: pointer;
+:where(a, button, input, textarea, address, fieldset) {
+	font-family: inherit;
 	font-size: inherit;
 	font-style: inherit;
+	font-weight: inherit;
 	color: inherit;
 	border: none;
 	outline: none;
@@ -72,7 +73,6 @@ body {
 	grid-template-rows: 1fr auto;
 }
 
-.garda-bg {
-	background-color: var(--clr-0b);
-	padding-block: clamp(1rem, 6.25vw + -3rem, 2rem);
+body:has(dialog[open]) {
+	overflow: hidden;
 }

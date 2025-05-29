@@ -1,0 +1,142 @@
+.form {
+	--clr-input: #151637;
+	--clr-input-hsl: 238, 45%, 15%;
+	--clr-input-active: #201547;
+	--clr-input-active-hsl: 253, 55%, 18%;
+	--clr-txt: hsl(var(--clr-0a-hsl), 0.6);
+	--clr-failure: radial-gradient(
+		circle at bottom left,
+		var(--clr-1b) 25%,
+		var(--clr-1a) 125%
+	);
+	--clr-success: radial-gradient(
+		circle at bottom left,
+		var(--clr-1e) 25%,
+		var(--clr-1a) 100%
+	);
+
+	--form-pad: calc(var(--pad) * 0.854);
+	--border-width: 1px;
+
+	/* 	48px@1024px -> 	64px@1280px */
+	--input-h: clamp(3rem, 6.25vw + -1rem, 4rem);
+	/* 160px@1024px -> 192px@1280px */
+	--txt-area-h: clamp(10rem, 12.5vw + 2rem, 12rem);
+
+	border-radius: var(--rad-inner);
+	display: grid;
+	gap: var(--form-gap);
+	grid-template-columns: repeat(2, 1fr);
+}
+
+/* |||||||||| |||||||||| |||||||||| |||||||||| */
+.input-wrapper {
+	position: relative;
+	border: var(--border-width) solid hsl(var(--clr-0a-hsl), 0.2);
+	border-radius: calc(var(--rad-inner) + var(--border-width));
+	z-index: 1;
+	display: grid;
+	grid-template-rows: auto min-content;
+
+	&::before {
+		content: "";
+		position: absolute;
+		inset: calc(var(--border-width) * -1);
+		border-radius: calc(var(--rad-inner) + var(--border-width));
+		z-index: -1;
+		opacity: 0;
+		transition: opacity var(--time) ease;
+	}
+
+	&:has(textarea) {
+		grid-column: 1 / -1;
+		min-height: var(--txt-area-h);
+
+		/* .form__input {
+			min-height: calc(var(--txt-area-h) - var(--border-width) * 2);
+		} */
+
+		.labels {
+			text-align: center;
+		}
+	}
+
+	&:not(:has(.labels)) {
+		max-height: var(--input-h);
+	}
+}
+
+/* |||||||||| |||||||||| |||||||||| |||||||||| */
+.form__input {
+	background-color: var(--clr-input);
+	padding: var(--form-pad);
+	border-radius: var(--rad-inner);
+	width: 100%;
+	height: 100%;
+	color: var(--clr-txt);
+	transition: color var(--time) ease, background-color var(--time) ease;
+
+	&::placeholder {
+		color: var(--clr-txt);
+		transition: color var(--time) ease;
+	}
+
+	&:not(textarea) {
+		line-height: 1;
+	}
+
+	&:where(:-webkit-autofill, :-webkit-autofill:hover, :-webkit-autofill:focus) {
+		-webkit-text-fill-color: var(--clr-txt);
+		-webkit-box-shadow: 0 0 0px 10em var(--clr-input) inset;
+	}
+}
+
+textarea.form__input {
+	resize: none;
+}
+
+/* |||||||||| |||||||||| |||||||||| |||||||||| */
+.button-wrapper {
+	min-width: 100%;
+	min-height: var(--input-h);
+	grid-column: 1 / -1;
+}
+
+/* |||||||||| |||||||||| |||||||||| |||||||||| */
+.labels {
+	color: var(--clr-0a) !important;
+	font-size: var(--fs-xs) !important;
+	font-weight: var(--fw-rg);
+	font-style: italic;
+	line-height: var(--lh-rg);
+	padding-inline: 0.5em;
+	text-align: end;
+	z-index: 1;
+	grid-column: 1 / -1;
+	border-radius: 0 0 var(--rad-inner) var(--rad-inner);
+}
+
+.error-field {
+	border: none !important;
+}
+
+/* |||||||||| |||||||||| |||||||||| |||||||||| states */
+.input-wrapper:has(.form__input:focus-visible)::before {
+	background-image: var(--clr-1e-1f);
+	opacity: 1;
+}
+
+.input-wrapper:has(.success-label)::before {
+	background-image: var(--clr-success);
+	opacity: 1;
+}
+
+.input-wrapper:has(.error-label)::before {
+	background-image: var(--clr-failure) !important;
+	opacity: 1;
+}
+
+.form__input:where(:hover, :focus-visible) {
+	--clr-txt: var(--clr-0a);
+	--clr-input: var(--clr-input-active);
+}

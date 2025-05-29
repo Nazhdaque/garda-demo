@@ -20,6 +20,14 @@
 	/* 1.1 -> 1.1 */
 	--lh-2xl: 1.1;
 
+	/* 25px@1024px -> 36px@1280px */
+	--fs-xl: clamp(1.563rem, 4.297vw + -1.187rem, 2.25rem);
+
+	/* 16px@1024px -> 18px@1280px */
+	--fs-lg: clamp(1rem, 0.781vw + 0.5rem, 1.125rem);
+	/* 1.25@1024px -> 1.35@1280px */
+	--lh-lg: clamp(1.25rem, 1.68vw + 0.175rem, 1.519rem);
+
 	/* 16px@1024px -> 20px@1280px */
 	--fs-md: clamp(1rem, 1.563vw + 0rem, 1.25rem);
 	/* 1.25@1024px -> 1.15@1280px */
@@ -41,6 +49,16 @@
 	font-size: var(--fs-2xl);
 	line-height: var(--lh-2xl);
 	font-weight: var(--fw-bd);
+}
+.fnt-xl {
+	font-size: var(--fs-xl);
+	line-height: var(--lh-2xl);
+	font-weight: var(--fw-bd);
+}
+.fnt-lg {
+	font-size: var(--fs-lg);
+	line-height: var(--lh-lg);
+	font-weight: var(--fw-sb);
 }
 .fnt-md {
 	font-size: var(--fs-md);

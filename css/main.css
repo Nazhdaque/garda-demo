@@ -10,18 +10,25 @@
 @import url(./components/scroll-snap.css) layer(components);
 @import url(./components/cursor-glow.css) layer(components);
 @import url(./components/arrow.css) layer(components);
-@import url(./components/hero-tile.css) layer(components);
-@import url(./components/hero-motto.css) layer(components);
-@import url(./components/hero-motto__arrow-link.css) layer(components);
-@import url(./components/hero-news.css) layer(components);
-@import url(./components/hero-news__tag.css) layer(components);
-@import url(./components/hero-news__title.css) layer(components);
-@import url(./components/hero-news__date.css) layer(components);
-
+@import url(./components/section-hero/tile.css) layer(components);
+@import url(./components/section-hero/motto.css) layer(components);
+@import url(./components/section-hero/motto__arrow-link.css) layer(components);
+@import url(./components/section-hero/news.css) layer(components);
+@import url(./components/section-hero/news__tag.css) layer(components);
+@import url(./components/section-hero/news__title.css) layer(components);
+@import url(./components/section-hero/news__date.css) layer(components);
+@import url(./components/buttons.css) layer(components);
 @import url(./components/gradient-cards.css) layer(components);
+@import url(./components/form/form.css) layer(components);
+@import url(./components/form/checkbox.css) layer(components);
+@import url(./components/modal.css) layer(components);
+@import url(./components/loader.css) layer(components);
+/* @import url(./node_modules/tom-select/dist/css/tom-select.css) layer(components); */
+/* @import url(./components/form/select.css) layer(components); */
 
 @import url(./parts/header.css) layer(parts);
-@import url(./parts/section-hero.css) layer(components);
+@import url(./parts/section-hero.css) layer(parts);
+@import url(./parts/section-cta-protect.css) layer(parts);
 @import url(./parts/footer.css) layer(parts);
 
 @import url(./common/utilities.css) layer(utilities);

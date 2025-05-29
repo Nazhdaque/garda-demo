@@ -1,6 +1,7 @@
 export class FetchWrapper {
-	constructor(baseURL) {
+	constructor(baseURL, actions) {
 		this.baseURL = baseURL;
+		this.actions = actions;
 	}
 
 	#send = (method, endpoint, body) =>
@@ -10,15 +11,17 @@ export class FetchWrapper {
 			body: JSON.stringify(body),
 		}).then(response => {
 			if (!response.ok) {
-				throw new Error("API issues.");
+				this.actions && this.actions.onFail();
+				throw new Error("Соединение с сервером не установлено!");
 			}
+			this.actions && this.actions.onSuccess();
 			return response.json();
 		});
 
 	get = endpoint =>
 		fetch(this.baseURL + endpoint).then(response => {
 			if (!response.ok) {
-				throw new Error("API issues.");
+				throw new Error("Соединение с сервером не установлено!");
 			}
 			return response.json();
 		});
@@ -27,6 +30,22 @@ export class FetchWrapper {
 	post = (endpoint, body) => this.#send("post", endpoint, body);
 	delete = (endpoint, body) => this.#send("delete", endpoint, body);
 }
+
+//---
+export const getFormData = formData => {
+	const object = {};
+	formData.forEach((value, key) => {
+		if (!object.hasOwnProperty(key)) {
+			object[key] = value;
+		} else {
+			if (!Array.isArray(object[key])) {
+				object[key] = [object[key]];
+			}
+			object[key].push(value);
+		}
+	});
+	return object;
+};
 
 //---
 export class AttrSetter {

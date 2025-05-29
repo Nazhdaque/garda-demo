@@ -1,5 +1,24 @@
 :root {
-	--max-content-width: clamp(64rem, 100vw + 0rem, 85.375rem);
+	--max-content-width: clamp(64rem, 100vw, 85.375rem);
+
+	/* |||||||||| |||||||||| |||||||||| |||||||||| grid sizes */
+	--main-content-pad-x: clamp(1rem, 6.25vw + -3rem, 2rem);
+	/* 32px@1280px -> 16px@1024px */
+	--gap-x: clamp(1rem, 6.25vw + -3rem, 2rem);
+	--col-1-of-12: calc((var(--max-content-width) - var(--gap-x) * 11) / 12);
+	--col-5-of-12: calc(var(--col-1-of-12) * 5 + var(--gap-x) * 4);
+	--col-1-of-4: calc((var(--max-content-width) - var(--gap-x) * 3) / 4);
+	--col-1-of-3: calc((var(--max-content-width) - var(--gap-x) * 2) / 3);
+	--col-1-of-2: calc((var(--max-content-width) - var(--gap-x)) / 2);
+
+	/* |||||||||| |||||||||| |||||||||| |||||||||| sizes */
+	/* 24px@1280px -> 16px@1024px */
+	--pad: clamp(1rem, 3.125vw + -1rem, 1.5rem);
+	/* 32px@1280px -> 20px@1024px */
+	--rad: clamp(1.25rem, 4.688vw + -1.75rem, 2rem);
+	--rad-inner: calc(var(--rad) - var(--pad));
+	/* 32px@1280px -> 24px@1024px */
+	--arw-size: clamp(1.5rem, 3.125vw + -0.5rem, 2rem);
 
 	/* |||||||||| |||||||||| |||||||||| |||||||||| colors */
 	--clr-0a: #ffffff;
@@ -14,6 +33,18 @@
 	--clr-1b-hsl: 288, 100%, 56%;
 	--clr-1c: #b881db;
 	--clr-1c-hsl: 277, 56%, 68%;
+	--clr-1d: #9a4dd5;
+	--clr-1d-hsl: 274, 62%, 57%;
+	--clr-1e: #2baae2;
+	--clr-1e-hsl: 198, 76%, 53%;
+	--clr-1f: #9b4fd6;
+	--clr-1f-hsl: 274, 62%, 57%;
+
+	--clr-1e-1f: linear-gradient(
+		var(--deg, 15deg),
+		hsl(var(--clr-1e-hsl), var(--alpha, 1)) 0%,
+		hsl(var(--clr-1f-hsl), var(--alpha, 1)) 100%
+	);
 
 	--clr-1b-1a: linear-gradient(
 		var(--deg, 30deg),
@@ -23,23 +54,12 @@
 
 	--clr-txt: var(--clr-0a);
 
-	/* |||||||||| |||||||||| |||||||||| |||||||||| sizes */
-	/* 24px@1280px -> 16px@1024px */
-	--pad: clamp(1rem, 3.125vw + -1rem, 1.5rem);
-	/* 32px@1280px -> 20px@1024px */
-	--rad: clamp(1.25rem, 4.688vw + -1.75rem, 2rem);
-	--rad-inner: calc(var(--rad) - var(--pad));
-	/* 32px@1280px -> 24px@1024px */
-	--arw-size: clamp(1.5rem, 3.125vw + -0.5rem, 2rem);
-
-	/* |||||||||| |||||||||| |||||||||| |||||||||| grid sizes */
-	/* 32px@1280px -> 16px@1024px */
-	--gap-x: clamp(1rem, 6.25vw + -3rem, 2rem);
-	--col-1-of-4: calc((var(--max-content-width) - var(--gap-x) * 3) / 4);
-	--col-1-of-2: calc((var(--max-content-width) - var(--gap-x)) / 2);
-
 	/* |||||||||| |||||||||| |||||||||| |||||||||| misc */
 	--time: 0.4s;
 	--outline-width: 0.2em;
 	--outline: var(--outline-width) solid hsl(var(--clr-1c-hsl), 0.66);
+
+	/* |||||||||| |||||||||| |||||||||| |||||||||| demo & xxx */
+	--thickness: 0.125rem;
+	--density: 2;
 }

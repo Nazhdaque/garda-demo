@@ -3,6 +3,18 @@
 	--size: calc((var(--max-content-width) - var(--gap-x) * 11) / 12);
 }
 
+.garda-demo-grid {
+	--col: 12;
+	--shrink: 0.25;
+}
+
+.garda-bg {
+	background-color: var(--clr-0b);
+	padding-block: var(--main-content-pad-x);
+	/* place-items: center; */
+	position: relative;
+}
+
 .demo-bg {
 	/* https://css-generators.com */
 	--s: 4rem;
@@ -56,6 +68,10 @@
 	place-items: center stretch;
 	grid-auto-rows: min-content;
 	row-gap: var(--size);
+	margin-block: var(--size) 0;
+}
+.demo-box:has(.garda-demo-grid) {
+	row-gap: var(--gap-x);
 	margin-block: var(--size) var(--gap-y);
 }
 
@@ -64,7 +80,8 @@
 	height: 100%;
 }
 
-.demo > * {
+.demo > *,
+.xxx.test {
 	--rad: 0;
 
 	display: grid;
@@ -74,10 +91,6 @@
 	overflow: hidden;
 	overflow-wrap: anywhere;
 }
-
-/* .demo > * > *:not(img, picture) {
-	padding: var(--gap-x);
-} */
 
 .demo > *::before {
 	font-size: var(--fs-md);
@@ -122,10 +135,6 @@
 .demo .width-x:not(:last-child) {
 	margin-bottom: var(--gap-y);
 }
-
-/* .demo:has(> .width-x) .width-x {
-	margin-inline: auto;
-} */
 
 /* |||||||||| |||||||||| |||||||||| |||||||||| */
 .full-bleed > * {
@@ -261,8 +270,6 @@
 .demo > * {
 	--clr-shift: 0;
 	--hue: calc(var(--clr-shift) + var(--deg));
-	--thickness: 0.1rem;
-	--density: 2;
 	--transparency: 0.25;
 	--border: hsl(var(--hue), 100%, 50%) var(--thickness) dotted;
 
@@ -282,7 +289,7 @@
 	inset: 0;
 	border: var(--border);
 	border-radius: var(--rad, 0);
-	background: repeating-linear-gradient(
+	background-image: repeating-linear-gradient(
 		-60deg,
 		hsl(var(--hue), 100%, 50%, var(--transparency)) 0 var(--thickness),
 		transparent var(--thickness) calc(var(--thickness) * var(--density))
@@ -304,4 +311,46 @@
 }
 .demo > * > * {
 	--deg: 210;
+}
+
+/* |||||||||| |||||||||| |||||||||| |||||||||| del-section-btn */
+.del-section-btn {
+	--hue: calc(var(--clr-shift) + var(--deg));
+	--clr-shift: 0;
+	--deg: 180;
+	--sphere: radial-gradient(
+		circle at 65% 15%,
+		white 0.01em,
+		hsl(var(--hue), 100%, 50%) 3%,
+		hsl(var(--hue), 100%, 5%) 60%,
+		hsl(var(--hue), 100%, 25%) 100%
+	);
+
+	position: absolute;
+	border-radius: 50%;
+	background-image: url(./images/icons/cross-mark-1.svg), var(--sphere);
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	right: var(--main-content-pad-x);
+	top: calc(var(--size) * -0.25);
+	width: calc(var(--size) / 2);
+	aspect-ratio: 1;
+	cursor: pointer;
+	scale: 1;
+	transition: scale var(--time) ease;
+	outline-offset: var(--outline-width);
+	z-index: 2;
+}
+.del-section-btn:focus-visible {
+	outline: var(--outline);
+}
+.del-section-btn:where(:focus-visible, :hover) {
+	--deg: 300;
+
+	scale: 1.075;
+}
+
+.del-section-btn::before {
+	content: "";
 }

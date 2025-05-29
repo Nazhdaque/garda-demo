@@ -12,3 +12,9 @@
 
 	border-radius: var(--rad);
 }
+
+.cta-txt {
+	display: grid;
+	grid-auto-rows: min-content;
+	row-gap: calc(var(--gap-x) / 2);
+}

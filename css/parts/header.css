@@ -33,10 +33,6 @@
 
 .brand-logo:focus-visible {
 	--rad: var(--rad-inner);
-
-	transform: scale(1.05);
-	outline: var(--outline);
-	outline-offset: var(--outline-width);
 }
 .brand-logo:where(:focus-visible, :hover) {
 	transform: scale(1.05);

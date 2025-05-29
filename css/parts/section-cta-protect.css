@@ -1,0 +1,26 @@
+.cta-protect {
+	--col: 2;
+	--shrink: 0.5;
+	/* 48px@1280px -> 16px@1024px */
+	--pad-xl: clamp(1rem, 12.5vw + -7rem, 3rem);
+	/* 16px@1280px -> 8px@1024px */
+	--form-gap: clamp(0.5rem, 3.125vw + -1.5rem, 1rem);
+
+	background-color: hsl(var(--clr-0a-hsl), 0.05);
+	border-radius: var(--rad);
+	padding: var(--pad-xl) calc(var(--gap-x) + var(--col-1-of-12));
+
+	> * {
+		width: 100%;
+	}
+}
+
+.cta-protect__txt {
+	--line: 3;
+
+	display: grid;
+	gap: var(--form-gap);
+	grid-auto-rows: min-content;
+	padding-right: var(--fs-xl);
+	justify-self: end;
+}

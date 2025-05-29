@@ -9,14 +9,17 @@
 
 	padding-right: 0.5em;
 	border-radius: var(--rad-inner);
-	outline-offset: var(--outline-width);
 
 	.arrow {
 		align-self: end;
 	}
 }
-.hero-motto__arrow-link:focus-visible {
-	outline: var(--outline);
+
+.hero-motto__arrow-link:where(:focus-visible, :hover) {
+	.ellipsis {
+		overflow: auto !important;
+		white-space: normal !important;
+	}
 }
 .hero-motto__arrow-link:active {
 	--arw-bg: var(--clr-1c);

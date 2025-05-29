@@ -1,0 +1,134 @@
+.select-wrapper {
+	grid-column: 1 / -1;
+	border-radius: calc(var(--rad-inner) + var(--border-width));
+	position: relative;
+	display: grid;
+
+	&::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background-image: var(--clr-1e-1f);
+		border-radius: calc(var(--rad-inner) + var(--border-width));
+		opacity: 0;
+		transition: opacity var(--time) ease;
+		z-index: 1;
+	}
+
+	.error-label {
+		text-align: center;
+	}
+}
+
+/* |||||||||| |||||||||| |||||||||| |||||||||| */
+.ts-wrapper {
+	border: var(--border-width) solid hsl(var(--clr-0a-hsl), 0.2);
+	border-radius: calc(var(--rad-inner) + var(--border-width));
+	min-height: var(--input-h);
+}
+
+.ts-control {
+	border: none;
+	min-height: 100%;
+	padding-inline: var(--form-pad);
+	background-color: var(--clr-input);
+	transition: background-color var(--time) ease;
+
+	.item {
+		margin-block: auto;
+	}
+
+	input,
+	input::placeholder {
+		color: var(--clr-txt);
+		font-size: var(--fs-rg);
+		margin-block: auto;
+		line-height: 1;
+	}
+
+	input::placeholder {
+		display: block;
+		max-width: 100%;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+}
+
+:is(.ts-control, .ts-dropdown) {
+	font-size: var(--fs-rg);
+	background-color: var(--clr-input);
+	border-radius: var(--rad-inner);
+}
+
+/* |||||||||| |||||||||| |||||||||| |||||||||| dropdown */
+.ts-dropdown {
+	line-height: var(--lh-rg);
+	overflow: hidden;
+	border: var(--border-width) solid hsl(var(--clr-0a-hsl), 0.2);
+	margin-top: calc(var(--form-gap) + var(--border-width));
+	width: calc(100% + var(--border-width) * 2);
+	left: calc(var(--border-width) * -1);
+
+	.no-results {
+		padding: var(--form-pad);
+	}
+
+	.option {
+		color: var(--clr-txt);
+		padding: calc(var(--form-pad) / 2) var(--form-pad);
+
+		&:first-child {
+			padding-top: var(--form-pad);
+		}
+		&:last-child {
+			padding-bottom: var(--form-pad);
+		}
+	}
+
+	.ts-dropdown-content {
+		max-height: calc(var(--txt-area-h) - var(--border-width) * 2);
+	}
+}
+
+/* |||||||||| |||||||||| |||||||||| |||||||||| states */
+.select-wrapper:has(.full) {
+	&::before {
+		background-image: var(--clr-success);
+		opacity: 1;
+	}
+}
+.select-wrapper:has(.focus) {
+	&::before {
+		background-image: var(--clr-1e-1f);
+		opacity: 1;
+	}
+}
+.select-wrapper:has(.error-label) {
+	&::before {
+		background-image: var(--clr-failure);
+		opacity: 1;
+	}
+	.ts-dropdown {
+		margin-top: calc(var(--form-gap) + var(--border-width) + var(--lh-rg));
+	}
+}
+
+.ts-wrapper.full {
+	.ts-control {
+		background-color: var(--clr-input);
+	}
+}
+.ts-wrapper:is(.focus.input-active, :hover) {
+	.ts-control {
+		--clr-txt: var(--clr-0a);
+
+		background-color: var(--clr-input-active);
+	}
+}
+
+.option.active {
+	--clr-txt: var(--clr-0a);
+
+	background-image: var(--clr-1e-1f);
+}

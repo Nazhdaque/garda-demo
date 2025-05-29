@@ -1,8 +1,8 @@
 import { throttle } from "./helpers";
 
 export const cursorGlow = (parentElement, childElement) => {
-	document.querySelectorAll(parentElement).forEach(tile => {
-		const child = tile.querySelector(childElement);
+	document.querySelectorAll("." + parentElement).forEach(tile => {
+		const child = tile.querySelector("." + childElement);
 		const handler = e => {
 			try {
 				const rect = child.getBoundingClientRect();

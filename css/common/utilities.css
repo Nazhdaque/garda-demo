@@ -4,7 +4,7 @@
 	width: var(--img-w, var(--img-size, auto));
 	height: var(--img-h, var(--img-size, auto));
 	aspect-ratio: var(--asp, auto);
-	border-radius: var(--rad, initial);
+	border-radius: var(--rad, 0);
 }
 .img-box :where(img, picture) {
 	position: absolute;
@@ -13,7 +13,7 @@
 	height: 100%;
 	object-fit: var(--fit, cover);
 	object-position: var(--pos, center);
-	border-radius: var(--rad, initial);
+	border-radius: var(--rad, 0);
 }
 
 /* |||||||||| |||||||||| |||||||||| |||||||||| layers */
@@ -127,10 +127,6 @@
 	white-space: nowrap;
 	overflow: hidden;
 }
-.ellipsis:where(:hover, :focus-visible) {
-	overflow: auto;
-	white-space: normal;
-}
 
 .txt-trunc {
 	display: -webkit-box;
@@ -160,6 +156,14 @@
 
 	background-image: var(--clr-1b-1a);
 	border-radius: var(--rad, none);
+}
+
+/* |||||||||| |||||||||| |||||||||| |||||||||| */
+.focus-outline {
+	outline-offset: var(--outline-width);
+}
+.focus-outline:focus-visible {
+	outline: var(--outline);
 }
 
 /* |||||||||| |||||||||| |||||||||| |||||||||| display */

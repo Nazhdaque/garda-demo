@@ -1,0 +1,47 @@
+.btn-gradient {
+	--btn-bg: linear-gradient(
+		15deg,
+		hsl(var(--clr-1e-hsl)) -6%,
+		hsl(var(--clr-1f-hsl)) 66%
+	);
+
+	cursor: pointer;
+	position: relative;
+	padding: var(--form-pad);
+	border-radius: var(--rad-inner);
+	width: 100%;
+	height: 100%;
+	color: var(--clr-txt);
+	transition: color var(--time) ease;
+	line-height: 1;
+
+	&::before {
+		position: absolute;
+		content: "";
+		inset: 0;
+		z-index: -1;
+		opacity: 0.75;
+		border-radius: var(--rad-inner);
+		background-color: var(--clr-0b);
+		background-image: var(--btn-bg);
+		background-size: 200% auto;
+		transform-style: preserve-3d;
+		transition: background-position var(--time) ease, opacity var(--time) ease,
+			filter var(--time) ease;
+	}
+}
+
+/* |||||||||| |||||||||| |||||||||| |||||||||| states */
+.btn-gradient:not(:disabled):where(:focus-visible, :hover) {
+	--clr-txt: var(--clr-0a);
+
+	&::before {
+		background-position: 51%;
+		filter: brightness(1.125);
+		opacity: 1;
+	}
+}
+
+.btn-gradient:disabled {
+	cursor: not-allowed;
+}

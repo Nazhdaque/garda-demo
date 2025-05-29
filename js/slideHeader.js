@@ -1,7 +1,7 @@
 import { throttle } from "./helpers";
 
 export const slideHeader = (el, cls) => {
-	const header = document.querySelector(el);
+	const header = document.querySelector("." + el);
 	let lastKnownScrollPosition = 0;
 	let deltaY = 0;
 
@@ -12,7 +12,9 @@ export const slideHeader = (el, cls) => {
 	};
 
 	const toggleHeaderState = deltaY =>
-		deltaY < 0 ? header.classList.remove(cls) : header.classList.add(cls);
+		deltaY < 0
+			? header && header.classList.remove(cls)
+			: header && header.classList.add(cls);
 
 	const handler = () => toggleHeaderState(getDeltaY());
 

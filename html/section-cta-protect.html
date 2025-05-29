@@ -1,0 +1,218 @@
+<div class="full-bleed garda-bg">
+	<section class="cta-protect grid-x">
+		<div class="cta-protect__txt md-js-auto">
+			<h2 class="fnt-xl txt-trunc">Защитите свой бизнес</h2>
+			<p class="fnt-lg txt-clr-6 txt-trunc">Заполните форму и мы свяжемся с вами</p>
+		</div>
+
+		<form class="form md-gtc-auto"
+					name="form-send-request"
+					id="form-send-request"
+					autocomplete>
+			<div class="input-wrapper">
+				<label for="first-name"
+							 class="sr-only">Имя</label>
+				<input class="form__input fnt-rg ellipsis"
+							 id="first-name"
+							 name="first-name"
+							 type="text"
+							 inputmode="text"
+							 autocomplete="on"
+							 placeholder="Имя"
+							 required>
+			</div>
+
+			<div class="input-wrapper">
+				<label for="last-name"
+							 class="sr-only">Фамилия</label>
+				<input class="form__input fnt-rg ellipsis"
+							 id="last-name"
+							 name="last-name"
+							 type="text"
+							 inputmode="text"
+							 autocomplete="on"
+							 placeholder="Фамилия"
+							 required>
+			</div>
+
+			<div class="input-wrapper">
+				<label for="job-title"
+							 class="sr-only">Должность</label>
+				<input class="form__input fnt-rg ellipsis"
+							 id="job-title"
+							 name="job-title"
+							 type="text"
+							 inputmode="text"
+							 autocomplete="on"
+							 placeholder="Должность"
+							 required>
+			</div>
+
+			<div class="input-wrapper">
+				<label for="company"
+							 class="sr-only">Компания</label>
+				<input class="form__input fnt-rg ellipsis"
+							 id="company"
+							 name="company"
+							 type="text"
+							 inputmode="text"
+							 autocomplete="on"
+							 placeholder="Компания"
+							 required>
+			</div>
+
+			<div class="input-wrapper">
+				<label for="email"
+							 class="sr-only">Email</label>
+				<input class="form__input fnt-rg ellipsis"
+							 id="email"
+							 name="email"
+							 type="email"
+							 inputmode="email"
+							 autocomplete="on"
+							 placeholder="Email"
+							 required>
+			</div>
+
+			<div class="input-wrapper">
+				<label for="phone"
+							 class="sr-only">Телефон</label>
+				<input class="form__input fnt-rg ellipsis"
+							 id="phone"
+							 name="phone"
+							 type="text"
+							 inputmode="numeric"
+							 autocomplete="on"
+							 placeholder="Телефон"
+							 required>
+			</div>
+
+			<fieldset class="radio-group grid-x"
+								id="radio-group">
+				<legend class="txt-trunc">Предпочитаемый способ связи</legend>
+
+				<div class="checkbox-wrapper fnt-rg">
+					<label>
+						<div class="input-wrapper">
+							<div class="form__input">
+								<input class="form__checkbox"
+											 name="communication"
+											 type="radio"
+											 value="Email"
+											 required>
+							</div>
+						</div>
+						<p class="checkbox-txt ellipsis fnt-rg">Email</p>
+					</label>
+				</div>
+
+				<div class="checkbox-wrapper fnt-rg">
+					<label>
+						<div class="input-wrapper">
+							<div class="form__input">
+								<input class="form__checkbox"
+											 name="communication"
+											 type="radio"
+											 value="Телефон"
+											 required>
+							</div>
+						</div>
+						<p class="checkbox-txt ellipsis fnt-rg">Телефон</p>
+					</label>
+				</div>
+
+				<div class="checkbox-wrapper fnt-rg">
+					<label>
+						<div class="input-wrapper">
+							<div class="form__input">
+								<input class="form__checkbox"
+											 name="communication"
+											 type="radio"
+											 value="Мессенджер"
+											 required>
+							</div>
+						</div>
+						<p class="checkbox-txt ellipsis fnt-rg">Мессенджер</p>
+					</label>
+				</div>
+			</fieldset>
+
+			<div class="select-wrapper">
+				<select id="form-select"
+								class="form-select"
+								placeholder="Какую ERP-систему вы используете?"
+								autocomplete="off">
+					<option value="">Какую ERP-систему вы используете?</option>
+					<option value="SAP">SAP</option>
+					<option value="Oracle">Oracle</option>
+					<option value="MS Dynamics">MS Dynamics</option>
+					<option value="1С:Предприятие">1С:Предприятие</option>
+					<option value="Другая система">Другая система</option>
+					<option value="Не используем">Не используем</option>
+				</select>
+			</div>
+
+			<div class="input-wrapper">
+				<label for="comment"
+							 class="sr-only">Комментарий</label>
+				<textarea class="form__input fnt-rg"
+									id="comment"
+									name="comment"
+									type="text"
+									inputmode="text"
+									autocomplete="on"
+									placeholder="Комментарий"></textarea>
+			</div>
+
+			<div class="checkbox-wrapper fnt-xs form-toggle">
+				<label for="subscription">
+					<div class="input-wrapper">
+						<div class="form__input">
+							<input class="form__checkbox"
+										 id="subscription"
+										 name="subscription"
+										 type="checkbox"
+										 value="Рассылка"
+										 required>
+						</div>
+					</div>
+					<p class="checkbox-txt txt-trunc fnt-xs">Я хочу подписаться на рассылку.</p>
+				</label>
+			</div>
+
+			<div class="checkbox-wrapper fnt-xs">
+				<label for="privacy-policy">
+					<div class="input-wrapper">
+						<div class="form__input">
+							<input class="form__checkbox"
+										 id="privacy-policy"
+										 name="privacy-policy"
+										 type="checkbox"
+										 value="Согласен"
+										 required>
+						</div>
+					</div>
+					<p class="checkbox-txt txt-trunc fnt-xs">Я соглашаюсь с <a href="#"
+							 target="_blank"
+							 class="txt-link"
+							 tabindex="-1">политикой конфиденциальности</a> и <a href="#"
+							 target="_blank"
+							 class="txt-link"
+							 tabindex="-1">политикой обработки
+							персональных данных</a>.
+						Форма
+						защищена от спама
+						сервисом SmartCaptcha от Яндекс.</p>
+				</label>
+			</div>
+
+			<div class="
+								 button-wrapper
+								 z-up">
+				<button class="btn-gradient ellipsis"
+								id="submit-form"
+								type="submit">Отправить заявку</button>
+			</div>
+		</form>
+	</section>
+</div>

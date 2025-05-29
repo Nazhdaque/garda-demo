@@ -14,7 +14,6 @@
 		"tag tag"
 		"ttl ttl"
 		"dat arw";
-	outline-offset: var(--outline-width);
 
 	&::after {
 		background-color: hsl(var(--clr-0b-hsl), 0.5);
@@ -31,10 +30,10 @@
 	}
 }
 
-.hero-news:focus-visible {
-	outline: var(--outline);
-}
 .hero-news:where(:focus-visible, :hover) {
+	transform: scale(1.05);
+}
+.hero-news:first-child:where(:focus-visible, :hover) {
 	transform: scale(1.025);
 }
 .hero-news:active {

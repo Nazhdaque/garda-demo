@@ -2,8 +2,6 @@
 .xxx {
 	--clr-shift: 90;
 	--hue: calc(var(--clr-shift) + var(--deg));
-	--thickness: 0.1rem;
-	--density: 2;
 	--transparency: 0.25;
 	--border: hsl(var(--hue), 100%, 50%) var(--thickness) dotted;
 
