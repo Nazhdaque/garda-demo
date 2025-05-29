@@ -41,8 +41,8 @@
 	<link rel="icon"
 				type="image/svg+xml"
 				href="./images/icons/vite.svg">
-  <script type="module" crossorigin src="/garda-demo/assets/index-B-4NYf13.js"></script>
-  <link rel="stylesheet" crossorigin href="/garda-demo/assets/index-DpRR_eBY.css">
+  <script type="module" crossorigin src="/garda-demo/assets/index-DyYn45XW.js"></script>
+  <link rel="stylesheet" crossorigin href="/garda-demo/assets/index-DIhuX6kT.css">
 </head>
 
 <body class="layout-body demo-bg">
@@ -50,7 +50,7 @@
 					style="--z: 2">
 		<div class="main-header__group xxx">
 			<a href="#"
-				 class="img-box z-up brand-logo"
+				 class="img-box z-up brand-logo focus-outline"
 				 aria-label="home">
 				<img src="./images/logos/garda-logo-w.svg"
 						 alt="brand-logo">
@@ -63,6 +63,29 @@
 	<footer class="main-footer xxx">
 		<div class="main-footer__group xxx"></div>
 	</footer>
+
+	<dialog id="modal"
+					class="modal focus-outline"
+					aria-labelledby="dialog-name"
+					aria-modal="true">
+		<div class="modal-box">
+			<h2 class="fnt-xl modal-ttl"
+					id="dialog-name">Успешно отправлено!</h2>
+			<p class="txt-trunc modal-msg">Форма отправилась на тестовый сервер. Ответ
+				сервера в консоли.</p>
+			<picture class="img-box modal-icon">
+				<img src="images/icons/garda-icon-check-mark-w.svg"
+						 alt="demo image">
+				<img src="images/icons/garda-icon-cross-mark-w.svg"
+						 alt="demo image">
+			</picture>
+			<form method="dialog">
+				<button class="btn-gradient ellipsis z-up modal-btn">Выйти</button>
+			</form>
+		</div>
+	</dialog>
+
+	<div class="loader d-none"></div>
 
 </body>
 
