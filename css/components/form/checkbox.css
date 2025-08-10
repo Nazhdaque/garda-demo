@@ -41,7 +41,7 @@
 			width: 70%;
 			scale: 0;
 			aspect-ratio: 1;
-			background-image: var(--clr-1e-1f);
+			background-image: var(--clr-active);
 			clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
 			transition: scale var(--time) ease;
 			transform-origin: bottom;
@@ -157,22 +157,23 @@
 /* |||||||||| |||||||||| |||||||||| |||||||||| states */
 .input-wrapper:has(.form__checkbox:checked)::before {
 	background-image: var(--clr-success);
-	opacity: 1;
 }
 .input-wrapper:has(.form__checkbox:focus-visible)::before {
-	background-image: var(--clr-1e-1f);
-	opacity: 1;
+	background-image: var(--clr-active);
 }
 
 :where(.radio-group, .checkbox-wrapper):has(.error-label)
 	.input-wrapper::before {
 	background-image: var(--clr-failure);
-	opacity: 1;
 }
 
 .checkbox-wrapper:where(:has(.form__checkbox:focus-visible), :hover) {
 	--clr-txt: var(--clr-0a);
-	--clr-input: var(--clr-input-active);
+
+	.form__input {
+		background-color: var(--clr-bg-active);
+		backdrop-filter: blur(5px);
+	}
 
 	.txt-link {
 		background-position: left center;

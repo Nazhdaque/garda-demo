@@ -1,0 +1,38 @@
+.logos {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1em;
+}
+
+.test-card {
+	--card-bg: hsl(270, 70%, 20%);
+	--border-width: 0.2em;
+
+	height: 5em;
+	border-radius: var(--rad-inner);
+	backdrop-filter: blur(5px);
+	background-color: hsl(from var(--card-bg) h s l / 0.33);
+	transition: background-color 0.25s ease-in, backdrop-filter 0.25s ease-in;
+
+	&:hover {
+		background-color: hsl(from var(--card-bg) h s l / 0);
+		backdrop-filter: blur(0px);
+	}
+
+	img {
+		padding: 1em;
+		height: 100%;
+		isolation: isolate;
+	}
+}
+
+.test-card:before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+	border: var(--border-width) solid transparent;
+	background: var(--clr-1e-1f) border-box;
+	mask: var(--clr-1e-1f) border-box, var(--clr-1e-1f) padding-box;
+	mask-composite: subtract;
+}

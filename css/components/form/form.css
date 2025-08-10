@@ -1,21 +1,19 @@
 .form {
-	--clr-input: #151637;
-	--clr-input-hsl: 238, 45%, 15%;
-	--clr-input-active: #201547;
-	--clr-input-active-hsl: 253, 55%, 18%;
 	--clr-txt: hsl(var(--clr-0a-hsl), 0.6);
-	--clr-failure: radial-gradient(
-		circle at bottom left,
-		var(--clr-1b) 25%,
-		var(--clr-1a) 125%
-	);
+	--clr-bg-active: hsl(from var(--clr-1d) h s l / 0.2);
+	--clr-active: var(--clr-1e-1f);
 	--clr-success: radial-gradient(
 		circle at bottom left,
 		var(--clr-1e) 25%,
 		var(--clr-1a) 100%
 	);
+	--clr-failure: radial-gradient(
+		circle at bottom left,
+		var(--clr-1b) 25%,
+		var(--clr-1a) 125%
+	);
 
-	--form-pad: calc(var(--pad) * 0.854);
+	--form-pad: calc(var(--pad) * 0.9);
 	--border-width: 1px;
 
 	/* 	48px@1024px -> 	64px@1280px */
@@ -32,29 +30,28 @@
 /* |||||||||| |||||||||| |||||||||| |||||||||| */
 .input-wrapper {
 	position: relative;
-	border: var(--border-width) solid hsl(var(--clr-0a-hsl), 0.2);
 	border-radius: calc(var(--rad-inner) + var(--border-width));
 	z-index: 1;
 	display: grid;
 	grid-template-rows: auto min-content;
+	overflow: hidden;
 
 	&::before {
 		content: "";
 		position: absolute;
-		inset: calc(var(--border-width) * -1);
-		border-radius: calc(var(--rad-inner) + var(--border-width));
-		z-index: -1;
-		opacity: 0;
-		transition: opacity var(--time) ease;
+		inset: 0;
+		border-radius: inherit;
+		border: var(--border-width) solid transparent;
+		background: hsl(var(--clr-0a-hsl), 0.2) border-box;
+		mask: var(--clr-1b-1a) border-box, var(--clr-1b-1a) padding-box;
+		mask-composite: subtract;
+		z-index: 1;
+		pointer-events: none;
 	}
 
 	&:has(textarea) {
 		grid-column: 1 / -1;
 		min-height: var(--txt-area-h);
-
-		/* .form__input {
-			min-height: calc(var(--txt-area-h) - var(--border-width) * 2);
-		} */
 
 		.labels {
 			text-align: center;
@@ -68,13 +65,11 @@
 
 /* |||||||||| |||||||||| |||||||||| |||||||||| */
 .form__input {
-	background-color: var(--clr-input);
 	padding: var(--form-pad);
-	border-radius: var(--rad-inner);
 	width: 100%;
 	height: 100%;
 	color: var(--clr-txt);
-	transition: color var(--time) ease, background-color var(--time) ease;
+	transition: color var(--time) ease;
 
 	&::placeholder {
 		color: var(--clr-txt);
@@ -87,7 +82,6 @@
 
 	&:where(:-webkit-autofill, :-webkit-autofill:hover, :-webkit-autofill:focus) {
 		-webkit-text-fill-color: var(--clr-txt);
-		-webkit-box-shadow: 0 0 0px 10em var(--clr-input) inset;
 	}
 }
 
@@ -122,21 +116,27 @@ textarea.form__input {
 
 /* |||||||||| |||||||||| |||||||||| |||||||||| states */
 .input-wrapper:has(.form__input:focus-visible)::before {
-	background-image: var(--clr-1e-1f);
-	opacity: 1;
+	background-image: var(--clr-active);
 }
 
 .input-wrapper:has(.success-label)::before {
 	background-image: var(--clr-success);
-	opacity: 1;
 }
 
 .input-wrapper:has(.error-label)::before {
 	background-image: var(--clr-failure) !important;
-	opacity: 1;
+}
+
+.success-label {
+	background-image: var(--clr-success);
+}
+.error-label {
+	background-image: var(--clr-failure);
 }
 
 .form__input:where(:hover, :focus-visible) {
 	--clr-txt: var(--clr-0a);
-	--clr-input: var(--clr-input-active);
+
+	background-color: var(--clr-bg-active);
+	backdrop-filter: blur(5px);
 }

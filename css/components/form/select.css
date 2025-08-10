@@ -8,11 +8,13 @@
 		content: "";
 		position: absolute;
 		inset: 0;
-		background-image: var(--clr-1e-1f);
-		border-radius: calc(var(--rad-inner) + var(--border-width));
-		opacity: 0;
-		transition: opacity var(--time) ease;
-		z-index: 1;
+		border-radius: inherit;
+		border: var(--border-width) solid transparent;
+		background: hsl(var(--clr-0a-hsl), 0.2) border-box;
+		mask: var(--clr-1b-1a) border-box, var(--clr-1b-1a) padding-box;
+		mask-composite: subtract;
+		z-index: 2;
+		pointer-events: none;
 	}
 
 	.error-label {
@@ -22,7 +24,6 @@
 
 /* |||||||||| |||||||||| |||||||||| |||||||||| */
 .ts-wrapper {
-	border: var(--border-width) solid hsl(var(--clr-0a-hsl), 0.2);
 	border-radius: calc(var(--rad-inner) + var(--border-width));
 	min-height: var(--input-h);
 }
@@ -31,8 +32,6 @@
 	border: none;
 	min-height: 100%;
 	padding-inline: var(--form-pad);
-	background-color: var(--clr-input);
-	transition: background-color var(--time) ease;
 
 	.item {
 		margin-block: auto;
@@ -57,7 +56,7 @@
 
 :is(.ts-control, .ts-dropdown) {
 	font-size: var(--fs-rg);
-	background-color: var(--clr-input);
+	background-color: transparent;
 	border-radius: var(--rad-inner);
 }
 
@@ -65,10 +64,23 @@
 .ts-dropdown {
 	line-height: var(--lh-rg);
 	overflow: hidden;
-	border: var(--border-width) solid hsl(var(--clr-0a-hsl), 0.2);
-	margin-top: calc(var(--form-gap) + var(--border-width));
-	width: calc(100% + var(--border-width) * 2);
-	left: calc(var(--border-width) * -1);
+	border-radius: inherit;
+	border: none;
+	margin-top: var(--form-gap);
+
+	&::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		border-radius: inherit;
+		border: var(--border-width) solid transparent;
+
+		background: var(--clr-active) border-box;
+		mask: var(--clr-1b-1a) border-box, var(--clr-1b-1a) padding-box;
+		mask-composite: subtract;
+		z-index: 1;
+		pointer-events: none;
+	}
 
 	.no-results {
 		padding: var(--form-pad);
@@ -87,7 +99,10 @@
 	}
 
 	.ts-dropdown-content {
-		max-height: calc(var(--txt-area-h) - var(--border-width) * 2);
+		max-height: var(--txt-area-h);
+		backdrop-filter: blur(5px);
+		background-color: var(--clr-bg-active);
+		border-radius: inherit;
 	}
 }
 
@@ -95,40 +110,38 @@
 .select-wrapper:has(.full) {
 	&::before {
 		background-image: var(--clr-success);
-		opacity: 1;
 	}
 }
 .select-wrapper:has(.focus) {
 	&::before {
-		background-image: var(--clr-1e-1f);
-		opacity: 1;
+		background-image: var(--clr-active);
 	}
 }
 .select-wrapper:has(.error-label) {
 	&::before {
 		background-image: var(--clr-failure);
-		opacity: 1;
 	}
 	.ts-dropdown {
-		margin-top: calc(var(--form-gap) + var(--border-width) + var(--lh-rg));
+		margin-top: calc(var(--form-gap) + var(--lh-rg));
 	}
 }
 
 .ts-wrapper.full {
 	.ts-control {
-		background-color: var(--clr-input);
+		background-color: transparent;
 	}
 }
 .ts-wrapper:is(.focus.input-active, :hover) {
 	.ts-control {
 		--clr-txt: var(--clr-0a);
 
-		background-color: var(--clr-input-active);
+		background-color: var(--clr-bg-active);
+		backdrop-filter: blur(5px);
 	}
 }
 
 .option.active {
 	--clr-txt: var(--clr-0a);
 
-	background-image: var(--clr-1e-1f);
+	background-image: var(--clr-active);
 }
