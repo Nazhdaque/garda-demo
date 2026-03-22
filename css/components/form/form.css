@@ -43,7 +43,9 @@
 		border-radius: inherit;
 		border: var(--border-width) solid transparent;
 		background: hsl(var(--clr-0a-hsl), 0.2) border-box;
-		mask: var(--clr-1b-1a) border-box, var(--clr-1b-1a) padding-box;
+		mask:
+			var(--clr-1b-1a) border-box,
+			var(--clr-1b-1a) padding-box;
 		mask-composite: subtract;
 		z-index: 1;
 		pointer-events: none;

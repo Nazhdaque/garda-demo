@@ -26,6 +26,10 @@
 		padding: var(--pad-xl);
 	}
 
+	.demo-cards:where(.col-4) {
+		--col: 3;
+	}
+
 	/* utilities */
 	.md-js-auto {
 		justify-self: auto;
@@ -48,6 +52,10 @@
 	.hero-news:where(:focus-visible, :hover) {
 		transform: none;
 		outline-offset: calc(var(--outline-width) * -1);
+	}
+
+	.demo-cards:where(.col-3, .col-4) {
+		--col: 2;
 	}
 
 	/* utilities */
@@ -73,6 +81,10 @@
 			max-width: var(--col-1-of-4);
 			white-space: normal;
 		}
+	}
+
+	.demo-cards:where(.col-2, .col-3, .col-4) {
+		--col: 1;
 	}
 
 	/* utilities */

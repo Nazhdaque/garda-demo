@@ -1,0 +1,56 @@
+[
+	{
+		"url": "images/demo-720p.webp",
+		"ttl": "Title",
+		"sub": "Subtitle",
+		"txt": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt eos voluptates vitae ex odit eveniet nobis. Ab soluta unde, nemo blanditiis saepe earum quisquam.</p> <p>Voluptate iure nisi deleniti nobis voluptatibus velit amet voluptas atque consectetur? Saepe molestias nam eius voluptatibus corporis doloribus sit ipsa, soluta reprehenderit, consequuntur consectetur corrupti eligendi!</p>"
+	},
+	{
+		"url": "images/icons/icon-bubble.svg",
+		"ttl": "Lorem ipsum dolor sit amet consectetur adipisicing",
+		"sub": "Lorem ipsum dolor sit amet consectetur adipisicing elit odit iusto cupiditate recusandae",
+		"txt": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit sapiente vitae perspiciatis eius placeat explicabo.</p>"
+	},
+	{
+		"url": "images/icons/icon-rocket.svg",
+		"ttl": "Lorem ipsum dolor, sit amet consectetur adipisicing elit inventore",
+		"sub": "Lorem ipsum dolor sit amet consectetur",
+		"txt": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi voluptatem natus accusamus exercitationem dignissimos excepturi itaque, minima delectus ipsa. Aperiam voluptatem ullam libero consectetur."
+	},
+	{
+		"url": "images/icons/icon-brain.svg",
+		"ttl": "Lorem ipsum dolor sit",
+		"sub": "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+		"txt": "<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias corrupti possimus nihil veniam unde vel. </p> <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio cum maxime consequuntur explicabo temporibus iste reprehenderit ipsa ut, porro odio?</p>"
+	},
+	{
+		"url": "images/icons/icon-hacker.svg",
+		"ttl": "Lorem ipsum dolor sit amet",
+		"sub": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
+		"txt": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, unde. Neque quasi sequi magnam dignissimos! Rerum quasi voluptatum necessitatibus ut.</p>"
+	},
+	{
+		"url": "images/icons/icon-spy.svg",
+		"ttl": "Lorem ipsum, dolor sit amet consectetur adipisicing elit",
+		"sub": "Lorem ipsum dolor sit amet",
+		"txt": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt eos voluptates vitae ex odit eveniet nobis. Ab soluta unde, nemo blanditiis saepe earum quisquam. Voluptate iure nisi deleniti nobis voluptatibus velit amet voluptas atque consectetur? Saepe molestias.</p>"
+	},
+	{
+		"url": "images/icons/icon-data.svg",
+		"ttl": "Lorem ipsum dolor sit",
+		"sub": "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+		"txt": "<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias corrupti possimus nihil veniam unde vel. </p> <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio cum maxime consequuntur explicabo temporibus iste reprehenderit ipsa ut, porro odio?</p>"
+	},
+	{
+		"url": "images/icons/icon-doc.svg",
+		"ttl": "Lorem ipsum dolor sit amet",
+		"sub": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
+		"txt": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, unde. Neque quasi sequi magnam dignissimos! Rerum quasi voluptatum necessitatibus ut.</p>"
+	},
+	{
+		"url": "images/icons/icon-warning.svg",
+		"ttl": "Lorem ipsum, dolor sit amet consectetur adipisicing elit",
+		"sub": "Lorem ipsum dolor sit amet",
+		"txt": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt eos voluptates vitae ex odit eveniet nobis. Ab soluta unde, nemo blanditiis saepe earum quisquam. Voluptate iure nisi deleniti nobis voluptatibus velit amet voluptas atque consectetur? Saepe molestias.</p>"
+	}
+]

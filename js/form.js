@@ -38,8 +38,8 @@ const handleFormSubmit = async e => {
 		showModalText(response.ok);
 		console.log(
 			"%cФорма успешно отправилась на тестовый сервер. Он ответил:",
-			"background: #222; color: chartreuse;",
-			result
+			"background: #292c42; color: #45cdff;",
+			result,
 		);
 	} catch {
 		showModalText();
@@ -76,7 +76,7 @@ validator
 				errorMessage: "Неподходящее имя!",
 			},
 		],
-		{ successMessage: "Отлично!" }
+		{ successMessage: "Отлично!" },
 	)
 	.addField(
 		"#last-name",
@@ -98,7 +98,7 @@ validator
 				errorMessage: "Неподходящая фамилия!",
 			},
 		],
-		{ successMessage: "Отлично!" }
+		{ successMessage: "Отлично!" },
 	)
 	.addField(
 		"#job-title",
@@ -115,7 +115,7 @@ validator
 				errorMessage: "Слишком короткая должность!",
 			},
 		],
-		{ successMessage: "Отлично!" }
+		{ successMessage: "Отлично!" },
 	)
 	.addField(
 		"#company",
@@ -132,7 +132,7 @@ validator
 				errorMessage: "Слишком короткое название!",
 			},
 		],
-		{ successMessage: "Отличная компания!" }
+		{ successMessage: "Отличная компания!" },
 	)
 	.addField(
 		"#email",
@@ -149,7 +149,7 @@ validator
 			{ rule: "maxLength", value: 50, errorMessage: "Слишком длинный email" },
 			{ rule: "minLength", value: 5, errorMessage: "Слишком короткий email!" },
 		],
-		{ successMessage: "Отличный email!" }
+		{ successMessage: "Отличный email!" },
 	)
 	.addField(
 		"#phone",
@@ -157,17 +157,17 @@ validator
 			{ rule: "required", errorMessage: "Укажите телефон!" },
 			{ rule: "minLength", value: 18, errorMessage: "Слишком короткий номер!" },
 		],
-		{ successMessage: "Отличный номер!" }
+		{ successMessage: "Отличный номер!" },
 	)
 	.addField(
 		"#subscription",
 		[{ rule: "required", errorMessage: "Подпишитесь на рассылку!" }],
-		{ successMessage: "Отлично!" }
+		{ successMessage: "Отлично!" },
 	)
 	.addField(
 		"#privacy-policy",
 		[{ rule: "required", errorMessage: "Необходимо принять условия!" }],
-		{ successMessage: "Отлично!" }
+		{ successMessage: "Отлично!" },
 	)
 	.addRequiredGroup("#radio-group", "Выберите один из вариантов!", {
 		errorsContainer: document.querySelector("#radio-group"),
@@ -175,11 +175,11 @@ validator
 	.addField(
 		"#comment",
 		[{ rule: "required", errorMessage: "Нам важно ваше мнение!" }],
-		{ successMessage: "Спасибо, что поделились своим мнением!" }
+		{ successMessage: "Спасибо, что поделились своим мнением!" },
 	)
 	.addField(
 		"#form-select",
 		[{ rule: "required", errorMessage: "Выберите один из вариантов!" }],
 		{ errorsContainer: document.querySelector(".select-wrapper") },
-		{ successMessage: "Отлично!" }
+		{ successMessage: "Отлично!" },
 	);

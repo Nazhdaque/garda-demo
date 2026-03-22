@@ -66,6 +66,7 @@
 	color: var(--clr-txt);
 	transition: color var(--time) ease;
 	cursor: pointer;
+	align-self: center;
 }
 
 .txt-link {
@@ -102,10 +103,6 @@
 	}
 
 	/* |||||||||| |||||||||| |||||||||| |||||||||| */
-	.checkbox-txt {
-		align-self: center;
-	}
-
 	legend {
 		--line: 2;
 
@@ -125,7 +122,7 @@
 		aspect-ratio: 2 / 1;
 
 		&::after {
-			--border: 3px;
+			--border: 4px;
 			--time: 0.2s;
 
 			scale: 1;
@@ -143,7 +140,8 @@
 				var(--clr-1e) 100%
 			);
 			background-size: 200% auto;
-			transition: left var(--time) ease-in,
+			transition:
+				left var(--time) ease-in,
 				background-position var(--time) var(--time) ease-out;
 		}
 

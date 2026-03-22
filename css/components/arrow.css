@@ -2,9 +2,9 @@
 	--img-size: var(--arw-size);
 	--asp: 1 / 1;
 	--fit: contain;
-	--rad: var(--rad-inner);
 
 	overflow: hidden;
+	border-radius: var(--rad-inner);
 	background-color: var(--arw-bg, var(--clr-1c));
 
 	> * {

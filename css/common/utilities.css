@@ -4,7 +4,6 @@
 	width: var(--img-w, var(--img-size, auto));
 	height: var(--img-h, var(--img-size, auto));
 	aspect-ratio: var(--asp, auto);
-	border-radius: var(--rad, 0);
 }
 .img-box :where(img, picture) {
 	position: absolute;
@@ -13,7 +12,6 @@
 	height: 100%;
 	object-fit: var(--fit, cover);
 	object-position: var(--pos, center);
-	border-radius: var(--rad, 0);
 }
 
 /* |||||||||| |||||||||| |||||||||| |||||||||| layers */
@@ -35,8 +33,10 @@
 							(
 									var(--container-width, var(--max-content-width)) -
 										var(--gap-x, 0rem) * (var(--col) - 1)
-								) / var(--col)
-						) * var(--shrink, 0.85)
+								) /
+								var(--col)
+						) *
+						var(--shrink, 0.85)
 				),
 				100%
 			),
@@ -65,7 +65,8 @@
 				(
 						var(--container-width, var(--max-content-width)) -
 							var(--gap-x, 0rem) * (var(--col) - 1)
-					) / var(--col)
+					) /
+					var(--col)
 			)
 		),
 		100%
@@ -87,8 +88,10 @@
 					(
 							var(--container-width, var(--max-content-width)) -
 								var(--gap-x, 0rem) * (var(--col) - 1)
-						) / var(--col)
-				) * var(--x) + var(--gap-x, 0rem) * (var(--x) - 1)
+						) /
+						var(--col)
+				) *
+				var(--x) + var(--gap-x, 0rem) * (var(--x) - 1)
 		),
 		100%
 	);
@@ -109,10 +112,12 @@
 	--min-col-width: calc(
 		(
 				(
-						var(--container-width, var(--max-content-width)) - var(--gap, 0rem) *
-							(var(--col) - 1)
-					) / var(--col)
-			) * var(--shrink, 0.75)
+						var(--container-width, var(--max-content-width)) -
+							var(--gap, 0rem) * (var(--col) - 1)
+					) /
+					var(--col)
+			) *
+			var(--shrink, 0.75)
 	);
 	columns: var(--col) var(--min-col-width);
 	column-gap: var(--gap, 0rem);
@@ -136,21 +141,6 @@
 }
 
 /* |||||||||| |||||||||| |||||||||| |||||||||| colors */
-.txt-gradient {
-	background-image: var(--clr-1b-1a);
-	background-clip: text;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-
-	filter: drop-shadow(1px 1px 1px var(--clr-0b));
-}
-.txt-1a {
-	color: var(--clr-1a);
-}
-.txt-1b {
-	color: var(--clr-1b);
-}
-
 .bg-gradient {
 	--clr-solid: hsl(var(--clr-0a));
 

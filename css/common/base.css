@@ -59,7 +59,7 @@ html {
 
 body {
 	font-family: var(--ff-rg);
-	font-weight: var(--fw-sb);
+	font-weight: var(--fw-el);
 	font-size: var(--fs-rg);
 	line-height: var(--lh-rg);
 	-webkit-font-smoothing: antialiased;

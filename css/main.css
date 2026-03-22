@@ -28,6 +28,8 @@
 /* @import url(./components/form/select.css) layer(components); */
 
 @import url(./parts/header.css) layer(parts);
+@import url(./parts/section-settings.css) layer(components);
+@import url(./parts/section-demo-cards.css) layer(components);
 @import url(./parts/section-hero.css) layer(parts);
 @import url(./parts/section-cta-protect.css) layer(parts);
 @import url(./parts/footer.css) layer(parts);

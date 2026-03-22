@@ -1,0 +1,25 @@
+.settings {
+	--col: 5;
+	--shrink: 0.75;
+	--clr-bg: hsl(from var(--white) h s l / 0.05);
+
+	background-color: var(--clr-bg);
+	padding: var(--pad);
+	margin-bottom: var(--gap-x);
+	border-radius: var(--rad);
+
+	.settings-group {
+		--form-gap: clamp(0.5rem, 3.125vw + -1.5rem, 1rem);
+		--gap-y: var(--form-gap);
+
+		grid-auto-rows: min-content;
+	}
+
+	.fnt-md {
+		color: var(--white);
+	}
+
+	legend {
+		margin-bottom: var(--gap-x);
+	}
+}
