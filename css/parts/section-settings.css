@@ -7,6 +7,8 @@
 	padding: var(--pad);
 	margin-bottom: var(--gap-x);
 	border-radius: var(--rad);
+	grid-column: 1 / -1;
+	margin-inline: var(--main-content-pad-x);
 
 	.settings-group {
 		--form-gap: clamp(0.5rem, 3.125vw + -1.5rem, 1rem);

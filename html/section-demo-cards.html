@@ -2,7 +2,6 @@
 	<form class="form settings grid-x">
 		<fieldset class="settings-group grid-x">
 			<legend class="txt-trunc fnt-md">General</legend>
-
 			<div class="checkbox-wrapper fnt-rg form-toggle">
 				<label>
 					<div class="input-wrapper">
@@ -37,18 +36,190 @@
 						<div class="form__input">
 							<input class="form__checkbox"
 										 id="option-scroll"
-										 name="images"
 										 type="checkbox">
 						</div>
 					</div>
-					<p class="checkbox-txt txt-trunc">Scroll-snap</p>
+					<p class="checkbox-txt txt-trunc">Slider</p>
+				</label>
+			</div>
+
+			<div class="checkbox-wrapper fnt-rg form-toggle">
+				<label>
+					<div class="input-wrapper">
+						<div class="form__input">
+							<input class="form__checkbox"
+										 type="checkbox"
+										 id="option-list">
+						</div>
+					</div>
+					<p class="checkbox-txt ellipsis fnt-rg">Ordered list</p>
+				</label>
+			</div>
+		</fieldset>
+
+		<fieldset class="settings-group grid-x"
+							id="settings-content">
+			<legend class="txt-trunc fnt-md">Article</legend>
+
+			<div class="checkbox-wrapper fnt-rg form-toggle">
+				<label>
+					<div class="input-wrapper">
+						<div class="form__input">
+							<input class="form__checkbox"
+										 id="option-article-header"
+										 type="checkbox"
+										 checked>
+						</div>
+					</div>
+					<p class="checkbox-txt txt-trunc">Header</p>
+				</label>
+			</div>
+
+			<div class="checkbox-wrapper fnt-rg form-toggle">
+				<label>
+					<div class="input-wrapper">
+						<div class="form__input">
+							<input class="form__checkbox"
+										 id="option-article-subtitle"
+										 type="checkbox"
+										 checked>
+						</div>
+					</div>
+					<p class="checkbox-txt txt-trunc">Subtitle</p>
+				</label>
+			</div>
+		</fieldset>
+
+		<fieldset class="settings-group grid-x">
+			<legend class="txt-trunc fnt-md">Article Title</legend>
+
+			<div class="checkbox-wrapper fnt-rg">
+				<label>
+					<div class="input-wrapper">
+						<div class="form__input">
+							<input class="form__checkbox"
+										 name="article-title-size"
+										 type="radio"
+										 id="option-article-title-lg"
+										 checked>
+						</div>
+					</div>
+					<p class="checkbox-txt ellipsis fnt-rg">Large</p>
+				</label>
+			</div>
+
+			<div class="checkbox-wrapper fnt-rg">
+				<label>
+					<div class="input-wrapper">
+						<div class="form__input">
+							<input class="form__checkbox"
+										 name="article-title-size"
+										 type="radio"
+										 id="option-article-title-md">
+						</div>
+					</div>
+					<p class="checkbox-txt ellipsis fnt-rg">Medium</p>
+				</label>
+			</div>
+		</fieldset>
+
+		<fieldset class="settings-group grid-x"
+							id="settings-content">
+			<legend class="txt-trunc fnt-md">Card</legend>
+
+			<div class="checkbox-wrapper fnt-rg form-toggle">
+				<label>
+					<div class="input-wrapper">
+						<div class="form__input">
+							<input class="form__checkbox"
+										 id="option-title"
+										 type="checkbox"
+										 checked>
+						</div>
+					</div>
+					<p class="checkbox-txt txt-trunc">Title</p>
+				</label>
+			</div>
+
+			<div class="checkbox-wrapper fnt-rg form-toggle">
+				<label>
+					<div class="input-wrapper">
+						<div class="form__input">
+							<input class="form__checkbox"
+										 id="option-subtitle"
+										 type="checkbox"
+										 checked>
+						</div>
+					</div>
+					<p class="checkbox-txt txt-trunc">Subtitle</p>
+				</label>
+			</div>
+
+			<div class="checkbox-wrapper fnt-rg form-toggle">
+				<label for="option-txt">
+					<div class="input-wrapper">
+						<div class="form__input">
+							<input class="form__checkbox"
+										 id="option-txt"
+										 type="checkbox"
+										 checked>
+						</div>
+					</div>
+					<p class="checkbox-txt txt-trunc">Text</p>
+				</label>
+			</div>
+		</fieldset>
+
+		<fieldset class="settings-group grid-x">
+			<legend class="txt-trunc fnt-md">Card Title</legend>
+
+			<div class="checkbox-wrapper fnt-rg">
+				<label>
+					<div class="input-wrapper">
+						<div class="form__input">
+							<input class="form__checkbox"
+										 name="title-size"
+										 type="radio"
+										 id="option-title-lg">
+						</div>
+					</div>
+					<p class="checkbox-txt ellipsis fnt-rg">Large</p>
+				</label>
+			</div>
+
+			<div class="checkbox-wrapper fnt-rg">
+				<label>
+					<div class="input-wrapper">
+						<div class="form__input">
+							<input class="form__checkbox"
+										 name="title-size"
+										 type="radio"
+										 id="option-title-md"
+										 checked>
+						</div>
+					</div>
+					<p class="checkbox-txt ellipsis fnt-rg">Medium</p>
+				</label>
+			</div>
+
+			<div class="checkbox-wrapper fnt-rg">
+				<label>
+					<div class="input-wrapper">
+						<div class="form__input">
+							<input class="form__checkbox"
+										 name="title-size"
+										 type="radio"
+										 id="option-title-sm"
+										 disabled>
+						</div>
+					</div>
+					<p class="checkbox-txt ellipsis fnt-rg">Small</p>
 				</label>
 			</div>
 		</fieldset>
 
 		<fieldset class="settings-group grid-x">
 			<legend class="txt-trunc fnt-md">Columns</legend>
-
 			<div class="checkbox-wrapper fnt-rg">
 				<label>
 					<div class="input-wrapper">
@@ -91,10 +262,24 @@
 					<p class="checkbox-txt ellipsis fnt-rg">4</p>
 				</label>
 			</div>
+
+			<div class="checkbox-wrapper fnt-rg">
+				<label>
+					<div class="input-wrapper">
+						<div class="form__input">
+							<input class="form__checkbox"
+										 name="columns"
+										 type="radio"
+										 id="option-col-5">
+						</div>
+					</div>
+					<p class="checkbox-txt ellipsis fnt-rg">5</p>
+				</label>
+			</div>
 		</fieldset>
 
 		<fieldset class="settings-group grid-x">
-			<legend class="txt-trunc fnt-md">Image Sizes</legend>
+			<legend class="txt-trunc fnt-md">Image Size</legend>
 			<div class="checkbox-wrapper fnt-rg">
 				<label>
 					<div class="input-wrapper">
@@ -102,10 +287,10 @@
 							<input class="form__checkbox"
 										 name="icon-size"
 										 type="radio"
-										 id="option-img-size-sm">
+										 id="option-img-lg">
 						</div>
 					</div>
-					<p class="checkbox-txt ellipsis fnt-rg">Small</p>
+					<p class="checkbox-txt ellipsis fnt-rg">Large</p>
 				</label>
 			</div>
 
@@ -116,7 +301,7 @@
 							<input class="form__checkbox"
 										 name="icon-size"
 										 type="radio"
-										 id="option-img-size-md"
+										 id="option-img-md"
 										 checked>
 						</div>
 					</div>
@@ -131,23 +316,23 @@
 							<input class="form__checkbox"
 										 name="icon-size"
 										 type="radio"
-										 id="option-img-size-lg">
+										 id="option-img-sm">
 						</div>
 					</div>
-					<p class="checkbox-txt ellipsis fnt-rg">Large</p>
+					<p class="checkbox-txt ellipsis fnt-rg">Small</p>
 				</label>
 			</div>
 		</fieldset>
 
 		<fieldset class="settings-group grid-x">
-			<legend class="txt-trunc fnt-md">Images</legend>
+			<legend class="txt-trunc fnt-md">Image Position</legend>
 
 			<div class="checkbox-wrapper fnt-rg">
 				<label>
 					<div class="input-wrapper">
 						<div class="form__input">
 							<input class="form__checkbox"
-										 name="images"
+										 name="image-position"
 										 type="radio"
 										 id="option-img-top"
 										 checked>
@@ -162,7 +347,7 @@
 					<div class="input-wrapper">
 						<div class="form__input">
 							<input class="form__checkbox"
-										 name="images"
+										 name="image-position"
 										 type="radio"
 										 id="option-img-left">
 						</div>
@@ -176,12 +361,12 @@
 					<div class="input-wrapper">
 						<div class="form__input">
 							<input class="form__checkbox"
-										 name="images"
+										 name="image-position"
 										 type="radio"
 										 id="option-img-cover">
 						</div>
 					</div>
-					<p class="checkbox-txt ellipsis fnt-rg">Picture</p>
+					<p class="checkbox-txt ellipsis fnt-rg">Img Cover / Num Right</p>
 				</label>
 			</div>
 
@@ -190,70 +375,35 @@
 					<div class="input-wrapper">
 						<div class="form__input">
 							<input class="form__checkbox"
-										 name="images"
+										 name="image-position"
 										 type="radio"
-										 id="option-no-img">
+										 id="option-img-none">
 						</div>
 					</div>
-					<p class="checkbox-txt txt-trunc">No Image</p>
-				</label>
-			</div>
-		</fieldset>
-
-		<fieldset class="settings-group grid-x"
-							id="settings-content">
-			<legend class="txt-trunc fnt-md">Content</legend>
-
-			<div class="checkbox-wrapper fnt-rg form-toggle">
-				<label>
-					<div class="input-wrapper">
-						<div class="form__input">
-							<input class="form__checkbox"
-										 id="option-title"
-										 name="title"
-										 type="checkbox"
-										 checked>
-						</div>
-					</div>
-					<p class="checkbox-txt txt-trunc">Title</p>
-				</label>
-			</div>
-
-			<div class="checkbox-wrapper fnt-rg form-toggle">
-				<label>
-					<div class="input-wrapper">
-						<div class="form__input">
-							<input class="form__checkbox"
-										 id="option-subtitle"
-										 name="subtitle"
-										 type="checkbox"
-										 checked>
-						</div>
-					</div>
-					<p class="checkbox-txt txt-trunc">Sutitle</p>
-				</label>
-			</div>
-
-			<div class="checkbox-wrapper fnt-rg form-toggle">
-				<label for="option-txt">
-					<div class="input-wrapper">
-						<div class="form__input">
-							<input class="form__checkbox"
-										 id="option-txt"
-										 name="subtitle"
-										 type="checkbox"
-										 checked>
-						</div>
-					</div>
-					<p class="checkbox-txt txt-trunc">Text</p>
+					<p class="checkbox-txt txt-trunc">None</p>
 				</label>
 			</div>
 		</fieldset>
 	</form>
 
-	<article class="demo-cards img-pos-top img-size-md title subtitle text col-3">
-		<div class="demo-cards-wrapper scroll-snap-inline">
-			<!-- <section class="demo-card">
+	<article class="
+					demo-cards
+					article-header
+					article-subtitle
+					article-title-lg
+					col-3
+					img-size-md
+					img-pos-top
+					title
+					subtitle
+					text
+					title-md">
+		<div class="demo-cards__header width-x">
+			<h2 class="demo-cards__ttl">Модель настраиваемой секции</h2>
+			<p class="demo-cards__sub fnt-md txt-clr-6">Lorem ipsum dolor sit amet consectetur adipisicing</p>
+		</div>
+		<div class="demo-cards-wrapper scroll-snap-inline focus-outline">
+			<section class="demo-card">
 				<picture class="img-box demo-card__img">
 					<img src="images/icons/icon-bubble.svg"
 							 alt="demo img">
@@ -267,8 +417,21 @@
 					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit sapiente vitae
 						perspiciatis eius placeat explicabo.
 					</p>
+					<ul class="list-bullet custom">
+						<li class="fnt-rg">
+							<p>Lorem ipsum dolor</p>
+							<p>Lorem ipsum dolor sit amet</p>
+						</li>
+						<li class="fnt-rg">Lorem ipsum dolor sit amet</li>
+						<li class="fnt-rg">Lorem ipsum dolor sit amet consectetur</li>
+					</ul>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit sapiente vitae
+						perspiciatis eius placeat explicabo.
+					</p>
 				</div>
-			</section> -->
+			</section>
 		</div>
+
+		<div class="demo-cards-nav"></div>
 	</article>
 </div>

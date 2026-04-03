@@ -27,6 +27,10 @@
 	gap: var(--gap-x);
 	transition: color var(--time) ease;
 
+	&:has(.form__checkbox:disabled) .checkbox-txt {
+		--clr-txt: hsl(from var(--white) h s l / 0.4);
+	}
+
 	.input-wrapper {
 		--form-pad: 0;
 
@@ -42,13 +46,23 @@
 			scale: 0;
 			aspect-ratio: 1;
 			background-image: var(--clr-active);
-			clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-			transition: scale var(--time) ease;
+			clip-path: var(--check-mark);
+			/* transition: scale var(--time) ease; */
 			transform-origin: bottom;
 		}
 
 		&:has(.form__checkbox:checked)::after {
 			scale: 1;
+		}
+
+		&:has(.form__checkbox:disabled, .form__checkbox:disabled:checked)::after {
+			transform-origin: center;
+			background-image: var(--clr-failure);
+			clip-path: var(--cross-mark);
+			scale: 1;
+		}
+		&:has(.form__checkbox:disabled:checked)::after {
+			background-image: var(--clr-success);
 		}
 	}
 }
@@ -66,7 +80,7 @@
 	color: var(--clr-txt);
 	transition: color var(--time) ease;
 	cursor: pointer;
-	align-self: center;
+	place-self: center start;
 }
 
 .txt-link {
@@ -146,6 +160,7 @@
 		}
 
 		&:has(.form__checkbox:checked)::after {
+			clip-path: none;
 			left: 50%;
 			background-position: right center;
 		}
@@ -165,7 +180,16 @@
 	background-image: var(--clr-failure);
 }
 
-.checkbox-wrapper:where(:has(.form__checkbox:focus-visible), :hover) {
+.checkbox-wrapper:where(:has(.form__checkbox:disabled), :hover) {
+	--clr-txt: hsl(from var(--white) h s l / 0.4);
+
+	.form__input {
+		background-color: transparent;
+	}
+}
+.checkbox-wrapper:where(:has(.form__checkbox:focus-visible), :hover):not(
+		:has(.form__checkbox:disabled)
+	) {
 	--clr-txt: var(--clr-0a);
 
 	.form__input {

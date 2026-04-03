@@ -12,6 +12,21 @@
 		var(--clr-1b) 25%,
 		var(--clr-1a) 125%
 	);
+	--check-mark: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+	--cross-mark: polygon(
+		20% 0%,
+		0% 20%,
+		30% 50%,
+		0% 80%,
+		20% 100%,
+		50% 70%,
+		80% 100%,
+		100% 80%,
+		70% 50%,
+		100% 20%,
+		80% 0%,
+		50% 30%
+	);
 
 	--form-pad: calc(var(--pad) * 0.9);
 	--border-width: 1px;
@@ -35,6 +50,7 @@
 	display: grid;
 	grid-template-rows: auto min-content;
 	overflow: hidden;
+	cursor: pointer;
 
 	&::before {
 		content: "";

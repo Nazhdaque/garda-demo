@@ -5,7 +5,6 @@ import { slideHeader } from "./slideHeader.js";
 import { cursorGlow } from "./cursor-glow.js";
 import { createDelBtn } from "./delete-demo-item.js";
 import "/js/form.js";
-import "/js/demo-cards-settings.js";
 import "/js/demo-cards.js";
 
 // --

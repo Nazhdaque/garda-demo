@@ -1,0 +1,90 @@
+.list-bullet {
+	&:not(:first-child) {
+		margin-top: 1em;
+	}
+	&:not(:last-child) {
+		margin-bottom: 1em;
+	}
+}
+
+.list-bullet li {
+	display: grid;
+	column-gap: 1em;
+	grid-template-columns: min-content 1fr;
+}
+
+.list-bullet li::before {
+	content: "";
+	background-color: var(--clr-1a);
+	width: 0.5em;
+	aspect-ratio: 1;
+	margin-top: 0.5em;
+	transition: 0.1s transform;
+}
+
+.list-bullet:not(.custom) li:where(:hover, :has(a:focus-visible))::before {
+	transform: scale(1.4);
+}
+
+.list-bullet li + li {
+	margin-top: 0.4em;
+}
+
+:where(.list-bullet ul, .list-bullet p) {
+	grid-column: 2;
+}
+
+.list-bullet p + p {
+	margin-top: 0.25em;
+}
+
+.list-bullet ul li + li {
+	margin-top: 0.2em;
+}
+
+.list-bullet ul li::before {
+	width: 0.333em;
+}
+
+/* |||||||||| |||||||||| |||||||||| |||||||||| */
+.list-bullet.custom li {
+	--bullet-clr: var(--violet-500-alt);
+	--bullet-top: 50%;
+	--bullet-thin: 0.1em;
+	--bullet-tail: 1em;
+	--bullet-head: calc(var(--bullet-thin) * 3.5);
+}
+
+.list-bullet.custom li::before,
+.list-bullet.custom li::after {
+	content: "";
+	background-color: var(--bullet-clr);
+	grid-area: 1 / 1;
+	margin-top: var(--bullet-top);
+}
+
+.list-bullet.custom li::before {
+	margin-right: calc(var(--bullet-head) * 0.9);
+	width: var(--bullet-tail);
+	height: var(--bullet-thin);
+	border-radius: var(--bullet-thin);
+	z-index: 1;
+}
+
+.list-bullet.custom li::after {
+	width: var(--bullet-head);
+	height: var(--bullet-head);
+	border-radius: 50%;
+	justify-self: end;
+	transform: translateY(calc(-50% + var(--bullet-thin) / 2));
+	box-shadow: var(--bullet-glow, none);
+	transition: box-shadow 0.1s;
+}
+
+.list-bullet.custom li:hover {
+	--bullet-glow: 0 0 0.5em 0.25em var(--bullet-clr);
+}
+
+.list-bullet.glow li {
+	--bullet-glow: 0 0 0.5em 0.25em var(--bullet-clr);
+}

@@ -7,11 +7,11 @@
 	scroll-snap-type: x mandatory;
 	scroll-behavior: smooth;
 
-	/* -ms-overflow-style: none;
-	scrollbar-width: none; */
+	-ms-overflow-style: none;
+	scrollbar-width: none;
 }
 .scroll-snap-inline::-webkit-scrollbar {
-	/* display: none; */
+	display: none;
 }
 .scroll-snap-inline > * {
 	scroll-snap-align: start;
