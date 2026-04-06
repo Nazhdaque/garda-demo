@@ -1,39 +1,51 @@
 [
 	{
-		"url": "images/demo-720p.webp",
-		"ttl": "Title",
-		"sub": "Subtitle",
-		"txt": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt eos voluptates vitae ex odit eveniet nobis. Ab soluta unde, nemo blanditiis saepe earum quisquam.</p> <p>Voluptate iure nisi deleniti nobis voluptatibus velit amet voluptas atque consectetur? Saepe molestias nam eius voluptatibus corporis doloribus sit ipsa, soluta reprehenderit, consequuntur consectetur corrupti eligendi!</p>"
-	},
-	{
-		"url": "images/icons/icon-bubble.svg",
-		"ttl": "Lorem ipsum dolor sit amet consectetur adipisicing",
-		"sub": "Lorem ipsum dolor sit amet consectetur adipisicing elit odit iusto cupiditate recusandae",
-		"txt": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit sapiente vitae perspiciatis eius placeat explicabo.</p>"
-	},
-	{
-		"url": "images/icons/icon-rocket.svg",
-		"ttl": "Lorem ipsum dolor, sit amet consectetur adipisicing elit inventore",
-		"sub": "Lorem ipsum dolor sit amet consectetur",
-		"txt": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi voluptatem natus accusamus exercitationem dignissimos excepturi itaque, minima delectus ipsa. Aperiam voluptatem ullam libero consectetur.</p>"
-	},
-	{
-		"url": "images/icons/icon-brain.svg",
-		"ttl": "Lorem ipsum dolor sit",
-		"sub": "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-		"txt": "<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias corrupti possimus nihil veniam unde vel. </p> <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio cum maxime consequuntur explicabo temporibus iste reprehenderit ipsa ut, porro odio?</p>"
+		"url": "images/icons/icon-warning.svg",
+		"ttl": "Проблема",
+		"sub": "Малопригодные для реальных текстов шаблоны карточек",
+		"txt": "<ul class='list-bullet custom'> <li>Блоков мало.</li> <li>Среди них много похожих и почти одинаковых.</li> <li>Большинство не подходит под актуальный контент.</li> <li>Реально можно использовать буквально несколько секций.</li> <li>Некоторые приходится дополнять кастомными инлайновыми стилями.</li> <li>Контент приходится подгонять, урезать, переписывать, упрощать.</li> </ul>"
 	},
 	{
 		"url": "images/icons/icon-hacker.svg",
-		"ttl": "Lorem ipsum dolor sit amet",
-		"sub": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
-		"txt": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, unde. Neque quasi sequi magnam dignissimos! Rerum quasi voluptatum necessitatibus ut.</p>"
+		"ttl": "Итог",
+		"sub": "Ущербный рабочий процесс и посредственный результат",
+		"txt": "<ul class='list-bullet custom'> <li>Неудобно, трудоемко, времязатратно для всех участников процесса.</li> <li>Везде, часто в пределах одной страницы повторяются одни и те же блоки.</li> <li>Контент из-за ограничений менее информативный и наглядный.</li> </ul> <p>Получается, что форма определяет содержание. А должно быть наоборот, потому что контент первичен. Не контент для сайта, а сайт для контента.</p>"
+	},
+	{
+		"url": "images/demo-720p.webp",
+		"ttl": "Решение",
+		"sub": "Настраиваемая секция с возможностью вариативного отображения контента",
+		"txt": "<p>Нужны компоненты, внешним видом которых можно управлять более гибко, чтобы адаптировать их под конкретный контент.</p> <p>В целом нужно больше вариантов представления контента, чтобы страницы выглядели более разнообразно.</p> <p>Также возможность выбрать оптимальный вариант позволит более рационально использовать пространство на странице.</p>"
+	},
+	{
+		"url": "images/icons/icon-rocket.svg",
+		"ttl": "Результат",
+		"sub": "Универсальный компонент",
+		"txt": "<p>Внутренний заказчик и исполнитель получают возможность предлагать и размещать типовой текстовый контент без указанных ограничений и неудобств.</p> <p>Контент выглядит не так однообразно.</p>"
+	},
+	{
+		"url": "images/icons/icon-brain.svg",
+		"ttl": "Премущества",
+		"sub": "Один компонент вместо зоопарка инвалидов",
+		"txt": "<ul class='list-bullet custom'> <li>Одинаковая верстка, html один и тот же во всех вариантах.</li> <li>Простота: реализуется на чистом css, без скриптов.</li> <li>Экономия на разработке.</li> <li>Проще поддерживать.</li> <li>Удобство использования в повседневных сценариях: подходит для большинства типовых кейсов.</li> </ul>"
+	},
+	{
+		"url": "images/icons/icon-cards.svg",
+		"ttl": "Почему при выборе Picture Top иконки выглядят странно?",
+		"sub": "Потому что на практике в одной секции будут либо картинки, либо иконки",
+		"txt": "<p>Чтобы в одной секции показать все варианты, одновременно используются и иконки, и картинки. Значение css свойста, управляющего позиционированием объекта, должно быть разным для иконки и для полноразмерной картинки. Поэтому то, что подходит для картинки, не подходит для иконки.</p>"
+	},
+	{
+		"url": "images/icons/icon-bubble.svg",
+		"ttl": "Эти сочетания смотрятся плохо",
+		"sub": "Поэтому включить одновременно всё в этих группах нельзя",
+		"txt": "<ul class='list-bullet custom'> <li><span>2 & 3 columns +</span> <ul> <li>Figure Small + Cover</li> </ul> </li> <li><span>4 & 5 columns +</span> <ul> <li>Figure Left</li> <li>Figure Large</li> <li>Card Title Large</li> </ul> </li> <li><span>5 columns +</span> <ul> <li>Figure Medium + Ordered List</li> </ul> </li> <li><span>Card Title +</span> <ul> <li>Card Title Small + Card Subtitle</li> </ul> </li> <li><span>Article Title Medium +</span> <ul> <li>Card Title Large</li> </ul> </li> </ul> <p>Примечание: воссоздавать эту логику не требуется.</p>"
 	},
 	{
 		"url": "images/icons/icon-spy.svg",
-		"ttl": "Lorem ipsum, dolor sit amet consectetur adipisicing elit",
-		"sub": "Lorem ipsum dolor sit amet",
-		"txt": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt eos voluptates vitae ex odit eveniet nobis. Ab soluta unde, nemo blanditiis saepe earum quisquam. Voluptate iure nisi deleniti nobis voluptatibus velit amet voluptas atque consectetur? Saepe molestias.</p>"
+		"ttl": "Lorem ipsum dolor sit amet consectetur adipisicing",
+		"sub": "Lorem ipsum dolor sit amet consectetur adipisicing elit odit iusto cupiditate recusandae",
+		"txt": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit sapiente vitae perspiciatis eius placeat explicabo.</p> <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error iusto vel tenetur minima, laudantium sequi rerum similique sapiente eligendi totam id, ex possimus beatae pariatur commodi rem quis recusandae ea reprehenderit laborum temporibus veritatis repellendus, officia architecto! Consectetur, dolorem in.</p>"
 	},
 	{
 		"url": "images/icons/icon-data.svg",
@@ -46,17 +58,5 @@
 		"ttl": "Lorem ipsum dolor sit amet",
 		"sub": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
 		"txt": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, unde. Neque quasi sequi magnam dignissimos! Rerum quasi voluptatum necessitatibus ut.</p>"
-	},
-	{
-		"url": "images/icons/icon-warning.svg",
-		"ttl": "Lorem ipsum, dolor sit amet consectetur adipisicing elit",
-		"sub": "Lorem ipsum dolor sit amet",
-		"txt": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt eos voluptates vitae ex odit eveniet nobis. Ab soluta unde, nemo blanditiis saepe earum quisquam. Voluptate iure nisi deleniti nobis voluptatibus velit amet voluptas atque consectetur? Saepe molestias.</p>"
-	},
-	{
-		"url": "images/icons/icon-cards.svg",
-		"ttl": "Lorem ipsum dolor sit amet consectetur adipisicing",
-		"sub": "Lorem ipsum dolor sit amet consectetur adipisicing elit odit iusto cupiditate recusandae",
-		"txt": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit sapiente vitae perspiciatis eius placeat explicabo.</p>"
 	}
 ]

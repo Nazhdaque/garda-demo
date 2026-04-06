@@ -1,6 +1,5 @@
 import "/css/main.css";
 import "/js/importHTML.js";
-// import { SizeSetter } from "./helpers";
 import { slideHeader } from "./slideHeader.js";
 import { cursorGlow } from "./cursor-glow.js";
 import { createDelBtn } from "./delete-demo-item.js";

@@ -7,11 +7,10 @@
 	margin-bottom: var(--pad);
 }
 
-.demo-cards__ttl {
-}
 .demo-cards__sub {
 	margin-top: 1em;
 	display: none;
+	text-wrap: balance;
 }
 
 .demo-cards {

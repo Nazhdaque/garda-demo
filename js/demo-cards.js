@@ -39,6 +39,7 @@ const getSliderNav = () => {
 const API = new FetchWrapper("data/");
 const getCards = async () => {
 	const json = await API.get("cards-data.json");
+	// const json = JSON.parse(content);
 	const cards = [];
 	const cardsNavPoints = [];
 

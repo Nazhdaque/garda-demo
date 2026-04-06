@@ -1,17 +1,29 @@
 .settings {
-	--col: 5;
-	--shrink: 0.75;
 	--clr-bg: hsl(from var(--white) h s l / 0.05);
+	--gap-x: clamp(0.5rem, 3.125vw + -1.5rem, 1rem);
+	--form-gap: var(--gap-x);
 
 	background-color: var(--clr-bg);
 	padding: var(--pad);
-	margin-bottom: var(--gap-x);
+	margin-bottom: var(--pad);
 	border-radius: var(--rad);
-	grid-column: 1 / -1;
-	margin-inline: var(--main-content-pad-x);
+	/* grid-column: 1 / -1; */
+	/* margin-inline: var(--main-content-pad-x); */
+
+	.scroll-snap-inline {
+		grid-template-columns: repeat(4, minmax(max-content, auto));
+		grid-column: 1 / -1;
+
+		-ms-overflow-style: initial;
+		scrollbar-width: initial;
+
+		&::-webkit-scrollbar {
+			display: initial;
+		}
+	}
 
 	.settings-group {
-		--form-gap: clamp(0.5rem, 3.125vw + -1.5rem, 1rem);
+		--form-gap: var(--gap-x);
 		--gap-y: var(--form-gap);
 
 		grid-auto-rows: min-content;
@@ -23,5 +35,18 @@
 
 	legend {
 		margin-bottom: var(--gap-x);
+	}
+}
+
+.settings-group-wrapper {
+	display: grid;
+	grid-template-columns: repeat(2, max-content);
+	gap: var(--pad);
+	padding: var(--gap-x);
+	background-color: var(--clr-bg);
+	border-radius: var(--rad-inner);
+
+	&:nth-child(2) {
+		grid-template-columns: initial;
 	}
 }
