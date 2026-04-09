@@ -2,8 +2,8 @@
 	{
 		"url": "images/icons/icon-warning.svg",
 		"ttl": "Проблема",
-		"sub": "Малопригодные для реальных текстов шаблоны карточек",
-		"txt": "<ul class='list-bullet custom'> <li>Блоков мало.</li> <li>Среди них много похожих и почти одинаковых.</li> <li>Большинство не подходит под актуальный контент.</li> <li>Реально можно использовать буквально несколько секций.</li> <li>Некоторые приходится дополнять кастомными инлайновыми стилями.</li> <li>Контент приходится подгонять, урезать, переписывать, упрощать.</li> </ul>"
+		"sub": "Малопригодные для типового контента шаблоны карточек",
+		"txt": "<ul class='list-bullet custom'> <li>Блоков мало.</li> <li>Среди них много похожих и почти одинаковых.</li> <li>Большинство не подходит под контент.</li> <li>Реально можно использовать буквально несколько секций.</li> <li>Некоторые приходится дополнять кастомными инлайновыми стилями.</li> <li>Контент приходится подгонять, урезать, переписывать, упрощать.</li> </ul>"
 	},
 	{
 		"url": "images/icons/icon-hacker.svg",
@@ -38,8 +38,8 @@
 	{
 		"url": "images/icons/icon-bubble.svg",
 		"ttl": "Эти сочетания смотрятся плохо",
-		"sub": "Поэтому включить одновременно всё в этих группах нельзя",
-		"txt": "<ul class='list-bullet custom'> <li><span>2 & 3 columns +</span> <ul> <li>Figure Small + Cover</li> </ul> </li> <li><span>4 & 5 columns +</span> <ul> <li>Figure Left</li> <li>Figure Large</li> <li>Card Title Large</li> </ul> </li> <li><span>5 columns +</span> <ul> <li>Figure Medium + Ordered List</li> </ul> </li> <li><span>Card Title +</span> <ul> <li>Card Title Small + Card Subtitle</li> </ul> </li> <li><span>Article Title Medium +</span> <ul> <li>Card Title Large</li> </ul> </li> </ul> <p>Примечание: воссоздавать эту логику не требуется.</p>"
+		"sub": "Поэтому включить одновременно всё в этих случаях нельзя",
+		"txt": "<ul class='list-bullet custom'> <li>Если колонок 4 или 5, нельзя: <ul> <li>иконки слева или большие иконки</li> <li>большие заголовки карточки</li> </ul> </li> <li>Нельзя одновременно из-за одинакового размера: <ul> <li>маленький заголовок карточки и подзаголовок</li> <li>средний заголовок в секции, большой — в карточке</li> </ul> </li> </ul>"
 	},
 	{
 		"url": "images/icons/icon-spy.svg",
