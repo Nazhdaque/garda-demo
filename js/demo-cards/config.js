@@ -63,21 +63,28 @@ const radios = [
 const checkboxes = [...header, ...general, ...content];
 
 const preventEnableAll = [
-	[idCol2, idImageSm, idImageCover],
-	[idCol3, idImageSm, idImageCover],
-	[idCol4, idImageLeft],
 	[idCol4, idImageLg],
-	[idCol4, idTitleLg],
-	[idCol5, idImageLeft],
 	[idCol5, idImageLg],
+
+	[idCol4, idImageLeft],
+	[idCol5, idImageLeft],
+
+	[idCol4, idTitleLg],
 	[idCol5, idTitleLg],
-	[idCol5, idImageMd, idList],
-	[idTitle, idTitleSm, idSubtitle],
+
+	[idTitleSm, idSubtitle],
 	[idArticleTitleMd, idTitleLg],
 ];
 const preventDisableAll = [...content];
 
-const config = { radios, checkboxes, preventEnableAll, preventDisableAll };
+const config = {
+	radios,
+	checkboxes,
+	preventEnableAll,
+	preventDisableAll,
+};
+
+document.addEventListener("DOMContentLoaded", () => handleSwitches(config));
 
 getInputs(radios, checkboxes).forEach(el =>
 	el.addEventListener("change", () => {

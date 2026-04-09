@@ -78,9 +78,6 @@
 	&.img-size-sm {
 		--img-size: calc(var(--col-1-of-12) * 0.5);
 
-		&.img-pos-cover {
-			--img-h: calc(var(--col-1-of-12) * 1.5);
-		}
 		&.list .demo-card::before {
 			font-size: var(--fs-lg);
 		}
@@ -88,9 +85,6 @@
 	&.img-size-md {
 		--img-size: calc(var(--col-1-of-12) * 0.75);
 
-		&.img-pos-cover {
-			--img-h: calc(var(--col-1-of-12) * 2);
-		}
 		&.list .demo-card::before {
 			font-size: var(--fs-xl);
 		}
@@ -98,9 +92,6 @@
 	&.img-size-lg {
 		--img-size: calc(var(--col-1-of-12) * 1);
 
-		&.img-pos-cover {
-			--img-h: calc(var(--col-1-of-12) * 2.5);
-		}
 		&.list .demo-card::before {
 			font-size: var(--fs-2xl);
 		}
@@ -144,6 +135,10 @@
 		--col: 2;
 		--col-width: var(--col-1-of-2);
 
+		&.img-pos-cover {
+			--img-h: calc(var(--col-1-of-2) * (9 / 16));
+		}
+
 		&.scroll .demo-cards-nav :nth-child(2n + 1 of a) {
 			display: initial;
 		}
@@ -151,6 +146,10 @@
 	&.col-3 {
 		--col: 3;
 		--col-width: var(--col-1-of-3);
+
+		&.img-pos-cover {
+			--img-h: calc(var(--col-1-of-3) * (9 / 16));
+		}
 
 		&.scroll .demo-cards-nav :nth-child(3n + 1 of a) {
 			display: initial;
@@ -160,6 +159,10 @@
 		--col: 4;
 		--col-width: var(--col-1-of-4);
 
+		&.img-pos-cover {
+			--img-h: calc(var(--col-1-of-4) * (9 / 16));
+		}
+
 		&.scroll .demo-cards-nav :nth-child(4n + 1 of a) {
 			display: initial;
 		}
@@ -167,6 +170,10 @@
 	&.col-5 {
 		--col: 5;
 		--col-width: var(--col-1-of-5);
+
+		&.img-pos-cover {
+			--img-h: calc(var(--col-1-of-5) * (9 / 16));
+		}
 
 		&.scroll .demo-cards-nav :nth-child(5n + 1 of a) {
 			display: initial;
