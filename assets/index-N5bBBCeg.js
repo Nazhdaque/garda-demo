@@ -814,7 +814,7 @@
 		</div>\r
 \r
 		<div class="demo-cards-wrapper scroll-snap-inline focus-outline">\r
-			<section class="demo-card">\r
+			<!-- <section class="demo-card">\r
 				<picture class="img-box demo-card__img">\r
 					<img src="images/icons/icon-bubble.svg"\r
 							 alt="demo img">\r
@@ -840,7 +840,7 @@
 						</li>\r
 					</ul>\r
 				</div>\r
-			</section>\r
+			</section> -->\r
 		</div>\r
 \r
 		<div class="demo-cards-nav"></div>\r
