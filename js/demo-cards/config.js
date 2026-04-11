@@ -33,6 +33,7 @@ const idImageLeft = document.querySelector("#option-img-left");
 const idImageCover = document.querySelector("#option-img-cover");
 const idImageNone = document.querySelector("#option-img-none");
 
+const idCardHeader = document.querySelector("#option-card-header");
 const idTitle = document.querySelector("#option-title");
 const idSubtitle = document.querySelector("#option-subtitle");
 const idText = document.querySelector("#option-txt");
@@ -51,7 +52,7 @@ const general = [idBg, idSubgrid, idScroll, idList];
 const columns = [idCol2, idCol3, idCol4, idCol5];
 const imageSizes = [idImageSm, idImageMd, idImageLg];
 const imagePositions = [idImageTop, idImageLeft, idImageCover, idImageNone];
-const content = [idTitle, idSubtitle, idText];
+const content = [idCardHeader, idTitle, idSubtitle, idText];
 const titleSizes = [idTitleSm, idTitleMd, idTitleLg];
 const radios = [
 	...articleTitleSizes,
@@ -75,7 +76,8 @@ const preventEnableAll = [
 	[idTitleSm, idSubtitle],
 	[idArticleTitleMd, idTitleLg],
 ];
-const preventDisableAll = [...content];
+// const preventDisableAll = [...content];
+const preventDisableAll = [];
 
 const config = {
 	radios,
@@ -110,7 +112,8 @@ getInputs(radios, checkboxes).forEach(el =>
 		if (el === idImageCover)
 			swapClasses(settings, "img-pos-", "img-pos-top img-pos-cover");
 		if (el === idImageNone) swapClasses(settings, "img-pos-");
-		if (el === idTitle) toggleClass(settings, "title");
+		if (el === idCardHeader) toggleClass(settings, "card-header");
+		// if (el === idTitle) toggleClass(settings, "title");
 		if (el === idSubtitle) toggleClass(settings, "subtitle");
 		if (el === idText) toggleClass(settings, "text");
 		if (el === idTitleSm) swapClasses(settings, "title-", "title-sm");
