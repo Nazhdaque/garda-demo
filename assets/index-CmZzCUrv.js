@@ -394,7 +394,8 @@
 			</div>\r
 		</form>\r
 	</section>\r
-</div>`,r=`<div class="full-bleed garda-bg">\r
+</div>`,r=`<div class="full-bleed garda-bg"\r
+		 style="display: none;">\r
 	<form class="form settings">\r
 		<div class="scroll-snap-inline">\r
 			<div class="settings-group-wrapper">\r
@@ -451,6 +452,19 @@
 								</div>\r
 							</div>\r
 							<p class="checkbox-txt ellipsis fnt-rg">Ordered list</p>\r
+						</label>\r
+					</div>\r
+\r
+					<div class="checkbox-wrapper fnt-rg form-toggle">\r
+						<label>\r
+							<div class="input-wrapper">\r
+								<div class="form__input">\r
+									<input class="form__checkbox"\r
+												 type="checkbox"\r
+												 id="option-flex-list">\r
+								</div>\r
+							</div>\r
+							<p class="checkbox-txt ellipsis fnt-rg">Flex List</p>\r
 						</label>\r
 					</div>\r
 				</fieldset>\r
@@ -531,7 +545,7 @@
 												 checked>\r
 								</div>\r
 							</div>\r
-							<p class="checkbox-txt ellipsis fnt-rg">Icon Top</p>\r
+							<p class="checkbox-txt ellipsis fnt-rg">Icon Top or <br>Logo Center</p>\r
 						</label>\r
 					</div>\r
 \r
@@ -622,6 +636,20 @@
 								</div>\r
 							</div>\r
 							<p class="checkbox-txt ellipsis fnt-rg">Small</p>\r
+						</label>\r
+					</div>\r
+\r
+					<div class="checkbox-wrapper fnt-rg">\r
+						<label>\r
+							<div class="input-wrapper">\r
+								<div class="form__input">\r
+									<input class="form__checkbox"\r
+												 name="icon-size"\r
+												 type="radio"\r
+												 id="option-img-xs">\r
+								</div>\r
+							</div>\r
+							<p class="checkbox-txt ellipsis fnt-rg">Extra Small</p>\r
 						</label>\r
 					</div>\r
 				</fieldset>\r
@@ -741,6 +769,19 @@
 							<p class="checkbox-txt txt-trunc">Text</p>\r
 						</label>\r
 					</div>\r
+\r
+					<div class="checkbox-wrapper fnt-rg form-toggle">\r
+						<label for="option-one-line-title">\r
+							<div class="input-wrapper">\r
+								<div class="form__input">\r
+									<input class="form__checkbox"\r
+												 id="option-one-line-title"\r
+												 type="checkbox">\r
+								</div>\r
+							</div>\r
+							<p class="checkbox-txt txt-trunc">1-line Title</p>\r
+						</label>\r
+					</div>\r
 				</fieldset>\r
 \r
 				<fieldset class="settings-group grid-x">\r
@@ -808,10 +849,8 @@
 					title-md">\r
 		<div class="demo-cards__header width-x">\r
 			<h2 class="demo-cards__ttl">Модель настраиваемой секции</h2>\r
-			<p class="demo-cards__sub fnt-md txt-clr-6">Дизайн условный. Для удобства оценки\r
-				происходящего рекомендуется\r
-				уменьшить масштаб до\r
-				67% или 50%</p>\r
+			<p class="demo-cards__sub fnt-md txt-clr-6">Дизайн условный. Прочтите хотя бы заголовки карточек. Для удобства\r
+				оценки происходящего лучше уменьшить масштаб до 67% или 50%</p>\r
 		</div>\r
 \r
 		<div class="demo-cards-wrapper scroll-snap-inline focus-outline">\r
@@ -856,10 +895,10 @@
 			</picture>
 
 			<div class="demo-card__header">
-				<h3 class="demo-card__ttl">${n}</h3>
+				<h3 class="demo-card__ttl">${ui(n)}</h3>
 				<p class="demo-card__sub fnt-md">${r}</p>
 			</div>
 
 			<div class="demo-card__txt">${ui(i)}</div>
 		</section>
-	`,fi=e=>Kr`<a href="#demo-card-${e+1}" class="focus-outline"></a>`,pi=(e,t)=>Array.from(e).filter(e=>e.startsWith(t)),X=(e,t)=>e.toggle(t),Z=(e,t,n)=>{t.trim().split(/\s+/).forEach(t=>{t&&e.remove(...pi(e,t))}),n&&n.trim().split(/\s+/).forEach(t=>{t&&e.add(t)})},Q=()=>{let e=document.querySelector(`.demo-cards-wrapper`),t=document.querySelectorAll(`.demo-cards-nav a`);t.forEach(e=>e.classList.remove(`active`)),t[0].classList.add(`active`),e.scrollTo({left:0})},mi=(e,t)=>{let n=new Set;return[...e,...t].forEach(e=>{e&&(e.type===`checkbox`||e.type===`radio`)&&n.add(e)}),[...n]},hi=({radios:e,checkboxes:t,preventEnableAll:n,preventDisableAll:r})=>{mi(e,t).forEach(e=>{e.disabled=!1}),n.forEach(e=>{let t=e.map(e=>e&&e.nodeType===1&&(e.type===`checkbox`||e.type===`radio`)?{el:e,checked:e.checked}:null).filter(Boolean);if(t.length<2)return;let n=t.filter(e=>e.checked),r=t.filter(e=>!e.checked);if(n.length===t.length){let e=t[t.length-1];e&&(e.el.disabled=!0);return}n.length===t.length-1&&r.length===1&&(r[0].el.disabled=!0)});let i=r.filter(e=>e&&(e.type===`checkbox`||e.type===`radio`));if(i.length===0)return;let a=i.filter(e=>e.checked),o=i.filter(e=>!e.disabled);if(a.length===0){if(o.length>0){let e=o.find(e=>e);e&&(e.checked=!0)}else if(i.length>0){let e=i.find(e=>e);e&&(e.disabled=!1,e.checked=!0)}return}if(a.length===1&&!a[0].disabled&&(a[0].disabled=!0),o.length===0&&i.length>0){let e=i.find(e=>e);e&&(e.disabled=!1)}},$=document.querySelector(`.demo-cards`).classList,gi=document.querySelector(`#option-article-header`),_i=document.querySelector(`#option-article-subtitle`),vi=document.querySelector(`#option-article-title-sm`),yi=document.querySelector(`#option-article-title-md`),bi=document.querySelector(`#option-article-title-lg`),xi=document.querySelector(`#option-вackground`),Si=document.querySelector(`#option-subgrid`),Ci=document.querySelector(`#option-scroll`),wi=document.querySelector(`#option-list`),Ti=document.querySelector(`#option-col-2`),Ei=document.querySelector(`#option-col-3`),Di=document.querySelector(`#option-col-4`),Oi=document.querySelector(`#option-col-5`),ki=document.querySelector(`#option-img-sm`),Ai=document.querySelector(`#option-img-md`),ji=document.querySelector(`#option-img-lg`),Mi=document.querySelector(`#option-img-top`),Ni=document.querySelector(`#option-img-left`),Pi=document.querySelector(`#option-img-cover`),Fi=document.querySelector(`#option-img-none`),Ii=document.querySelector(`#option-card-header`),Li=document.querySelector(`#option-title`),Ri=document.querySelector(`#option-subtitle`),zi=document.querySelector(`#option-txt`),Bi=document.querySelector(`#option-title-sm`),Vi=document.querySelector(`#option-title-md`),Hi=document.querySelector(`#option-title-lg`),Ui=[gi,_i],Wi=[vi,yi,bi],Gi=[xi,Si,Ci,wi],Ki=[Ti,Ei,Di,Oi],qi=[ki,Ai,ji],Ji=[Mi,Ni,Pi,Fi],Yi=[Ii,Li,Ri,zi],Xi=[Bi,Vi,Hi],Zi=[...Wi,...Ki,...qi,...Ji,...Xi],Qi=[...Ui,...Gi,...Yi],$i={radios:Zi,checkboxes:Qi,preventEnableAll:[[Di,ji],[Oi,ji],[Di,Ni],[Oi,Ni],[Di,Hi],[Oi,Hi],[Bi,Ri],[yi,Hi]],preventDisableAll:[]};document.addEventListener(`DOMContentLoaded`,()=>hi($i)),mi(Zi,Qi).forEach(e=>e.addEventListener(`change`,()=>{e===gi&&X($,`article-header`),e===_i&&X($,`article-subtitle`),e===yi&&Z($,`article-title-`,`article-title-md`),e===bi&&Z($,`article-title-`,`article-title-lg`),e===xi&&X($,`section-bg`),e===Si&&X($,`subgrid`),e===Ci&&(X($,`scroll`),Q()),e===wi&&X($,`list`),e===Ti&&(Z($,`col-`,`col-2`),Q()),e===Ei&&(Z($,`col-`,`col-3`),Q()),e===Di&&(Z($,`col-`,`col-4`),Q()),e===Oi&&(Z($,`col-`,`col-5`),Q()),e===ki&&Z($,`img-size-`,`img-size-sm`),e===Ai&&Z($,`img-size-`,`img-size-md`),e===ji&&Z($,`img-size-`,`img-size-lg`),e===Mi&&Z($,`img-pos-`,`img-pos-top`),e===Ni&&Z($,`img-pos-`,`img-pos-left`),e===Pi&&Z($,`img-pos-`,`img-pos-top img-pos-cover`),e===Fi&&Z($,`img-pos-`),e===Ii&&X($,`card-header`),e===Ri&&X($,`subtitle`),e===zi&&X($,`text`),e===Bi&&Z($,`title-`,`title-sm`),e===Vi&&Z($,`title-`,`title-md`),e===Hi&&Z($,`title-`,`title-lg`),hi($i)}));var ea=document.querySelector(`.demo-cards-wrapper`),ta=document.querySelector(`.demo-cards-nav`),na=()=>{let e=document.querySelectorAll(`.demo-cards-nav a`);e.forEach((t,n)=>{n===0&&t.classList.add(`active`),t.addEventListener(`click`,n=>{n.preventDefault();let r=n.currentTarget.getAttribute(`href`),i=document.querySelector(r).getBoundingClientRect(),a=ea.getBoundingClientRect(),o=ea.scrollLeft,s=i.left-a.left+o;e.forEach(e=>{e.classList.contains(`active`)&&e.classList.remove(`active`)}),ea.scrollTo({left:s}),t.classList.add(`active`)})})},ra=new a(`data/`);(async()=>{let e=await ra.get(`cards-data.json`),t=[],n=[];e.forEach((e,r)=>{let{url:i,ttl:a,sub:o,txt:s}=e;t.push(di(r,i,a,o,s)),n.push(fi(r))}),ai(t,ea),ai(n,ta),(()=>{let e=document.querySelectorAll(`.demo-card`).length;ea.style.setProperty(`--col`,e)})(),na()})(),c(`main-header`,`-slide-up`),l(`hero-news`,`cursor-glow`),u(`garda-bg`,`del-section-btn`),console.log(`%c𝕔𝕠𝕕𝕖𝕕 𝕓𝕪 ✨𝕟𝕒𝕫𝕙𝕕𝕒𝕢𝕦𝕖​✨`,`background: #292c42; color: #45cdff;`);
+	`,fi=e=>Kr`<a href="#demo-card-${e+1}" class="focus-outline"></a>`,pi=(e,t)=>Array.from(e).filter(e=>e.startsWith(t)),X=(e,t)=>e.toggle(t),Z=(e,t,n)=>{t.trim().split(/\s+/).forEach(t=>{t&&e.remove(...pi(e,t))}),n&&n.trim().split(/\s+/).forEach(t=>{t&&e.add(t)})},mi=()=>{let e=document.querySelector(`.demo-cards-wrapper`),t=document.querySelectorAll(`.demo-cards-nav a`);t.forEach(e=>e.classList.remove(`active`)),t[0].classList.add(`active`),e.scrollTo({left:0})},hi=(e,t)=>{let n=new Set;return[...e,...t].forEach(e=>{e&&(e.type===`checkbox`||e.type===`radio`)&&n.add(e)}),[...n]},gi=({radios:e,checkboxes:t,preventEnableAll:n,preventDisableAll:r})=>{hi(e,t).forEach(e=>{e.disabled=!1}),n.forEach(e=>{let t=e.map(e=>e&&e.nodeType===1&&(e.type===`checkbox`||e.type===`radio`)?{el:e,checked:e.checked}:null).filter(Boolean);if(t.length<2)return;let n=t.filter(e=>e.checked),r=t.filter(e=>!e.checked);if(n.length===t.length){let e=t[t.length-1];e&&(e.el.disabled=!0);return}n.length===t.length-1&&r.length===1&&(r[0].el.disabled=!0)});let i=r.filter(e=>e&&(e.type===`checkbox`||e.type===`radio`));if(i.length===0)return;let a=i.filter(e=>e.checked),o=i.filter(e=>!e.disabled);if(a.length===0){if(o.length>0){let e=o.find(e=>e);e&&(e.checked=!0)}else if(i.length>0){let e=i.find(e=>e);e&&(e.disabled=!1,e.checked=!0)}return}if(a.length===1&&!a[0].disabled&&(a[0].disabled=!0),o.length===0&&i.length>0){let e=i.find(e=>e);e&&(e.disabled=!1)}},Q=document.querySelector(`.demo-cards`).classList,_i=document.querySelector(`#option-article-header`),vi=document.querySelector(`#option-article-subtitle`),yi=document.querySelector(`#option-article-title-sm`),bi=document.querySelector(`#option-article-title-md`),xi=document.querySelector(`#option-article-title-lg`),Si=document.querySelector(`#option-вackground`),Ci=document.querySelector(`#option-subgrid`),wi=document.querySelector(`#option-scroll`),Ti=document.querySelector(`#option-list`),$=document.querySelector(`#option-flex-list`),Ei=document.querySelector(`#option-col-2`),Di=document.querySelector(`#option-col-3`),Oi=document.querySelector(`#option-col-4`),ki=document.querySelector(`#option-col-5`),Ai=document.querySelector(`#option-img-xs`),ji=document.querySelector(`#option-img-sm`),Mi=document.querySelector(`#option-img-md`),Ni=document.querySelector(`#option-img-lg`),Pi=document.querySelector(`#option-img-top`),Fi=document.querySelector(`#option-img-left`),Ii=document.querySelector(`#option-img-cover`),Li=document.querySelector(`#option-img-none`),Ri=document.querySelector(`#option-card-header`),zi=document.querySelector(`#option-title`),Bi=document.querySelector(`#option-subtitle`),Vi=document.querySelector(`#option-txt`),Hi=document.querySelector(`#option-one-line-title`),Ui=document.querySelector(`#option-title-sm`),Wi=document.querySelector(`#option-title-md`),Gi=document.querySelector(`#option-title-lg`),Ki=[_i,vi],qi=[yi,bi,xi],Ji=[Si,Ci,wi,Ti,$],Yi=[Ei,Di,Oi,ki],Xi=[Ai,ji,Mi,Ni],Zi=[Pi,Fi,Ii,Li],Qi=[Ri,zi,Bi,Vi,Hi],$i=[Ui,Wi,Gi],ea=[...qi,...Yi,...Xi,...Zi,...$i],ta=[...Ki,...Ji,...Qi],na={radios:ea,checkboxes:ta,preventEnableAll:[[Oi,Ni],[ki,Ni],[Oi,Fi],[ki,Fi],[Oi,Gi],[ki,Gi],[Ui,Bi],[bi,Gi],[$,Bi],[$,Vi],[$,Gi],[$,Ii]],preventDisableAll:[]};document.addEventListener(`DOMContentLoaded`,()=>gi(na)),hi(ea,ta).forEach(e=>e.addEventListener(`change`,()=>{e===$&&X(Q,`flex-list`),e===Hi&&X(Q,`one-line-title`),e===_i&&X(Q,`article-header`),e===vi&&X(Q,`article-subtitle`),e===bi&&Z(Q,`article-title-`,`article-title-md`),e===xi&&Z(Q,`article-title-`,`article-title-lg`),e===Si&&X(Q,`section-bg`),e===Ci&&X(Q,`subgrid`),e===wi&&(X(Q,`scroll`),mi()),e===Ti&&X(Q,`list`),e===Ei&&(Z(Q,`col-`,`col-2`),mi()),e===Di&&(Z(Q,`col-`,`col-3`),mi()),e===Oi&&(Z(Q,`col-`,`col-4`),mi()),e===ki&&(Z(Q,`col-`,`col-5`),mi()),e===Ai&&Z(Q,`img-size-`,`img-size-xs`),e===ji&&Z(Q,`img-size-`,`img-size-sm`),e===Mi&&Z(Q,`img-size-`,`img-size-md`),e===Ni&&Z(Q,`img-size-`,`img-size-lg`),e===Pi&&Z(Q,`img-pos-`,`img-pos-top`),e===Fi&&Z(Q,`img-pos-`,`img-pos-left`),e===Ii&&Z(Q,`img-pos-`,`img-pos-top img-pos-cover`),e===Li&&Z(Q,`img-pos-`),e===Ri&&X(Q,`card-header`),e===Bi&&X(Q,`subtitle`),e===Vi&&X(Q,`text`),e===Ui&&Z(Q,`title-`,`title-sm`),e===Wi&&Z(Q,`title-`,`title-md`),e===Gi&&Z(Q,`title-`,`title-lg`),gi(na)}));var ra=document.querySelector(`.demo-cards-wrapper`),ia=document.querySelector(`.demo-cards-nav`),aa=()=>{let e=document.querySelectorAll(`.demo-cards-nav a`);e.forEach((t,n)=>{n===0&&t.classList.add(`active`),t.addEventListener(`click`,n=>{n.preventDefault();let r=n.currentTarget.getAttribute(`href`),i=document.querySelector(r).getBoundingClientRect(),a=ra.getBoundingClientRect(),o=ra.scrollLeft,s=i.left-a.left+o;e.forEach(e=>{e.classList.contains(`active`)&&e.classList.remove(`active`)}),ra.scrollTo({left:s}),t.classList.add(`active`)})})},oa=new a(`data/`);(async()=>{let e=await oa.get(`cards-data.json`),t=[],n=[];e.forEach((e,r)=>{let{url:i,ttl:a,sub:o,txt:s}=e;t.push(di(r,i,a,o,s)),n.push(fi(r))}),ai(t,ra),ai(n,ia),(()=>{let e=document.querySelectorAll(`.demo-card`).length;ra.style.setProperty(`--col`,e)})(),aa()})(),c(`main-header`,`-slide-up`),l(`hero-news`,`cursor-glow`),u(`garda-bg`,`del-section-btn`),console.log(`%c𝕔𝕠𝕕𝕖𝕕 𝕓𝕪 ✨𝕟𝕒𝕫𝕙𝕕𝕒𝕢𝕦𝕖​✨`,`background: #292c42; color: #45cdff;`);
