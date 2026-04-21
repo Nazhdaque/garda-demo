@@ -27,8 +27,14 @@
 	gap: var(--gap-x);
 	transition: color var(--time) ease;
 
-	&:has(.form__checkbox:disabled) .checkbox-txt {
-		--clr-txt: hsl(from var(--white) h s l / 0.4);
+	&:has(.form__checkbox:disabled) {
+		.checkbox-txt {
+			--clr-txt: hsl(from var(--white) h s l / 0.4);
+		}
+		.input-wrapper,
+		.checkbox-txt {
+			cursor: auto;
+		}
 	}
 
 	.input-wrapper {
@@ -54,7 +60,6 @@
 		&:has(.form__checkbox:checked)::after {
 			scale: 1;
 		}
-
 		&:has(.form__checkbox:disabled, .form__checkbox:disabled:checked)::after {
 			transform-origin: center;
 			background-image: var(--clr-failure);

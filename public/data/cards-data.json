@@ -1,60 +1,72 @@
 [
 	{
+		"url": "images/icons/icon-brain.svg",
+		"ttl": "Почему иконки и лого выглядят сломанными при выборе некоторых опций?",
+		"sub": "Чтобы в одной секции вам показать все варианты (но это не use case!)",
+		"txt": "<p>Cтили, подходящие только для одного варианта, применяются и к остальным. Но реально в секции должно быть что-то одно: либо картинки, либо иконки, либо логотипы.</p> <p>То, что выглядит адекватно, и есть use case для той или иной комбинации опций.</p>"
+	},
+	{
 		"url": "images/icons/icon-warning.svg",
 		"ttl": "Проблема",
 		"sub": "Малопригодные для типового контента шаблоны карточек",
-		"txt": "<ul class='list-bullet custom'> <li>Блоков мало.</li> <li>Среди них много похожих и почти одинаковых.</li> <li>Большинство не подходит под контент.</li> <li>Реально можно использовать буквально несколько секций.</li> <li>Некоторые приходится дополнять кастомными инлайновыми стилями.</li> <li>Контент приходится подгонять, урезать, переписывать, упрощать.</li> </ul>"
+		"txt": "<ul class='list-bullet custom'> <li>Блоков не хватает.</li> <li>Некоторые похожи, есть почти одинаковые.</li> <li>Большинство не подходит под контент.</li> <li>Реально можно использовать буквально несколько секций.</li> <li>Некоторые приходится дополнять кастомными инлайновыми стилями.</li> </ul> <p>Получается, что форма определяет содержание. А должно быть наоборот, потому что контент первичен. Не контент для сайта, а сайт для контента.</p>"
 	},
 	{
-		"url": "images/icons/icon-hacker.svg",
+		"url": "images/icons/icon-rocket.svg",
 		"ttl": "Итог",
-		"sub": "Ущербный рабочий процесс и посредственный результат",
-		"txt": "<ul class='list-bullet custom'> <li>Неудобно, трудоемко, времязатратно для всех участников процесса.</li> <li>Везде, часто в пределах одной страницы повторяются одни и те же блоки.</li> <li>Контент из-за ограничений менее информативный и наглядный.</li> </ul> <p>Получается, что форма определяет содержание. А должно быть наоборот, потому что контент первичен. Не контент для сайта, а сайт для контента.</p>"
+		"sub": "Избыточный объем работ и посредственный результат",
+		"txt": "<ul class='list-bullet custom'> <li>Контент приходится подгонять, урезать, переписывать, упрощать.</li> <li>Неудобно, трудоемко, времязатратно для всех участников процесса.</li> <li>Часто рядом на одной странице повторяются одни и те же блоки.</li> <li>Контент из-за ограничений менее информативный и наглядный.</li> <li>Пространство страницы часто используется неоптимально.</li> <li>Нередко выглядит неэстетично: много пустого места или много контента в слишком узких колонках.</li></ul>"
 	},
 	{
 		"url": "images/demo-720p.webp",
 		"ttl": "Решение",
-		"sub": "Настраиваемая секция с возможностью вариативного отображения контента",
+		"sub": "Настраиваемые компоненты с возможностью вариативного отображения контента",
 		"txt": "<p>Нужны компоненты, внешним видом которых можно управлять более гибко, чтобы адаптировать их под конкретный контент.</p> <p>В целом нужно больше вариантов представления контента, чтобы страницы выглядели более разнообразно.</p> <p>Также возможность выбрать оптимальный вариант позволит более рационально использовать пространство на странице.</p>"
 	},
 	{
-		"url": "images/icons/icon-rocket.svg",
+		"url": "images/demo-1280x360.webp",
 		"ttl": "Результат",
 		"sub": "Универсальный компонент",
 		"txt": "<p>Внутренний заказчик и исполнитель получают возможность предлагать и размещать типовой текстовый контент без указанных ограничений и неудобств.</p> <p>Контент выглядит не так однообразно.</p>"
 	},
 	{
-		"url": "images/icons/icon-brain.svg",
+		"url": "images/demo-square.webp",
 		"ttl": "Премущества",
 		"sub": "Один компонент вместо зоопарка",
 		"txt": "<ul class='list-bullet custom'> <li>Одинаковая верстка: html один и тот же во всех вариантах.</li> <li>Простота: реализуется на чистом css, без скриптов.</li> <li>Все варианты задаются классами-модификаторами в родителе.</li> <li>Экономия на разработке: делаем один блок, а не много разных.</li> <li>Проще поддерживать: один vs много разных по исполнению.</li> <li>Удобство использования в повседневных сценариях: подходит для большинства типовых кейсов.</li> </ul>"
 	},
 	{
-		"url": "images/icons/icon-cards.svg",
-		"ttl": "Почему при выборе Picture Top иконки выглядят странно?",
-		"sub": "Потому что на практике в одной секции будут либо картинки, либо иконки",
-		"txt": "<p>Чтобы в одной секции показать все варианты, одновременно используются и иконки, и картинки. Значение css свойста, управляющего позиционированием объекта, должно быть разным для иконки и для полноразмерной картинки. Поэтому то, что подходит для картинки, не подходит для иконки.</p>"
-	},
-	{
-		"url": "images/icons/icon-bubble.svg",
+		"url": "images/logos/logo-pochta-rossii.svg",
 		"ttl": "Эти сочетания смотрятся плохо",
 		"sub": "Поэтому включить одновременно всё в этих случаях нельзя",
-		"txt": "<ul class='list-bullet custom'> <li>Если колонок 4 или 5, нельзя: <ul> <li>иконки слева или большие иконки</li> <li>большие заголовки карточки</li> </ul> </li> <li>Нельзя одновременно из-за одинакового размера: <ul> <li>маленький заголовок карточки и подзаголовок</li> <li>средний заголовок в секции, большой — в карточке</li> </ul> </li> </ul>"
+		"txt": "<ul class='list-bullet custom'> <li>Если колонок 4 или 5, нельзя: <ul> <li>иконки слева или большие иконки</li> <li>большие заголовки карточки</li> </ul> </li> <li>Нельзя одновременно из-за одинакового размера: <ul> <li>маленький заголовок карточки и подзаголовок</li> <li>средний заголовок в секции, большой — в карточке</li> </ul> </li> </ul> <p>Воспроизводить эту логику не требуется, она нужна, чтобы не показывать вам некрасивое.</p>"
 	},
 	{
-		"url": "images/icons/icon-spy.svg",
-		"ttl": "Lorem ipsum dolor sit amet consectetur adipisicing",
-		"sub": "Lorem ipsum dolor sit amet consectetur adipisicing elit odit iusto cupiditate recusandae",
-		"txt": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit sapiente vitae perspiciatis eius placeat explicabo.</p> <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error iusto vel tenetur minima, laudantium sequi rerum similique sapiente eligendi totam id, ex possimus beatae pariatur commodi rem quis recusandae ea reprehenderit laborum temporibus veritatis repellendus, officia architecto! Consectetur, dolorem in.</p>"
+		"url": "images/logos/logo-vtb.svg",
+		"ttl": "Логотипы",
+		"sub": "Как включить?",
+		"txt": "<p>Надо просто убрать весь текстовый контнент и выбрать подходящий режим отображения изображений</p> <ul class='list-bullet custom'> <li>Выключить Card Header</li> <li>Выключить Card Text</li> <li>Включить Icon Top or Logo Center</li> </ul>"
 	},
 	{
-		"url": "images/icons/icon-data.svg",
+		"url": "images/logos/logo-megafon.svg",
 		"ttl": "Lorem ipsum dolor sit",
 		"sub": "Lorem ipsum dolor sit amet consectetur adipisicing elit",
 		"txt": "<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias corrupti possimus nihil veniam unde vel. </p> <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio cum maxime consequuntur explicabo temporibus iste reprehenderit ipsa ut, porro odio?</p>"
 	},
 	{
-		"url": "images/icons/icon-doc.svg",
+		"url": "images/icons/icon-check-mark.svg",
+		"ttl": "Lorem ipsum dolor sit amet",
+		"sub": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
+		"txt": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, unde. Neque quasi sequi magnam dignissimos! Rerum quasi voluptatum necessitatibus ut.</p>"
+	},
+	{
+		"url": "images/icons/icon-check-mark.svg",
+		"ttl": "Lorem ipsum dolor sit amet",
+		"sub": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
+		"txt": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, unde. Neque quasi sequi magnam dignissimos! Rerum quasi voluptatum necessitatibus ut.</p>"
+	},
+	{
+		"url": "images/icons/icon-check-mark.svg",
 		"ttl": "Lorem ipsum dolor sit amet",
 		"sub": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
 		"txt": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, unde. Neque quasi sequi magnam dignissimos! Rerum quasi voluptatum necessitatibus ut.</p>"
