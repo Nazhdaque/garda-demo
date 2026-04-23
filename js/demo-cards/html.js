@@ -10,7 +10,7 @@ export const card = (index, url, ttl, sub, txt) => {
 
 			<div class="demo-card__header">
 				<h3 class="demo-card__ttl">${unsafeHTML(ttl)}</h3>
-				<p class="demo-card__sub fnt-md">${sub}</p>
+				<p class="demo-card__sub fnt-md">${unsafeHTML(sub)}</p>
 			</div>
 
 			<div class="demo-card__txt">${unsafeHTML(txt)}</div>

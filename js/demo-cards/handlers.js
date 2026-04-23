@@ -32,7 +32,7 @@ export const resetSlider = () => {
 };
 
 // ============================================
-// handleSwitches
+// handleSwitches - РАДИОКНОПКИ ОСТАЮТСЯ CHECKED
 // ============================================
 
 const blockedState = new Map();
@@ -68,7 +68,6 @@ const restoreBlockedInputs = () => {
 export const handleSwitches = dependencyRules => {
 	if (!dependencyRules?.length) return;
 
-	// 1. Собираем все инпуты
 	const allInputs = new Set();
 	dependencyRules.forEach(([triggers, dependents]) => {
 		triggers.forEach(t => t && allInputs.add(t));
@@ -77,13 +76,9 @@ export const handleSwitches = dependencyRules => {
 			.forEach(d => allInputs.add(d));
 	});
 
-	// 2. Разблокируем все (чистый лист)
 	allInputs.forEach(input => (input.disabled = false));
-
-	// 3. Восстанавливаем ранее заблокированные
 	restoreBlockedInputs();
 
-	// 4. Блокируем активные правила
 	dependencyRules.forEach(([triggers, dependents]) => {
 		if (!isTriggerActive(triggers)) return;
 
@@ -91,8 +86,16 @@ export const handleSwitches = dependencyRules => {
 			.filter(Boolean)
 			.forEach(dep => {
 				saveStateBeforeBlock(dep);
+
 				dep.disabled = true;
-				dep.checked = false;
+
+				// 🔥 РАДИО = сохраняем checked, ЧЕКБОКС = сбрасываем
+				if (dep.type === "radio") {
+					// Радиокнопка ОСТАЕТСЯ checked
+				} else {
+					dep.checked = false; // Только чекбоксы сбрасываем
+				}
+
 				blockedInputs.add(dep);
 			});
 	});

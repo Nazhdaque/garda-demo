@@ -72,25 +72,32 @@ const switches = [
 	...content,
 ].filter(Boolean);
 
-const preventEnableAll = [
-	[idCol4, idImageLeft],
-	[idCol5, idImageLeft],
-
-	[idCol4, idTitleLg],
-	[idCol5, idTitleLg],
-
-	// [idList, idImageLogo],
-	// [idFlexList, idScroll],
-	// [idFlexList, idSubgrid],
-];
-
 const dependencyRules = [
 	[[idImageLogo], content],
-	[[idFlexList], [idSubtitle, idText]],
+
+	[[idFlexList], [idCardHeader, idText, idSubgrid, idScroll, ...titleSizes]],
+	[
+		[idFlexList, idImageNone],
+		[idCardHeader, ...imageSizes],
+	],
+	[[idFlexList, idImageCover], content],
+	[[idFlexList, idImageNone], columns],
+	[[idFlexList, idImageLogo], columns],
+	[[idFlexList, idImageTop], columns],
+	[[idFlexList, idImageLeft], columns],
+
 	[[idImageLeft], [idCol4, idCol5]],
 	[[idCol4], [idImageLeft]],
 	[[idCol5], [idImageLeft]],
-	[[idFlexList, idImageCover], content],
+
+	[[idTitleLg], [idArticleTitleMd]],
+	[[idArticleTitleMd], [idTitleLg]],
+
+	[[idSubtitle], [idTitleSm]],
+	[[idTitleSm], [idSubtitle]],
+
+	[[idImageLogo], [idList]],
+	[[idList], [idImageLogo]],
 ];
 
 const initialDisabled = new Map();
