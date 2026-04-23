@@ -510,10 +510,6 @@
 			display: flex;
 			flex-wrap: wrap;
 			gap: var(--gap-x);
-
-			& > * {
-				flex-basis: 1;
-			}
 		}
 	}
 }
