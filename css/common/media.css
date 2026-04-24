@@ -26,7 +26,7 @@
 		padding: var(--pad-xl);
 	}
 
-	.demo-cards:where(.col-4) {
+	.demo-cards:where(.col-4, .col-5) {
 		--col: 3;
 	}
 
@@ -54,7 +54,7 @@
 		outline-offset: calc(var(--outline-width) * -1);
 	}
 
-	.demo-cards:where(.col-3, .col-4) {
+	.demo-cards:where(.col-3, .col-4, .col-5) {
 		--col: 2;
 	}
 
@@ -83,7 +83,7 @@
 		}
 	}
 
-	.demo-cards:where(.col-2, .col-3, .col-4) {
+	.demo-cards:where(.col-2, .col-3, .col-4, .col-5) {
 		--col: 1;
 	}
 

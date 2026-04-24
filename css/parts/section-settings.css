@@ -16,8 +16,8 @@
 		grid-template-columns: repeat(4, minmax(max-content, auto));
 		grid-column: 1 / -1;
 
-		-ms-overflow-style: initial;
-		scrollbar-width: initial;
+		-ms-overflow-style: auto;
+		scrollbar-width: thin;
 
 		&::-webkit-scrollbar {
 			display: initial;
@@ -60,6 +60,7 @@
 	border-radius: var(--rad) 0;
 	cursor: pointer;
 	position: absolute;
+	z-index: 1;
 	transition:
 		background-color 0.3s,
 		color 0.3s;
