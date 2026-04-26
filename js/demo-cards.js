@@ -8,7 +8,6 @@ const cardsNavPanel = document.querySelector(".demo-cards-nav");
 
 const getSliderNav = () => {
 	const navLinks = document.querySelectorAll(".demo-cards-nav a");
-	// let prevActivePoint = 0;
 
 	navLinks.forEach((point, i) => {
 		if (i === 0) point.classList.add("active");
@@ -24,14 +23,10 @@ const getSliderNav = () => {
 			const targetX = rect.left - containerRect.left + scrollLeft;
 
 			navLinks.forEach(item => {
-				if (item.classList.contains("active")) {
-					item.classList.remove("active");
-				}
+				if (item.classList.contains("active")) item.classList.remove("active");
 			});
-			// navLinks[prevActivePoint].classList.remove("active");
 			scrollContainer.scrollTo({ left: targetX });
 			point.classList.add("active");
-			// prevActivePoint = i;
 		});
 	});
 };

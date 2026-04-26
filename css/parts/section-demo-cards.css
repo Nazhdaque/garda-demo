@@ -26,12 +26,6 @@
 		:where(.demo-card__ttl, .demo-card__sub) {
 		place-self: center start;
 	}
-	/* &:where(:not(.subtitle, .text).card-header, .img-pos-left) .demo-card__ttl {
-		place-self: center start;
-	}
-	&:where(:not(.card-header, .text)).img-pos-top .demo-card::before {
-		place-self: center;
-	} */
 
 	&.one-line-title .demo-card__ttl {
 		display: block;

@@ -31,9 +31,9 @@ export const resetSlider = () => {
 	scrollContainer.scrollTo({ left: 0 });
 };
 
-// ============================================
-// handleSwitches - РАДИОКНОПКИ ОСТАЮТСЯ CHECKED
-// ============================================
+// ==============
+// handleSwitches
+// ==============
 
 const blockedState = new Map();
 const blockedInputs = new Set();
@@ -89,11 +89,9 @@ export const handleSwitches = dependencyRules => {
 
 				dep.disabled = true;
 
-				// 🔥 РАДИО = сохраняем checked, ЧЕКБОКС = сбрасываем
 				if (dep.type === "radio") {
-					// Радиокнопка ОСТАЕТСЯ checked
 				} else {
-					dep.checked = false; // Только чекбоксы сбрасываем
+					dep.checked = false;
 				}
 
 				blockedInputs.add(dep);

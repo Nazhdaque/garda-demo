@@ -30,6 +30,10 @@
 		--col: 3;
 	}
 
+	.demo-cards-nav {
+		display: none;
+	}
+
 	/* utilities */
 	.md-js-auto {
 		justify-self: auto;
