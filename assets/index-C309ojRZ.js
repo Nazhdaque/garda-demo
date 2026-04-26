@@ -507,7 +507,7 @@
 												 type="checkbox">\r
 								</div>\r
 							</div>\r
-							<p class="checkbox-txt txt-trunc">Slider</p>\r
+							<p class="checkbox-txt txt-trunc">Scroll-snap</p>\r
 						</label>\r
 					</div>\r
 \r
@@ -866,7 +866,7 @@
 					text\r
 					title-md">\r
 		<div class="demo-cards__header width-x">\r
-			<h2 class="demo-cards__ttl">HTML&nbsp;— везде один и тот же</h2>\r
+			<h2 class="demo-cards__ttl">HTML и CSS&nbsp;— везде один и тот же</h2>\r
 			<p class="demo-cards__sub fnt-md txt-clr-6">Дизайн условный. Для удобства оценки происходящего лучше уменьшить\r
 				масштаб до 67% или 50%</p>\r
 		</div>\r
