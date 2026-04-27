@@ -867,7 +867,7 @@
 					text\r
 					title-md">\r
 		<div class="demo-cards__header width-x">\r
-			<h2 class="demo-cards__ttl">HTML и CSS&nbsp;— везде один и тот же</h2>\r
+			<h2 class="demo-cards__ttl">Все эти карточки&nbsp;— одно и же</h2>\r
 			<p class="demo-cards__sub fnt-md txt-clr-6">Дизайн условный. Для удобства оценки происходящего лучше уменьшить\r
 				масштаб до 67% или 50%</p>\r
 		</div>\r
