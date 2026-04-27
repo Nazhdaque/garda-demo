@@ -55,6 +55,9 @@
 	&.card-header .demo-card__header {
 		display: grid;
 	}
+	&.card-header .demo-card__txt {
+		margin-top: var(--pad);
+	}
 	&:where(.card-header, .text, .img-pos-left) .demo-card__img {
 		--fit: cover;
 		--img-w: var(--img-h);
@@ -528,7 +531,7 @@
 	overflow: hidden;
 	display: grid;
 	place-items: start;
-	gap: var(--pad);
+	gap: var(--gap-x) var(--pad);
 	grid-auto-rows: min-content;
 	transition: 0.33s background-color;
 
