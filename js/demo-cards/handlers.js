@@ -65,11 +65,11 @@ const restoreBlockedInputs = () => {
 	blockedInputs.clear();
 };
 
-export const handleSwitches = dependencyRules => {
-	if (!dependencyRules?.length) return;
+export const handleSwitches = config => {
+	if (!config?.length) return;
 
 	const allInputs = new Set();
-	dependencyRules.forEach(([triggers, dependents]) => {
+	config.forEach(([triggers, dependents]) => {
 		triggers.forEach(t => t && allInputs.add(t));
 		(Array.isArray(dependents) ? dependents : [dependents])
 			.filter(Boolean)
@@ -79,7 +79,7 @@ export const handleSwitches = dependencyRules => {
 	allInputs.forEach(input => (input.disabled = false));
 	restoreBlockedInputs();
 
-	dependencyRules.forEach(([triggers, dependents]) => {
+	config.forEach(([triggers, dependents]) => {
 		if (!isTriggerActive(triggers)) return;
 
 		(Array.isArray(dependents) ? dependents : [dependents])

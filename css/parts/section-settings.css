@@ -9,8 +9,6 @@
 	border-radius: var(--rad);
 	grid-template-columns: auto;
 	position: relative;
-	/* grid-column: 1 / -1; */
-	/* margin-inline: var(--main-content-pad-x); */
 
 	.scroll-snap-inline {
 		grid-template-columns: repeat(4, minmax(max-content, auto));
@@ -54,21 +52,39 @@
 }
 
 .reset {
+	--time: 0.15s;
+	--size: -0.2em;
+
 	background-color: var(--warm-900);
 	place-self: end;
 	padding: var(--gap-x) var(--pad);
 	border-radius: var(--rad) 0;
 	cursor: pointer;
 	position: absolute;
+	right: var(--size);
+	bottom: var(--size);
 	z-index: 1;
+	box-shadow: var(--size) var(--size) 1em hsl(from var(--warm-600) h s l / 0.33);
+	transform: scale(1.1);
 	transition:
-		background-color 0.3s,
-		color 0.3s;
+		background-color var(--time),
+		color var(--time),
+		right var(--time),
+		bottom var(--time),
+		box-shadow var(--time),
+		transform var(--time);
 
 	&:hover,
 	&:focus-visible {
 		background-color: var(--warm-700);
 		color: var(--white);
+	}
+	&:active {
+		background-color: var(--violet-700);
+		box-shadow: 0 0 0 var(--violet-700);
+		right: 0;
+		bottom: 0;
+		transform: scale(1);
 	}
 }
 

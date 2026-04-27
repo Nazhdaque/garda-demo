@@ -72,7 +72,7 @@ const switches = [
 	...content,
 ].filter(Boolean);
 
-const dependencyRules = [
+const config = [
 	[[idImageLogo], content],
 
 	[[idFlexList], [idCardHeader, idText, idSubgrid, idScroll, ...titleSizes]],
@@ -103,9 +103,7 @@ const dependencyRules = [
 const initialDisabled = new Map();
 switches.forEach(input => initialDisabled.set(input, input.disabled));
 
-document.addEventListener("DOMContentLoaded", () =>
-	handleSwitches(dependencyRules),
-);
+document.addEventListener("DOMContentLoaded", () => handleSwitches(config));
 
 switches.forEach(el =>
 	el.addEventListener("change", () => {
@@ -142,7 +140,7 @@ switches.forEach(el =>
 		if (el === idTitleSm) swapClasses(settings, "title-", "title-sm");
 		if (el === idTitleMd) swapClasses(settings, "title-", "title-md");
 		if (el === idTitleLg) swapClasses(settings, "title-", "title-lg");
-		handleSwitches(dependencyRules);
+		handleSwitches(config);
 	}),
 );
 

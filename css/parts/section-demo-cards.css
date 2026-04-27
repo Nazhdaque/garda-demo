@@ -447,6 +447,11 @@
 				grid-template-areas: "img" !important ;
 			}
 		}
+		/* &.img-pos-left.subtitle {
+			.demo-card {
+				padding-right: calc(var(--pad) * 2);
+			}
+		} */
 
 		&.img-pos-left.card-header.subtitle {
 			.demo-card {
@@ -538,10 +543,6 @@
 }
 
 .demo-card__img {
-	/* --fit: contain;
-	--img-w: 100%;
-	place-self: center; */
-
 	grid-area: img;
 	border-radius: var(--rad-inner);
 	overflow: hidden;
