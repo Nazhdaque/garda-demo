@@ -838,7 +838,8 @@
 									<input class="form__checkbox"\r
 												 name="title-size"\r
 												 type="radio"\r
-												 id="option-title-sm">\r
+												 id="option-title-sm"\r
+												 disabled>\r
 								</div>\r
 							</div>\r
 							<p class="checkbox-txt ellipsis fnt-rg">Small</p>\r
@@ -879,26 +880,15 @@
 				</picture>\r
 \r
 				<div class="demo-card__header">\r
-					<h3 class="demo-card__ttl fnt-lg">Эти сочетания смотрятся плохо</h3>\r
-					<p class="demo-card__sub fnt-md">Поэтому включить одновременно всё в\r
-						этих группах нельзя</p>\r
+					<h3 class="demo-card__ttl fnt-lg">Lorem ipsum dolor sit</h3>\r
+					<p class="demo-card__sub fnt-md">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>\r
 				</div>\r
 \r
 				<div class="demo-card__txt">\r
-					<ul class='list-bullet custom'>\r
-						<li>Если колонок 4 или 5, нельзя:\r
-							<ul>\r
-								<li>иконки слева или большие иконки</li>\r
-								<li>большие заголовки карточки</li>\r
-							</ul>\r
-						</li>\r
-						<li>Нельзя одновременно из-за одинакового размера:\r
-							<ul>\r
-								<li>маленький заголовок карточки и подзаголовок</li>\r
-								<li>средний заголовок в секции, большой — в карточке</li>\r
-							</ul>\r
-						</li>\r
-					</ul>\r
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit sunt ipsum similique officia quaerat magnam\r
+						eius aliquid magni. Accusantium optio quidem eos laboriosam. Lorem ipsum dolor sit amet, consectetur\r
+						adipisicing elit. Optio cum maxime consequuntur explicabo temporibus iste reprehenderit ipsa ut, porro odio?\r
+					</p>\r
 				</div>\r
 			</section> -->\r
 		</div>\r
