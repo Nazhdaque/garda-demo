@@ -25,6 +25,21 @@
 	&:where(.flex-list, .one-line-title)
 		:where(.demo-card__ttl, .demo-card__sub) {
 		place-self: center start;
+
+		.demo-card {
+			grid-template-rows: auto;
+		}
+	}
+
+	&:not(.img-pos-top):not(.subtitle):not(.text) {
+		.demo-card__ttl,
+		.demo-card__img,
+		.demo-card::before {
+			place-self: center start;
+		}
+		.demo-card {
+			grid-auto-rows: auto;
+		}
 	}
 
 	&.one-line-title .demo-card__ttl {
@@ -55,9 +70,9 @@
 	&.card-header .demo-card__header {
 		display: grid;
 	}
-	&.card-header .demo-card__txt {
+	/* &.card-header .demo-card__txt {
 		margin-top: var(--pad);
-	}
+	} */
 	&:where(.card-header, .text, .img-pos-left) .demo-card__img {
 		--fit: cover;
 		--img-w: var(--img-h);

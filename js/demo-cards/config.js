@@ -75,7 +75,7 @@ const switches = [
 const config = [
 	[[idImageLogo], content],
 
-	[[idFlexList], [idCardHeader, idText, idSubgrid, idScroll, ...titleSizes]],
+	[[idFlexList], [idText, idSubgrid, idScroll, ...titleSizes, idOneLineTitle]],
 	[
 		[idFlexList, idImageNone],
 		[idCardHeader, ...imageSizes],
