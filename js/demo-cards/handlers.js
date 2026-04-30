@@ -58,7 +58,7 @@ const restoreBlockedInputs = () => {
 		const state = blockedState.get(input);
 		if (state) {
 			input.disabled = state.disabled;
-			input.checked = state.checked;
+			// input.checked = state.checked;
 			blockedState.delete(input);
 		}
 	});

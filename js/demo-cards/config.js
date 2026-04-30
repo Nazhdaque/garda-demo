@@ -38,6 +38,7 @@ const idImageLogo = document.querySelector("#option-img-logo");
 const idImageNone = document.querySelector("#option-img-none");
 
 const idCardHeader = document.querySelector("#option-card-header");
+const idCardTitle = document.querySelector("#option-card-title");
 const idSubtitle = document.querySelector("#option-subtitle");
 const idText = document.querySelector("#option-txt");
 const idOneLineTitle = document.querySelector("#option-one-line-title");
@@ -58,7 +59,7 @@ const imageTypes = [
 	idImageLogo,
 	idImageNone,
 ];
-const content = [idCardHeader, idSubtitle, idText, idOneLineTitle];
+const content = [idCardTitle, idSubtitle, idText, idOneLineTitle];
 const titleSizes = [idTitleSm, idTitleMd, idTitleLg];
 
 const switches = [
@@ -73,18 +74,9 @@ const switches = [
 ].filter(Boolean);
 
 const config = [
-	[[idImageLogo], content],
+	[[idImageLogo], [...content, idList]],
 
-	[[idFlexList], [idText, idSubgrid, idScroll, ...titleSizes, idOneLineTitle]],
-	[
-		[idFlexList, idImageNone],
-		[idCardHeader, ...imageSizes],
-	],
-	[[idFlexList, idImageCover], content],
-	[[idFlexList, idImageNone], columns],
-	[[idFlexList, idImageLogo], columns],
-	[[idFlexList, idImageTop], columns],
-	[[idFlexList, idImageLeft], columns],
+	[[idFlexList], [idScroll, idSubgrid, idText]],
 
 	[[idImageLeft], [idCol4, idCol5]],
 	[[idCol4], [idImageLeft]],
@@ -95,9 +87,6 @@ const config = [
 
 	[[idSubtitle], [idTitleSm]],
 	[[idTitleSm], [idSubtitle]],
-
-	[[idImageLogo], [idList]],
-	[[idList], [idImageLogo]],
 ];
 
 const initialDisabled = new Map();
@@ -107,7 +96,10 @@ document.addEventListener("DOMContentLoaded", () => handleSwitches(config));
 
 switches.forEach(el =>
 	el.addEventListener("change", () => {
-		if (el === idFlexList) toggleClass(settings, "flex-list");
+		if (el === idFlexList) {
+			toggleClass(settings, "flex-list");
+			swapClasses(settings, "subgrid scroll text", "");
+		}
 		if (el === idOneLineTitle) toggleClass(settings, "one-line-title");
 		if (el === idArticleHeader) toggleClass(settings, "article-header");
 		if (el === idArticleSubtitle) toggleClass(settings, "article-subtitle");
@@ -131,10 +123,12 @@ switches.forEach(el =>
 		if (el === idImageLeft) swapClasses(settings, "img-pos-", "img-pos-left");
 		if (el === idImageCover)
 			swapClasses(settings, "img-pos-", "img-pos-top img-pos-cover");
-		if (el === idImageLogo)
+		if (el === idImageLogo) {
 			swapClasses(settings, "img-pos-", "img-pos-top img-pos-logo");
+			swapClasses(settings, "card-title subtitle text list", "");
+		}
 		if (el === idImageNone) swapClasses(settings, "img-pos-");
-		if (el === idCardHeader) toggleClass(settings, "card-header");
+		if (el === idCardTitle) toggleClass(settings, "card-title");
 		if (el === idSubtitle) toggleClass(settings, "subtitle");
 		if (el === idText) toggleClass(settings, "text");
 		if (el === idTitleSm) swapClasses(settings, "title-", "title-sm");

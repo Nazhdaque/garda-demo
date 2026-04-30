@@ -7,12 +7,8 @@ export const card = (index, url, ttl, sub, txt) => {
 			<picture class="img-box demo-card__img">
 				<img src=${url} alt="demo img" />
 			</picture>
-
-			<div class="demo-card__header">
-				<h3 class="demo-card__ttl">${unsafeHTML(ttl)}</h3>
-				<p class="demo-card__sub fnt-md">${unsafeHTML(sub)}</p>
-			</div>
-
+			<h3 class="demo-card__ttl">${unsafeHTML(ttl)}</h3>
+			<p class="demo-card__sub fnt-md">${unsafeHTML(sub)}</p>
 			<div class="demo-card__txt">${unsafeHTML(txt)}</div>
 		</section>
 	`;
