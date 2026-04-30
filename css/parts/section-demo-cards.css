@@ -263,6 +263,19 @@
 	&.img-pos-top .demo-card {
 		grid-template-areas: "img";
 	}
+	&.img-pos-top:not(.img-pos-cover) {
+		.demo-card__img {
+			--fit: contain;
+			--img-w: auto;
+
+			max-width: 50%;
+		}
+
+		img {
+			position: relative !important;
+		}
+	}
+
 	/* |||||||||| when no text content */
 	&.img-pos-top:not(.img-pos-cover, .card-title, .subtitle, .text)
 		.demo-card__img {
@@ -306,6 +319,8 @@
 		grid-template-areas: "img txt";
 	}
 	&.img-pos-left .demo-card {
+		--fit: contain;
+
 		grid-template-areas: "img";
 	}
 
@@ -398,11 +413,17 @@
 		}
 	}
 
-	/* |||||||||| |||||||||| |||||||||| logo only */
+	/* |||||||||| |||||||||| |||||||||| logo */
 	&.img-pos-logo {
 		.demo-card__img {
 			--fit: contain;
-			--img-w: 100%;
+			--img-w: auto;
+
+			max-width: 50%;
+		}
+
+		img {
+			position: relative !important;
 		}
 	}
 

@@ -34,10 +34,8 @@ const idImageLg = document.querySelector("#option-img-lg");
 const idImageTop = document.querySelector("#option-img-top");
 const idImageLeft = document.querySelector("#option-img-left");
 const idImageCover = document.querySelector("#option-img-cover");
-const idImageLogo = document.querySelector("#option-img-logo");
 const idImageNone = document.querySelector("#option-img-none");
 
-const idCardHeader = document.querySelector("#option-card-header");
 const idCardTitle = document.querySelector("#option-card-title");
 const idSubtitle = document.querySelector("#option-subtitle");
 const idText = document.querySelector("#option-txt");
@@ -52,13 +50,7 @@ const articleTitleSizes = [idArticleTitleMd, idArticleTitleLg];
 const general = [idBg, idSubgrid, idScroll, idList, idFlexList];
 const columns = [idCol2, idCol3, idCol4, idCol5];
 const imageSizes = [idImageXs, idImageSm, idImageMd, idImageLg];
-const imageTypes = [
-	idImageTop,
-	idImageLeft,
-	idImageCover,
-	idImageLogo,
-	idImageNone,
-];
+const imageTypes = [idImageTop, idImageLeft, idImageCover, idImageNone];
 const content = [idCardTitle, idSubtitle, idText, idOneLineTitle];
 const titleSizes = [idTitleSm, idTitleMd, idTitleLg];
 
@@ -74,8 +66,6 @@ const switches = [
 ].filter(Boolean);
 
 const config = [
-	[[idImageLogo], [...content, idList]],
-
 	[[idFlexList], [idScroll, idSubgrid, idText]],
 
 	[[idImageLeft], [idCol4, idCol5]],
@@ -123,10 +113,6 @@ switches.forEach(el =>
 		if (el === idImageLeft) swapClasses(settings, "img-pos-", "img-pos-left");
 		if (el === idImageCover)
 			swapClasses(settings, "img-pos-", "img-pos-top img-pos-cover");
-		if (el === idImageLogo) {
-			swapClasses(settings, "img-pos-", "img-pos-top img-pos-logo");
-			swapClasses(settings, "card-title subtitle text list", "");
-		}
 		if (el === idImageNone) swapClasses(settings, "img-pos-");
 		if (el === idCardTitle) toggleClass(settings, "card-title");
 		if (el === idSubtitle) toggleClass(settings, "subtitle");
