@@ -128,7 +128,7 @@
 				aspect-ratio: 1;
 				border-radius: var(--rad-inner);
 				place-items: center;
-				width: 1.53625em;
+				width: var(--img-size);
 				display: none;
 				place-self: start center;
 			}
