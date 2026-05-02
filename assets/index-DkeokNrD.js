@@ -642,9 +642,9 @@
 												 id="option-img-cover">\r
 								</div>\r
 							</div>\r
-							<p class="checkbox-txt ellipsis fnt-rg">Picture <br><span class="txt-gradient">(one size —\r
-									16:9)</span> <br>or\r
-								Num Right</p>\r
+							<p class="checkbox-txt ellipsis fnt-rg">Picture or<br><span class="txt-gradient">(one size —\r
+									16:9)</span> <br>\r
+								Num / Arrow Right</p>\r
 						</label>\r
 					</div>\r
 \r
