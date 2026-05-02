@@ -38,8 +38,8 @@ const getCards = async () => {
 	const cardsNavPoints = [];
 
 	json.forEach((dataset, index) => {
-		const { url, ttl, sub, txt } = dataset;
-		cards.push(card(index, url, ttl, sub, txt));
+		const { url, img, ttl, sub, txt } = dataset;
+		cards.push(card(index, url, img, ttl, sub, txt));
 		cardsNavPoints.push(navPoint(index));
 	});
 

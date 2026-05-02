@@ -92,21 +92,13 @@
 	outline-offset: 3px;
 }
 
-.full-bleed:has(.flex-list.img-pos-cover, .logo) {
+/* .full-bleed:has(.flex-list.img-pos-cover) {
 	.input-wrapper {
 		&:has(#option-col-2, #option-col-3, #option-col-4, #option-col-5) {
 			outline: 1px solid hsl(150, 50%, 50%);
 		}
 	}
-}
-
-.full-bleed:has(.img-pos-logo) {
-	.input-wrapper {
-		&:has(#option-flex-list) {
-			outline: 1px solid hsl(150, 50%, 50%);
-		}
-	}
-}
+} */
 
 /* .full-bleed:has(.flex-list) {
 	.input-wrapper {

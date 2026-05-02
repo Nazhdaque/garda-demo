@@ -1,11 +1,14 @@
-.arrow {
+.hero .arrow {
 	--img-size: var(--arw-size);
+}
+
+.arrow {
 	--asp: 1 / 1;
 	--fit: contain;
 
 	overflow: hidden;
 	border-radius: var(--rad-inner);
-	background-color: var(--arw-bg, var(--clr-1c));
+	background-color: var(--arw-bg, var(--white));
 
 	> * {
 		transition: var(--time) ease;
@@ -22,7 +25,10 @@
 }
 
 .hero-news:where(:focus-visible, :hover),
-.hero-motto__arrow-link:where(:focus-visible, :hover) {
+.hero-motto__arrow-link:where(:focus-visible, :hover),
+.demo-card:where(:focus-visible, :hover) {
+	--arw-bg: #b881db;
+
 	.arrow > :nth-child(1) {
 		left: 100% !important;
 		top: -100% !important;
@@ -38,7 +44,10 @@
 }
 
 .hero-news:active,
-.hero-motto__arrow-link:active {
+.hero-motto__arrow-link:active,
+.demo-card:active {
+	--arw-bg: #2c313b;
+
 	.arrow > :nth-child(1) {
 		left: 200% !important;
 		top: -200% !important;

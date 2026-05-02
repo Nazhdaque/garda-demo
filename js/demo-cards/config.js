@@ -10,15 +10,15 @@ const resetBtn = document.querySelector("#demo-cards-reset");
 const settings = cards.classList;
 const defaultSettings = cards.className.trim();
 
-const idArticleHeader = document.querySelector("#option-article-header");
-const idArticleSubtitle = document.querySelector("#option-article-subtitle");
-const idArticleTitleMd = document.querySelector("#option-article-title-md");
-const idArticleTitleLg = document.querySelector("#option-article-title-lg");
+const idSectionHeader = document.querySelector("#option-section-header");
+const idSectionSubtitle = document.querySelector("#option-section-subtitle");
+const idSectionTitleMd = document.querySelector("#option-section-title-md");
+const idSectionTitleLg = document.querySelector("#option-section-title-lg");
 
-const idBg = document.querySelector("#option-background");
+const idSectionBackground = document.querySelector("#option-background");
 const idSubgrid = document.querySelector("#option-subgrid");
-const idScroll = document.querySelector("#option-scroll");
-const idList = document.querySelector("#option-list");
+const idScrollSnap = document.querySelector("#option-scroll-snap");
+const idOrderedList = document.querySelector("#option-list");
 const idFlexList = document.querySelector("#option-flex-list");
 
 const idCol2 = document.querySelector("#option-col-2");
@@ -37,46 +37,52 @@ const idImageCover = document.querySelector("#option-img-cover");
 const idImageNone = document.querySelector("#option-img-none");
 
 const idCardTitle = document.querySelector("#option-card-title");
-const idSubtitle = document.querySelector("#option-subtitle");
-const idText = document.querySelector("#option-txt");
+const idCardSubtitle = document.querySelector("#option-card-subtitle");
+const idCardText = document.querySelector("#option-card-text");
 const idOneLineTitle = document.querySelector("#option-one-line-title");
 
-const idTitleSm = document.querySelector("#option-title-sm");
-const idTitleMd = document.querySelector("#option-title-md");
-const idTitleLg = document.querySelector("#option-title-lg");
+const idCardTitleSm = document.querySelector("#option-card-title-sm");
+const idCardTitleMd = document.querySelector("#option-card-title-md");
+const idCardTitleLg = document.querySelector("#option-card-title-lg");
 
-const header = [idArticleHeader, idArticleSubtitle];
-const articleTitleSizes = [idArticleTitleMd, idArticleTitleLg];
-const general = [idBg, idSubgrid, idScroll, idList, idFlexList];
+const sectionHeader = [idSectionHeader, idSectionSubtitle];
+const sectionTitleSizes = [idSectionTitleMd, idSectionTitleLg];
+const general = [
+	idSectionBackground,
+	idSubgrid,
+	idScrollSnap,
+	idOrderedList,
+	idFlexList,
+];
 const columns = [idCol2, idCol3, idCol4, idCol5];
 const imageSizes = [idImageXs, idImageSm, idImageMd, idImageLg];
 const imageTypes = [idImageTop, idImageLeft, idImageCover, idImageNone];
-const content = [idCardTitle, idSubtitle, idText, idOneLineTitle];
-const titleSizes = [idTitleSm, idTitleMd, idTitleLg];
+const cardContent = [idCardTitle, idCardSubtitle, idCardText, idOneLineTitle];
+const cardTitleSizes = [idCardTitleSm, idCardTitleMd, idCardTitleLg];
 
 const switches = [
-	...articleTitleSizes,
-	...columns,
-	...imageSizes,
-	...imageTypes,
-	...titleSizes,
-	...header,
+	...sectionHeader,
+	...sectionTitleSizes,
 	...general,
-	...content,
+	...columns,
+	...imageTypes,
+	...imageSizes,
+	...cardTitleSizes,
+	...cardContent,
 ].filter(Boolean);
 
 const config = [
-	[[idFlexList], [idScroll, idSubgrid, idText]],
+	[[idFlexList], [idScrollSnap, idSubgrid, idCardText]],
 
 	[[idImageLeft], [idCol4, idCol5]],
 	[[idCol4], [idImageLeft]],
 	[[idCol5], [idImageLeft]],
 
-	[[idTitleLg], [idArticleTitleMd]],
-	[[idArticleTitleMd], [idTitleLg]],
+	[[idCardTitleLg], [idSectionTitleMd]],
+	[[idSectionTitleMd], [idCardTitleLg]],
 
-	[[idSubtitle], [idTitleSm]],
-	[[idTitleSm], [idSubtitle]],
+	[[idCardSubtitle], [idCardTitleSm]],
+	[[idCardTitleSm], [idCardSubtitle]],
 ];
 
 const initialDisabled = new Map();
@@ -88,19 +94,20 @@ switches.forEach(el =>
 	el.addEventListener("change", () => {
 		if (el === idFlexList) {
 			toggleClass(settings, "flex-list");
-			swapClasses(settings, "subgrid scroll text", "");
+			swapClasses(settings, "subgrid scroll-snap card-text", "");
 		}
 		if (el === idOneLineTitle) toggleClass(settings, "one-line-title");
-		if (el === idArticleHeader) toggleClass(settings, "article-header");
-		if (el === idArticleSubtitle) toggleClass(settings, "article-subtitle");
-		if (el === idArticleTitleMd)
-			swapClasses(settings, "article-title-", "article-title-md");
-		if (el === idArticleTitleLg)
-			swapClasses(settings, "article-title-", "article-title-lg");
-		if (el === idBg) toggleClass(settings, "section-bg");
+		if (el === idSectionHeader) toggleClass(settings, "section-header");
+		if (el === idSectionSubtitle) toggleClass(settings, "section-subtitle");
+		if (el === idSectionTitleMd)
+			swapClasses(settings, "section-title-", "section-title-md");
+		if (el === idSectionTitleLg)
+			swapClasses(settings, "section-title-", "section-title-lg");
+		if (el === idSectionBackground) toggleClass(settings, "section-bg");
 		if (el === idSubgrid) toggleClass(settings, "subgrid");
-		if (el === idScroll) (toggleClass(settings, "scroll"), resetSlider());
-		if (el === idList) toggleClass(settings, "list");
+		if (el === idScrollSnap)
+			(toggleClass(settings, "scroll-snap"), resetSlider());
+		if (el === idOrderedList) toggleClass(settings, "ordered-list");
 		if (el === idCol2) (swapClasses(settings, "col-", "col-2"), resetSlider());
 		if (el === idCol3) (swapClasses(settings, "col-", "col-3"), resetSlider());
 		if (el === idCol4) (swapClasses(settings, "col-", "col-4"), resetSlider());
@@ -115,11 +122,14 @@ switches.forEach(el =>
 			swapClasses(settings, "img-pos-", "img-pos-top img-pos-cover");
 		if (el === idImageNone) swapClasses(settings, "img-pos-");
 		if (el === idCardTitle) toggleClass(settings, "card-title");
-		if (el === idSubtitle) toggleClass(settings, "subtitle");
-		if (el === idText) toggleClass(settings, "text");
-		if (el === idTitleSm) swapClasses(settings, "title-", "title-sm");
-		if (el === idTitleMd) swapClasses(settings, "title-", "title-md");
-		if (el === idTitleLg) swapClasses(settings, "title-", "title-lg");
+		if (el === idCardSubtitle) toggleClass(settings, "card-subtitle");
+		if (el === idCardText) toggleClass(settings, "card-text");
+		if (el === idCardTitleSm)
+			swapClasses(settings, "card-title-", "card-title-sm");
+		if (el === idCardTitleMd)
+			swapClasses(settings, "card-title-", "card-title-md");
+		if (el === idCardTitleLg)
+			swapClasses(settings, "card-title-", "card-title-lg");
 		handleSwitches(config);
 	}),
 );
