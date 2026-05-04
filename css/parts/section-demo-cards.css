@@ -357,7 +357,6 @@
 
 	/* |||||||||| when ttl or sub are the only text content */
 	&:where(.card-title, .card-subtitle):not(.subgrid, .img-pos-top, .card-text) {
-		.demo-card::before,
 		.demo-card__ttl,
 		.demo-card__sub {
 			place-self: center start;
@@ -421,6 +420,10 @@
 	&.img-pos-cover {
 		&:is(.card-title, .card-subtitle, .card-text) .demo-card__img {
 			margin-bottom: initial;
+		}
+
+		.arrow {
+			place-self: end;
 		}
 
 		.demo-card__img {
