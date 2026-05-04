@@ -61,7 +61,7 @@
 	{
 		"url": "https://www.google.com/",
 		"ttl": "Я — карточка-ссылка с анимированной иконкой!",
-		"sub": "Если в JSON не указан путь к картинке, но есть URL, получится вот так.",
+		"sub": "Если в JSON не указан путь к картинке, но есть URL, получится вот так",
 		"txt": "<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit sunt ipsum similique officia quaerat magnam eius aliquid magni. Accusantium optio quidem eos laboriosam.</p>"
 	},
 	{
