@@ -79,12 +79,10 @@
 		.demo-card {
 			padding: var(--gap-x);
 			column-gap: var(--gap-x);
-
-			&::before {
-				border-radius: 0;
-			}
 		}
-		.demo-card__img {
+
+		.demo-card__img,
+		&.ordered-list .demo-card::before {
 			border-radius: 0;
 		}
 	}
