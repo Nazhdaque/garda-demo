@@ -99,6 +99,10 @@
 		.demo-cards-wrapper {
 			display: grid;
 			row-gap: var(--gap-x);
+
+			.focus-outline {
+				outline-offset: calc(var(--outline-width) * -1) !important;
+			}
 		}
 		&.section-bg {
 			padding-bottom: var(--gap-x);
@@ -117,9 +121,6 @@
 		}
 		&.col-5 .demo-cards-nav :nth-child(5n + 1 of a) {
 			display: initial;
-		}
-		.focus-outline {
-			outline-offset: calc(var(--outline-width) * -1) !important;
 		}
 	}
 
@@ -600,7 +601,7 @@
 	display: none;
 }
 
-/* |||||||||| |||||||||| |||||||||| slider nav */
+/* |||||||||| |||||||||| |||||||||| slider nav dots */
 .demo-cards-nav {
 	display: none;
 	justify-content: center;
@@ -620,5 +621,56 @@
 		&.active {
 			background-color: hsl(from var(--white) h s l / 0.5);
 		}
+	}
+}
+
+/* |||||||||| |||||||||| |||||||||| slider nav buttons */
+.nav-btn-wrapper {
+	display: none;
+	grid-template-columns: repeat(2, min-content);
+	gap: clamp(0.5rem, 3.125vw + -1.5rem, 1rem);
+	position: relative;
+	place-self: end center;
+}
+.demo-cards.scroll-snap {
+	.demo-cards__header {
+		grid-column: 1 / -2;
+	}
+	.nav-btn-wrapper {
+		display: grid;
+	}
+}
+
+.nav-btn {
+	background-color: var(--clr-bg);
+	border-radius: var(--rad-inner);
+	padding: var(--pad);
+	aspect-ratio: 1;
+	width: var(--pad);
+	position: relative;
+	cursor: pointer;
+
+	&:where(:hover, :focus-visible) {
+		background-color: hsl(from var(--white) h s l / 0.1);
+	}
+
+	&::before {
+		position: absolute;
+		inset: 0;
+		display: grid;
+		place-items: center;
+	}
+	&:first-child::before {
+		content: "❮";
+	}
+	&:last-child::before {
+		content: "❯";
+	}
+	&:disabled {
+		--clr-txt: hsl(from var(--white) h s l / 0.6);
+
+		background-color: initial;
+		cursor: auto;
+		color: var(--clr-txt);
 	}
 }
