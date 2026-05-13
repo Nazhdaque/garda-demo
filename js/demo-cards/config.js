@@ -1,9 +1,5 @@
-import {
-	toggleClass,
-	swapClasses,
-	resetSlider,
-	handleSwitches,
-} from "./handlers.js";
+import { toggleClass, swapClasses, handleSwitches } from "./handlers.js";
+import { resetSlider } from "./slider.js";
 
 const cards = document.querySelector(".demo-cards");
 const resetBtn = document.querySelector("#demo-cards-reset");

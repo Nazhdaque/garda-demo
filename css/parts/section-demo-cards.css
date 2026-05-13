@@ -22,6 +22,7 @@
 
 .demo-cards {
 	--clr-bg: hsl(from var(--white) h s l / 0.05);
+	--gap-sm: clamp(0.5rem, 3.125vw + -1.5rem, 1rem);
 
 	display: grid;
 	gap: var(--gap-x);
@@ -56,7 +57,7 @@
 
 	/* |||||||||| |||||||||| |||||||||| section background */
 	&.section-bg {
-		--gap-x: clamp(0.5rem, 3.125vw + -1.5rem, 1rem);
+		--gap-x: var(--gap-sm);
 		--col-1-of-5: calc(
 			(var(--max-content-width) - var(--pad) * 2 - var(--gap-x) * 4) / 5
 		);
@@ -614,6 +615,7 @@
 		width: 1em;
 		aspect-ratio: 1;
 		background-color: hsl(from var(--white) h s l / 0.2);
+		transition: 0.33s background-color;
 
 		&:active {
 			background-color: var(--clr-1b);
@@ -625,12 +627,18 @@
 }
 
 /* |||||||||| |||||||||| |||||||||| slider nav buttons */
+.section-bg .nav-btn-wrapper {
+	top: 0;
+	right: 0;
+}
 .nav-btn-wrapper {
 	display: none;
 	grid-template-columns: repeat(2, min-content);
-	gap: clamp(0.5rem, 3.125vw + -1.5rem, 1rem);
+	gap: var(--gap-sm);
+	top: var(--gap-sm);
+	right: var(--rad);
 	position: relative;
-	place-self: end center;
+	place-self: end;
 }
 .demo-cards.scroll-snap {
 	.demo-cards__header {
@@ -649,6 +657,7 @@
 	width: var(--pad);
 	position: relative;
 	cursor: pointer;
+	transition: 0.33s background-color;
 
 	&:where(:hover, :focus-visible) {
 		background-color: hsl(from var(--white) h s l / 0.1);
@@ -665,6 +674,9 @@
 	}
 	&:last-child::before {
 		content: "❯";
+	}
+	&:active {
+		background-color: var(--clr-1b);
 	}
 	&:disabled {
 		--clr-txt: hsl(from var(--white) h s l / 0.6);

@@ -92,9 +92,6 @@
 	}
 
 	/* utilities */
-	.sm-d-none {
-		display: none;
-	}
 	.sm-txt-trunc {
 		display: -webkit-box;
 		-webkit-line-clamp: var(--line, 1);

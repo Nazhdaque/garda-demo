@@ -23,14 +23,6 @@ export const swapClasses = (classes, del, add) => {
 	}
 };
 
-export const resetSlider = () => {
-	const scrollContainer = document.querySelector(".demo-cards-wrapper");
-	const navLinks = document.querySelectorAll(".demo-cards-nav a");
-	navLinks.forEach(item => item.classList.remove("active"));
-	navLinks[0].classList.add("active");
-	scrollContainer.scrollTo({ left: 0 });
-};
-
 // ==============
 // handleSwitches
 // ==============

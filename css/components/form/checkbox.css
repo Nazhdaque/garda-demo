@@ -33,7 +33,7 @@
 		}
 		.input-wrapper,
 		.checkbox-txt {
-			cursor: auto;
+			cursor: default;
 		}
 	}
 
