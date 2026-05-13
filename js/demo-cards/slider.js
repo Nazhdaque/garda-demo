@@ -7,6 +7,7 @@ export const resetSlider = () => {
 	const navLinks = document.querySelectorAll(".demo-cards-nav a");
 	navLinks.forEach(item => item.classList.remove("active"));
 	navLinks[0].classList.add("active");
+	btnPrev.disabled = true;
 	scrollContainer.scrollTo({ left: 0 });
 };
 
