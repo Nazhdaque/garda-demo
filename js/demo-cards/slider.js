@@ -8,6 +8,7 @@ export const resetSlider = () => {
 	navLinks.forEach(item => item.classList.remove("active"));
 	navLinks[0].classList.add("active");
 	btnPrev.disabled = true;
+	btnNext.disabled = false;
 	scrollContainer.scrollTo({ left: 0 });
 };
 
@@ -31,35 +32,22 @@ export const getSliderNav = () => {
 			});
 			scrollContainer.scrollTo({ left: targetX });
 			activeLink.classList.add("active");
-			activeLink === navLinks[navLinks.length - 1]
-				? (btnNext.disabled = true)
-				: (btnNext.disabled = false);
-			activeLink === navLinks[0]
-				? (btnPrev.disabled = true)
-				: (btnPrev.disabled = false);
+
+			const index = Number(
+				getComputedStyle(
+					document.querySelector(".demo-cards"),
+				).getPropertyValue("--col"),
+			);
+			const activeLinkIndex = Array.from(navLinks).indexOf(activeLink);
+			btnNext.disabled = activeLinkIndex >= navLinks.length - index;
+			btnPrev.disabled = activeLinkIndex < index;
 		});
 	});
 };
 
-navButtons.forEach(button =>
+navButtons.forEach(button => {
 	button.addEventListener("click", e => {
 		e.preventDefault();
-
-		const getNextActiveLink = (sibling, n) => {
-			for (let i = 0; i < n; i++) {
-				switch (button) {
-					case btnNext:
-						if (!sibling) return navLinks[navLinks.length - 1];
-						sibling = sibling.nextElementSibling;
-						break;
-					case btnPrev:
-						if (!sibling) return navLinks[0];
-						sibling = sibling.previousElementSibling;
-						break;
-				}
-			}
-			return sibling;
-		};
 
 		const navLinks = document.querySelectorAll(".demo-cards-nav a");
 		const activeLink = document.querySelector(".demo-cards-nav a.active");
@@ -68,7 +56,18 @@ navButtons.forEach(button =>
 				"--col",
 			),
 		);
-		const nextActiveLink = getNextActiveLink(activeLink, index);
+
+		let nextActiveLink;
+
+		if (button === btnNext) {
+			let currentIndex = Array.from(navLinks).indexOf(activeLink);
+			nextActiveLink = navLinks[(currentIndex + index) % navLinks.length];
+		} else if (button === btnPrev) {
+			let currentIndex = Array.from(navLinks).indexOf(activeLink);
+			nextActiveLink =
+				navLinks[(currentIndex - index + navLinks.length) % navLinks.length];
+		}
+
 		const targetId = nextActiveLink.getAttribute("href");
 		const targetElement = document.querySelector(targetId);
 		const rect = targetElement.getBoundingClientRect();
@@ -80,11 +79,8 @@ navButtons.forEach(button =>
 		scrollContainer.scrollTo({ left: targetX });
 		nextActiveLink.classList.add("active");
 
-		nextActiveLink === navLinks[navLinks.length - 1]
-			? (btnNext.disabled = true)
-			: (btnNext.disabled = false);
-		nextActiveLink === navLinks[0]
-			? (btnPrev.disabled = true)
-			: (btnPrev.disabled = false);
-	}),
-);
+		const nextActiveLinkIndex = Array.from(navLinks).indexOf(nextActiveLink);
+		btnNext.disabled = nextActiveLinkIndex >= navLinks.length - index;
+		btnPrev.disabled = nextActiveLinkIndex < index;
+	});
+});
