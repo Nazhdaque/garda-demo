@@ -111,17 +111,40 @@
 		.demo-cards-nav {
 			display: flex;
 		}
-		&.col-2 .demo-cards-nav :nth-child(2n + 1 of a) {
-			display: initial;
+		&.col-2 {
+			.demo-cards-nav :nth-child(2n + 1 of a) {
+				display: initial;
+			}
+			.demo-card:nth-child(2n + 1) {
+				scroll-snap-align: start;
+			}
 		}
-		&.col-3 .demo-cards-nav :nth-child(3n + 1 of a) {
-			display: initial;
+
+		&.col-3 {
+			.demo-cards-nav :nth-child(3n + 1 of a) {
+				display: initial;
+			}
+			.demo-card:nth-child(3n + 1) {
+				scroll-snap-align: start;
+			}
 		}
-		&.col-4 .demo-cards-nav :nth-child(4n + 1 of a) {
-			display: initial;
+
+		&.col-4 {
+			.demo-cards-nav :nth-child(4n + 1 of a) {
+				display: initial;
+			}
+			.demo-card:nth-child(4n + 1) {
+				scroll-snap-align: start;
+			}
 		}
-		&.col-5 .demo-cards-nav :nth-child(5n + 1 of a) {
-			display: initial;
+
+		&.col-5 {
+			.demo-cards-nav :nth-child(5n + 1 of a) {
+				display: initial;
+			}
+			&.col-5 .demo-card:nth-child(5n + 1) {
+				scroll-snap-align: start;
+			}
 		}
 	}
 
@@ -568,6 +591,7 @@
 	grid-auto-rows: min-content;
 	transition: 0.33s background-color;
 	position: relative;
+	scroll-snap-align: none;
 }
 
 /* |||||||||| |||||||||| |||||||||| link */

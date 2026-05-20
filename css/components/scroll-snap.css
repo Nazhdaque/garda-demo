@@ -17,8 +17,3 @@
 	scroll-snap-align: start;
 	scroll-snap-stop: always;
 }
-
-/* Этот класс мы будем временно добавлять через JS при прокрутке колесом */
-.scroll-snap-inline.disable-snap {
-	scroll-snap-type: none !important;
-}
