@@ -454,7 +454,12 @@
 
 			margin: var(--pad-neg);
 			min-width: calc(100% - var(--pad-neg) * 2);
-			border-radius: 0;
+			border-radius: var(--rad) var(--rad) 0 0;
+		}
+
+		&.section-bg .demo-card__img {
+			--pad-neg: calc(var(--gap-sm) * -1);
+			--rad: var(--rad-inner);
 		}
 
 		&.col-2 {
@@ -584,7 +589,7 @@
 	background-color: var(--clr-bg);
 	padding: var(--pad);
 	border-radius: var(--rad);
-	overflow: hidden;
+	/* overflow: hidden; */
 	display: grid;
 	place-items: start;
 	gap: var(--gap-x) var(--pad);
