@@ -668,6 +668,7 @@
 	right: var(--rad);
 	position: relative;
 	place-self: end;
+	grid-column: -2;
 }
 .demo-cards.scroll-snap {
 	.demo-cards__header {
