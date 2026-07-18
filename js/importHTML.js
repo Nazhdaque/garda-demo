@@ -1,3 +1,4 @@
+// отключено, вместо этого vite-plugin-html-inject, оставлено на всякий случай
 import gradientCards from "../html/gradient-cards.html?raw";
 import sectionHero from "../html/section-hero.html?raw";
 import sectionCtaProtect from "../html/section-cta-protect.html?raw";

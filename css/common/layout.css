@@ -1,10 +1,10 @@
-.layout-body :where(header, main, footer) {
+.layout-body :where(body > header, body > main, body > footer) {
 	display: grid;
 	grid-template-columns: 1fr minmax(min-content, var(--max-content-width)) 1fr;
 	column-gap: var(--main-content-pad-x);
 }
 
-:where(header, main, footer) > * {
+:where(body > header, body > main, body > footer) > * {
 	grid-column: 2;
 }
 

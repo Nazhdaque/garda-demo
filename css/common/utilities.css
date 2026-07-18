@@ -135,6 +135,7 @@
 
 .txt-trunc {
 	display: -webkit-box;
+	line-clamp: var(--line, 1);
 	-webkit-line-clamp: var(--line, 1);
 	-webkit-box-orient: vertical;
 	overflow: hidden;

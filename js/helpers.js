@@ -26,6 +26,14 @@ export class FetchWrapper {
 			return response.json();
 		});
 
+	getTxt = endpoint =>
+		fetch(this.baseURL + endpoint).then(response => {
+			if (!response.ok) {
+				throw new Error("Соединение с сервером не установлено!");
+			}
+			return response.text();
+		});
+
 	put = (endpoint, body) => this.#send("put", endpoint, body);
 	post = (endpoint, body) => this.#send("post", endpoint, body);
 	delete = (endpoint, body) => this.#send("delete", endpoint, body);
@@ -67,8 +75,8 @@ export class GetCustomPropsValues {
 	getValues = props => {
 		props.forEach(prop =>
 			this.values.push(
-				getComputedStyle(this.element, null).getPropertyValue(prop)
-			)
+				getComputedStyle(this.element, null).getPropertyValue(prop),
+			),
 		);
 		return this.values;
 	};
@@ -119,7 +127,7 @@ export class SizeSetter {
 						slaves.forEach(slave => (slave.style.minHeight = `${height}px`));
 						break;
 				}
-			})
+			}),
 		);
 
 	initWith = relatedItems => {
@@ -131,8 +139,8 @@ export class SizeSetter {
 			master && slaves
 				? this.observer(slaves).observe(master)
 				: console.error(
-						`SizeSetter: there is no master-${index} or slave-${index}`
-				  );
+						`SizeSetter: there is no master-${index} or slave-${index}`,
+					);
 		});
 	};
 }

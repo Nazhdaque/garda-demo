@@ -1,3 +1,7 @@
 import { defineConfig } from "vite";
+import injectHTML from "vite-plugin-html-inject";
 
-export default defineConfig({ base: "/garda-demo/" });
+export default defineConfig({
+	base: "/garda-demo/",
+	plugins: [injectHTML()],
+});

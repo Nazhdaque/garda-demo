@@ -1,0 +1,228 @@
+/* ========================================================
+   1. СЕТКА И ШАПКА ПРОГРАММЫ (ДЕСКТОП ПО УМОЛЧАНИЮ)
+   ======================================================== */
+.program {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+/* Шапка залов на 3 колонки */
+.program__header {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
+	margin-bottom: 16px;
+}
+
+.program__hall-title {
+	font-size: 16px;
+	font-weight: 600;
+	color: #ffffff;
+	text-align: center;
+	padding: 14px;
+	background: rgba(255, 255, 255, 0.02);
+	border: 1px solid rgba(255, 255, 255, 0.05);
+	border-radius: var(--rad, 16px);
+}
+
+/* Главная сетка на 3 колонки с автоуплотнением */
+.program__grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
+	grid-auto-flow: dense;
+}
+
+/* ========================================================
+   2. СТИЛИ БЛОКА: КАРТОЧКА (.program-item)
+   ======================================================== */
+.program-item {
+	display: flex;
+	flex-direction: column;
+	background: hsl(from var(--white, #ffffff) h s l / 0.05);
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	border-radius: var(--rad, 16px);
+	padding: 24px;
+	height: 100%;
+	transition:
+		transform 0.2s ease,
+		border-color 0.2s ease;
+}
+
+.program-item:hover {
+	transform: translateY(-2px);
+	border-color: rgba(69, 205, 255, 0.3);
+}
+
+/* Позиционирование докладов по колонкам залов */
+.program-item[data-hall="1"] {
+	grid-column: 1;
+}
+.program-item[data-hall="2"] {
+	grid-column: 2;
+}
+.program-item[data-hall="3"] {
+	grid-column: 3;
+}
+
+/* ---- Элементы карточки ---- */
+.program-item__header {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 16px;
+}
+
+.program-item__time {
+	font-family: monospace;
+	font-size: 16px;
+	font-weight: 700;
+	color: #45cdff;
+	padding: 4px 10px;
+	background: rgba(69, 205, 255, 0.08);
+	border-radius: var(--rad-inner, 8px);
+	border: 1px solid rgba(69, 205, 255, 0.2);
+}
+
+/* На десктопе название зала внутри карточки не нужно */
+.program-item__hall {
+	display: none;
+}
+
+.program-item__type {
+	font-size: 11px;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: #ced5f0;
+	padding: 4px 10px;
+	background: rgba(255, 255, 255, 0.04);
+	border-radius: var(--rad-inner, 8px);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.program-item__link {
+	font-size: 13px;
+	color: #e481ff;
+	text-decoration: none;
+	margin-left: auto;
+	font-weight: 500;
+}
+
+.program-item__body {
+	flex-grow: 1;
+	margin-bottom: 20px;
+}
+
+.program-item__title {
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 1.3;
+	color: #ffffff;
+	margin-bottom: 8px;
+}
+
+.program-item__subtitle {
+	font-size: 14px;
+	line-height: 1.5;
+	color: #ced5f0;
+}
+
+.program-item__footer {
+	border-top: 1px solid rgba(255, 255, 255, 0.08);
+	padding-top: 16px;
+}
+
+.program-item__speakers {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 8px 12px;
+	font-size: 14px;
+}
+
+.program-item__role {
+	color: #2b367a;
+	font-weight: 500;
+}
+
+.program-item__name,
+.program-item__members-list {
+	color: #ffffff;
+	font-weight: 600;
+}
+
+.program-item__members-list {
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0 8px;
+}
+
+.program-item__members-list li:not(:last-child)::after {
+	content: ",";
+	color: #ced5f0;
+}
+
+/* ========================================================
+   3. ПЕРЕРЫВЫ И КОФЕ-БРЕЙКИ (ДЕСКТОП ПО УМОЛЧАНИЮ)
+   ======================================================== */
+.program-item[data-hall="all"] {
+	grid-column: 1 / 4;
+	text-align: center;
+	justify-content: center;
+	background: linear-gradient(
+		90deg,
+		rgba(248, 158, 104, 0.03) 0%,
+		rgba(177, 152, 255, 0.03) 100%
+	);
+	border: 1px dashed rgba(248, 158, 104, 0.2);
+	padding: 14px 24px;
+}
+
+.program-item--pause .program-item__header {
+	margin-bottom: 0;
+}
+
+.program-item--pause .program-item__time {
+	color: #f89e68;
+	background: rgba(248, 158, 104, 0.05);
+	border-color: rgba(248, 158, 104, 0.15);
+}
+
+.program-item--pause .program-item__type {
+	color: #b198ff;
+	background: rgba(177, 152, 255, 0.05);
+	border-color: rgba(177, 152, 255, 0.15);
+}
+
+/* ========================================================
+   4. МИНИМАЛИСТИЧНЫЙ МЕДИАЗАПРОС ДЛЯ МОБИЛЬНЫХ
+   ======================================================== */
+@media (max-width: 991px) {
+	/* Схлопываем шапку залов */
+	.program__header {
+		display: none;
+	}
+
+	/* Сетка выстраивается в одну вертикальную колонку */
+	.program__grid {
+		grid-template-columns: 1fr;
+	}
+
+	/* Сбрасываем жесткую привязку к колонкам и линиям */
+	.program-item,
+	.program-item[data-hall="all"] {
+		grid-column: auto;
+		text-align: left;
+	}
+
+	/* Показываем название зала внутри карточки */
+	.program-item__hall {
+		display: inline-block;
+		font-size: 13px;
+		color: #8baaff;
+		font-weight: 500;
+	}
+}
