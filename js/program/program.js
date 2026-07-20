@@ -1,13 +1,11 @@
 import { html, render } from "lit-html";
 import Papa from "papaparse";
-import { FetchWrapper } from "./helpers.js";
+import { FetchWrapper } from "../helpers.js";
 import { programItemTemplate } from "./programItemTemplate.js";
 
-// Глобальная переменная для быстрого изменения пути к фотографиям
 const PHOTO_BASE_URL =
 	"https://garda.ai/upload/save-all/2027/photo/participants/";
 
-// Вспомогательная функция: бьет текст биографии по \n на массив HTML-абзацев <p>
 function formatBio(bioText) {
 	if (!bioText) return [];
 	return bioText
@@ -46,7 +44,6 @@ function initProgram(tsvData, targetSelector) {
 		}
 
 		if (row.memberId) {
-			// Собираем полный URL фотографии, если эндпоинт указан в таблице
 			const fullPhotoUrl = row.photo
 				? `${PHOTO_BASE_URL}${row.photo.trim()}`
 				: null;
@@ -57,7 +54,6 @@ function initProgram(tsvData, targetSelector) {
 				role: row.role,
 				job: row.job || "",
 				photo: fullPhotoUrl,
-				// Сохраняем биографию уже в виде готового массива абзацев
 				bioParagraphs: formatBio(row.bio),
 			});
 		}
@@ -71,7 +67,7 @@ function initProgram(tsvData, targetSelector) {
 
 	const programSectionTemplate = html`
 		<section class="program" aria-labelledby="program-title">
-			<h2 id="program-title" class="program__title visually-hidden">
+			<h2 id="program-title" class="program__title sr-only sr-only-focusable">
 				Программа мероприятия
 			</h2>
 
@@ -85,7 +81,7 @@ function initProgram(tsvData, targetSelector) {
 				)}
 			</div>
 
-			<div class="program__grid">
+			<div class="program__grid fnt-xs">
 				${finalSessions.map(session => programItemTemplate(session))}
 			</div>
 		</section>
