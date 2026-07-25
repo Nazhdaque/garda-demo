@@ -444,6 +444,9 @@
 		&:is(.card-title, .card-subtitle, .card-text) .demo-card__img {
 			margin-bottom: initial;
 		}
+		&:not(.card-title, .card-subtitle, .card-text) .demo-card__img {
+			border-radius: var(--rad);
+		}
 
 		.arrow {
 			place-self: end;

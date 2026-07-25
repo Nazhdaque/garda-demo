@@ -1,105 +1,209 @@
 import { html, render } from "lit-html";
 import Papa from "papaparse";
-import { FetchWrapper } from "../helpers.js";
 import { programItemTemplate } from "./programItemTemplate.js";
+import { SpeakerPopoverView } from "./SpeakerPopoverView.js";
 
-const PHOTO_BASE_URL =
-	"https://garda.ai/upload/save-all/2027/photo/participants/";
+class ProgramDataService {
+	constructor() {}
 
-function formatBio(bioText) {
-	if (!bioText) return [];
-	return bioText
-		.split("\n")
-		.map(paragraph => paragraph.trim())
-		.filter(paragraph => paragraph.length > 0);
-}
+	async fetchAndClean(url) {
+		const response = await fetch(url);
+		if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
-function initProgram(tsvData, targetSelector) {
-	const parsed = Papa.parse(tsvData, { header: true, skipEmptyLines: true });
+		const tsvText = await response.text();
+		return this._parse(tsvText);
+	}
 
-	const sessionsMap = new Map();
-	const hallsMap = new Map();
+	_sanitizeText(text) {
+		if (!text) return "";
+		return text.replace(/<\/?[^>]+(>|$)/g, "").trim();
+	}
 
-	parsed.data.forEach(row => {
-		if (!row.sessionId) return;
+	_parse(tsvData) {
+		const parsed = Papa.parse(tsvData, { header: true, skipEmptyLines: true });
+		const sessionsMap = new Map();
+		const hallsMap = new Map();
+		const speakersMap = new Map(); // Карта для моментального поиска спикеров при клике
 
-		const currentPlaceId = Number(row.placeId);
+		parsed.data.forEach(row => {
+			const sessionId = this._sanitizeText(row.sessionId);
+			if (!sessionId) return;
 
-		if (currentPlaceId > 0 && row.place) {
-			hallsMap.set(currentPlaceId, row.place);
-		}
+			const currentPlaceId = Number(row.placeId) || 0;
+			const placeName = this._sanitizeText(row.place);
 
-		if (!sessionsMap.has(row.sessionId)) {
-			sessionsMap.set(row.sessionId, {
-				id: row.sessionId,
-				title: row.title,
-				subtitle: row.subtitle,
-				format: row.format,
-				place: row.place,
-				placeId: currentPlaceId,
-				start: row.start,
-				video: row.video || null,
-				speakers: [],
-			});
-		}
+			if (currentPlaceId > 0 && placeName) {
+				hallsMap.set(currentPlaceId, placeName);
+			}
 
-		if (row.memberId) {
-			const fullPhotoUrl = row.photo
-				? `${PHOTO_BASE_URL}${row.photo.trim()}`
-				: null;
+			if (!sessionsMap.has(sessionId)) {
+				sessionsMap.set(sessionId, {
+					id: sessionId,
+					title: this._sanitizeText(row.title),
+					subtitle: this._sanitizeText(row.subtitle),
+					format: this._sanitizeText(row.format),
+					placeId: currentPlaceId,
+					start: this._sanitizeText(row.start),
+					video: this._sanitizeText(row.video) || null,
+					speakers: [],
+				});
+			}
 
-			sessionsMap.get(row.sessionId).speakers.push({
-				id: row.memberId,
-				name: `${row.name} ${row.surname}`.trim(),
-				role: row.role,
-				job: row.job || "",
-				photo: fullPhotoUrl,
-				bioParagraphs: formatBio(row.bio),
-			});
-		}
-	});
+			const memberId = this._sanitizeText(row.memberId);
+			if (memberId) {
+				const photo = this._sanitizeText(row.photo);
+				const speakerData = {
+					id: memberId,
+					firstName: this._sanitizeText(row.name),
+					lastName: this._sanitizeText(row.surname),
+					role: this._sanitizeText(row.role),
+					job: this._sanitizeText(row.job),
+					photo: photo || null,
+					bio: row.bio?.trim() || "",
+				};
 
-	const finalSessions = Array.from(sessionsMap.values());
+				sessionsMap.get(sessionId).speakers.push(speakerData);
+				// Сохраняем уникальный ключ "сессия-спикер" для O(1) поиска
+				speakersMap.set(`${sessionId}-${memberId}`, speakerData);
+			}
+		});
 
-	const finalHalls = Array.from(hallsMap.entries())
-		.map(([id, name]) => ({ id, name }))
-		.sort((a, b) => a.id - b.id);
+		const halls = Array.from(hallsMap.entries())
+			.map(([id, name]) => ({ id, name }))
+			.sort((a, b) => a.id - b.id);
 
-	const programSectionTemplate = html`
-		<section class="program" aria-labelledby="program-title">
-			<h2 id="program-title" class="program__title sr-only sr-only-focusable">
-				Программа мероприятия
-			</h2>
+		const sessions = Array.from(sessionsMap.values());
 
-			<div class="program__header">
-				${finalHalls.map(
-					hall => html`
-						<div class="program__hall-title" data-hall-id="${hall.id}">
-							${hall.name}
-						</div>
-					`,
-				)}
-			</div>
-
-			<div class="program__grid fnt-xs">
-				${finalSessions.map(session => programItemTemplate(session))}
-			</div>
-		</section>
-	`;
-
-	const targetContainer = document.querySelector(targetSelector);
-	if (targetContainer) {
-		render(programSectionTemplate, targetContainer);
+		return { halls, sessions, speakersMap };
 	}
 }
 
-export function renderProgram(targetSelector) {
-	const API = new FetchWrapper("");
-	API.getTxt("data/program-data.tsv")
-		.then(tsvText => {
-			initProgram(tsvText, targetSelector);
-		})
-		.catch(err => console.error(err.message));
+class EventProgramView {
+	constructor(targetSelector, popoverView) {
+		this.targetContainer = document.querySelector(targetSelector);
+		this.sessions = [];
+		this.halls = [];
+		this.speakersMap = new Map();
+		this.popoverView = popoverView;
+
+		this._handleSpeakerClick = this._handleSpeakerClick.bind(this);
+	}
+
+	render(halls, sessions, speakersMap) {
+		if (!this.targetContainer) return;
+		this.halls = halls;
+		this.sessions = sessions;
+		this.speakersMap = speakersMap;
+		this.updateUI();
+		this.initEvents();
+	}
+
+	updateUI() {
+		// Безопасная числовая сортировка времени (например, "9:00" встанет раньше "10:00")
+		const timeSlots = [...new Set(this.sessions.map(s => s.start))].sort(
+			(a, b) => a.localeCompare(b, undefined, { numeric: true }),
+		);
+
+		const hallsMap = new Map(this.halls.map(h => [h.id, h.name]));
+
+		const sessionsByTimeMap = new Map();
+		this.sessions.forEach(session => {
+			if (!sessionsByTimeMap.has(session.start)) {
+				sessionsByTimeMap.set(session.start, []);
+			}
+			sessionsByTimeMap.get(session.start).push(session);
+		});
+
+		const mainTemplate = html`
+			<table class="program" aria-label="Программа мероприятия">
+				<thead>
+					<tr>
+						${this.halls.map(
+							hall => html`
+								<th
+									role="columnheader"
+									class="track slot gradient-border"
+									data-hall="${hall.id}">
+									${hall.name}
+								</th>
+							`,
+						)}
+					</tr>
+				</thead>
+				<tbody class="fnt-xs">
+					${timeSlots.map(time => {
+						const slotsInTime = sessionsByTimeMap.get(time) || [];
+						return html`
+							<tr>
+								${slotsInTime.map(session =>
+									programItemTemplate(session, hallsMap),
+								)}
+							</tr>
+						`;
+					})}
+				</tbody>
+			</table>
+		`;
+
+		render(mainTemplate, this.targetContainer);
+	}
+
+	initEvents() {
+		const tbody = this.targetContainer.querySelector("tbody");
+		if (!tbody) return;
+
+		tbody.removeEventListener("click", this._handleSpeakerClick);
+		tbody.addEventListener("click", this._handleSpeakerClick);
+	}
+
+	_handleSpeakerClick(e) {
+		const btn = e.target.closest(".slot__speaker-btn");
+		if (!btn) return;
+
+		const speakerId = btn.dataset.speakerId;
+		const sessionId = btn.dataset.sessionId;
+
+		// Мгновенный поиск O(1) вместо вложенных .find()
+		const speaker = this.speakersMap.get(`${sessionId}-${speakerId}`);
+
+		if (speaker) {
+			this.popoverView.open(speaker);
+		}
+	}
+
+	destroy() {
+		if (this.targetContainer) {
+			const tbody = this.targetContainer.querySelector("tbody");
+			if (tbody) tbody.removeEventListener("click", this._handleSpeakerClick);
+			render(html``, this.targetContainer);
+		}
+		if (this.popoverView) {
+			this.popoverView.destroy();
+		}
+		this.sessions = [];
+		this.halls = [];
+		this.speakersMap.clear();
+	}
 }
 
-renderProgram(".full-bleed.garda-bg");
+const instances = new Map();
+
+export const renderProgram = targetSelector => {
+	if (instances.has(targetSelector)) {
+		instances.get(targetSelector).destroy();
+	}
+
+	const popoverView = new SpeakerPopoverView();
+	const view = new EventProgramView(targetSelector, popoverView);
+	instances.set(targetSelector, view);
+
+	const dataService = new ProgramDataService();
+	dataService
+		.fetchAndClean("data/program-data.tsv")
+		.then(({ halls, sessions, speakersMap }) =>
+			view.render(halls, sessions, speakersMap),
+		)
+		.catch(err => console.error(err.message));
+};
+
+renderProgram("#program");

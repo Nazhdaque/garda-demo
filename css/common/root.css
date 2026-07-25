@@ -5,14 +5,20 @@
 	--main-content-pad-x: clamp(1rem, 6.25vw + -3rem, 2rem);
 	/* 32px@1280px -> 16px@1024px */
 	--gap-x: clamp(1rem, 6.25vw + -3rem, 2rem);
+	--gap-sm: clamp(0.5rem, 3.125vw + -1.5rem, 1rem);
+
 	--col-1-of-12: calc((var(--max-content-width) - var(--gap-x) * 11) / 12);
+	--col-2-of-12: calc(var(--col-1-of-12) * 2 + var(--gap-x));
+	--col-3-of-12: calc(var(--col-1-of-12) * 3 + var(--gap-x) * 2);
+	--col-4-of-12: calc(var(--col-1-of-12) * 4 + var(--gap-x) * 3);
 	--col-5-of-12: calc(var(--col-1-of-12) * 5 + var(--gap-x) * 4);
-	--col-1-of-7: calc((var(--max-content-width) - var(--gap-x) * 6) / 7);
-	--col-1-of-6: calc((var(--max-content-width) - var(--gap-x) * 5) / 6);
-	--col-1-of-5: calc((var(--max-content-width) - var(--gap-x) * 4) / 5);
-	--col-1-of-4: calc((var(--max-content-width) - var(--gap-x) * 3) / 4);
+
+	/* --col-1-of-2: calc((var(--max-content-width) - var(--gap-x)) / 2);
 	--col-1-of-3: calc((var(--max-content-width) - var(--gap-x) * 2) / 3);
-	--col-1-of-2: calc((var(--max-content-width) - var(--gap-x)) / 2);
+	--col-1-of-4: calc((var(--max-content-width) - var(--gap-x) * 3) / 4);
+	--col-1-of-5: calc((var(--max-content-width) - var(--gap-x) * 4) / 5);
+	--col-1-of-6: calc((var(--max-content-width) - var(--gap-x) * 5) / 6);
+	--col-1-of-7: calc((var(--max-content-width) - var(--gap-x) * 6) / 7); */
 
 	/* |||||||||| |||||||||| |||||||||| |||||||||| sizes */
 	/* 24px@1280px -> 16px@1024px */

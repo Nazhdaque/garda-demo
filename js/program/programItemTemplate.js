@@ -1,78 +1,109 @@
 import { html } from "lit-html";
+import { repeat } from "lit-html/directives/repeat.js";
 
-export const programItemTemplate = session => {
+export const programItemTemplate = (session, hallsMap) => {
 	const isPause = session.placeId === 0;
 
 	if (isPause) {
 		return html`
-			<article class="program-item" data-hall="all">
-				<header class="program-item__header">
-					<time class="program-item__time" datetime="${session.start}:00+03:00"
+			<td role="cell" class="slot gradient-border" data-hall="all">
+				<header class="slot__header">
+					<time class="slot__time" datetime="${session.start}:00+03:00"
 						>${session.start}</time
 					>
-					<span class="program-item__type">${session.format}</span>
+					${session.format
+						? html`<span class="slot__type">${session.format}</span>`
+						: ""}
 				</header>
-			</article>
+			</td>
 		`;
 	}
 
-	const moderators = session.speakers.filter(s => s.role === "Модератор");
-	const participants = session.speakers.filter(s => s.role === "Участник");
+	const moderators =
+		session.speakers?.filter(s => s.role === "Модератор") || [];
+	const participants =
+		session.speakers?.filter(s => s.role === "Участник") || [];
+	const hasSpeakers = moderators.length > 0 || participants.length > 0;
+
+	const hallName = hallsMap?.get(session.placeId) || "";
+
+	const renderSpeakerName = speaker => {
+		const isInteractive = speaker.photo && speaker.bio;
+		if (isInteractive) {
+			return html`<button
+				type="button"
+				class="slot__speaker-btn"
+				data-speaker-id="${speaker.id}"
+				data-session-id="${session.id}">
+				${speaker.firstName} ${speaker.lastName}
+			</button>`;
+		}
+		return `${speaker.firstName} ${speaker.lastName}`;
+	};
 
 	return html`
-		<article
-			class="program-item gradient-border"
-			data-time="${session.start.replace(":", "-")}"
-			data-hall="${session.placeId}"
+		<td
+			role="cell"
+			class="slot gradient-border"
+			data-time="${session.start ? session.start.replace(":", "-") : ""}"
+			data-hall="${session.placeId ?? ""}"
 			aria-labelledby="talk-title-${session.id}">
-			<header class="program-item__header">
-				<time
-					class="program-item__time program-item__tag"
-					datetime="${session.start}:00+03:00"
+			<header class="slot__header">
+				<time class="slot__time" datetime="${session.start}:00+03:00"
 					>${session.start}</time
 				>
-				<span class="program-item__hall program-item__tag"
-					>${session.place}</span
-				>
-				<span class="program-item__type program-item__tag"
-					>${session.format}</span
-				>
+				${hallName ? html`<span class="slot__hall">${hallName}</span>` : ""}
+				${session.format
+					? html`<span class="slot__type">${session.format}</span>`
+					: ""}
 				${session.video
 					? html`<a
 							href="${session.video}"
 							target="_blank"
 							rel="noopener noreferrer"
-							class="program-item__link program-item__button"
+							class="slot__link gradient-text gradient-border"
 							>Видео</a
 						>`
 					: ""}
 			</header>
 
-			<div class="program-item__body">
-				<h3 id="talk-title-${session.id}" class="program-item__title fnt-md">
+			<div class="slot__body">
+				<h3 id="talk-title-${session.id}" class="slot__title fnt-md">
 					${session.title}
 				</h3>
-				<p class="program-item__subtitle fnt-xs">${session.subtitle}</p>
+				${session.subtitle
+					? html`<p class="slot__subtitle fnt-xs">${session.subtitle}</p>`
+					: ""}
 			</div>
 
-			${session.speakers.length > 0
+			${hasSpeakers
 				? html`
-						<footer class="program-item__footer">
-							<dl class="program-item__speakers">
+						<footer class="slot__footer">
+							<dl class="slot__speakers">
 								${moderators.length > 0
 									? html`
-											<dt class="program-item__role">Модератор</dt>
-											<dd class="program-item__name">
-												${moderators.map(m => m.name).join(", ")}
+											<dt class="slot__role">Модератор</dt>
+											<dd class="slot__names">
+												<ul class="slot__members-list">
+													${repeat(
+														moderators,
+														m => m.id,
+														m => html`<li>${renderSpeakerName(m)}</li>`,
+													)}
+												</ul>
 											</dd>
 										`
 									: ""}
 								${participants.length > 0
 									? html`
-											<dt class="program-item__role">Участники</dt>
-											<dd class="program-item__names">
-												<ul class="program-item__members-list">
-													${participants.map(p => html`<li>${p.name}</li>`)}
+											<dt class="slot__role">Участники</dt>
+											<dd class="slot__names">
+												<ul class="slot__members-list">
+													${repeat(
+														participants,
+														p => p.id,
+														p => html`<li>${renderSpeakerName(p)}</li>`,
+													)}
 												</ul>
 											</dd>
 										`
@@ -81,6 +112,6 @@ export const programItemTemplate = session => {
 						</footer>
 					`
 				: ""}
-		</article>
+		</td>
 	`;
 };
