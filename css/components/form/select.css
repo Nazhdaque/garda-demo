@@ -10,8 +10,10 @@
 		inset: 0;
 		border-radius: inherit;
 		border: var(--border-width) solid transparent;
-		background: hsl(var(--clr-0a-hsl), 0.2) border-box;
-		mask: var(--clr-1b-1a) border-box, var(--clr-1b-1a) padding-box;
+		background: oklch(from var(--white) l c h / 0.2) border-box;
+		mask:
+			conic-gradient(#000 0 0) content-box,
+			conic-gradient(#000 0 0) border-box;
 		mask-composite: subtract;
 		z-index: 2;
 		pointer-events: none;
@@ -76,7 +78,9 @@
 		border: var(--border-width) solid transparent;
 
 		background: var(--clr-active) border-box;
-		mask: var(--clr-1b-1a) border-box, var(--clr-1b-1a) padding-box;
+		mask:
+			var(--clr-1b-1a) border-box,
+			var(--clr-1b-1a) padding-box;
 		mask-composite: subtract;
 		z-index: 1;
 		pointer-events: none;

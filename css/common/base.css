@@ -11,7 +11,7 @@
 }
 
 ::selection {
-	background-color: hsl(var(--clr-1c-hsl), 0.5);
+	background-color: oklch(from var(--clr-1c) l c h / 0.5);
 }
 
 :where(img, picture, canvas, svg) {

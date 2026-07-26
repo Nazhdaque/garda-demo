@@ -154,14 +154,6 @@
 	overflow: hidden;
 }
 
-/* |||||||||| |||||||||| |||||||||| |||||||||| colors */
-.bg-gradient {
-	--clr-solid: hsl(var(--clr-0a));
-
-	background-image: var(--clr-1b-1a);
-	border-radius: var(--rad, none);
-}
-
 /* |||||||||| |||||||||| |||||||||| |||||||||| */
 .focus-outline {
 	outline-offset: var(--outline-width);

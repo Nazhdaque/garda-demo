@@ -2,8 +2,8 @@
 	/* |||||||||| |||||||||| |||||||||| |||||||||| program */
 	--rad-xs: 4px;
 
-	--cyan-alpha: hsl(from var(--cyan-500) h s l / 0.15);
-	--violet-alpha: hsl(from var(--violet-500) h s l / 0.15);
+	--cyan-alpha: oklch(from var(--cyan-500) l c h / 0.15);
+	--violet-alpha: oklch(from var(--violet-500) l c h / 0.15);
 
 	--cv500-solid-straight: linear-gradient(
 		90deg,
@@ -43,7 +43,7 @@
 		var(--violet-300) 100%
 	);
 
-	--sapphire-800-alpha: hsl(from var(--sapphire-800) h s l / 0.5);
+	--sapphire-800-alpha: oklch(from var(--sapphire-800) l c h / 0.5);
 
 	--bg-common: 300% 100%;
 	--bg-separate: 100%;
@@ -141,8 +141,8 @@
 .person[popover]::backdrop {
 	background-color: color-mix(
 		in oklch,
-		#000 40%,
-		hsl(from var(--sapphire-800) h s l / 0.75)
+		oklch(0 0 0) 40%,
+		oklch(from var(--sapphire-800) l c h / 0.75)
 	);
 	backdrop-filter: blur(8px);
 	opacity: 0;
@@ -192,7 +192,7 @@ body:has(.person:popover-open) {
 	gap: var(--gap-x);
 	padding: var(--gap-sm);
 	border-radius: var(--rad-inner);
-	background-color: hsl(from var(--white) h s l / 0.05);
+	background-color: oklch(from var(--white) l c h / 0.05);
 	background-image: var(--cv500-alpha-straight);
 	background-position: var(--bg-position, 0 0);
 	background-size: var(--bg-size, var(--bg-common));
@@ -259,7 +259,7 @@ body:has(.person:popover-open) {
 		line-height: 1;
 		background-image: var(--cv500-alpha-angled);
 		background-color: var(--sapphire-800-alpha);
-		background-color: hsl(from var(--white) h s l / 0.05);
+		background-color: oklch(from var(--white) l c h / 0.05);
 	}
 }
 
@@ -283,7 +283,7 @@ body:has(.person:popover-open) {
 
 /* |||||||||| |||||||||| card footer */
 .slot__footer {
-	--clr-txt: hsl(from var(--white) h s l / 0.6);
+	--clr-txt: oklch(from var(--white) l c h / 0.6);
 }
 
 .slot__speakers {

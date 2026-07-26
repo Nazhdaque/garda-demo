@@ -1,9 +1,5 @@
 .btn-gradient {
-	--btn-bg: linear-gradient(
-		15deg,
-		hsl(var(--clr-1e-hsl)) -6%,
-		hsl(var(--clr-1f-hsl)) 66%
-	);
+	--btn-bg: linear-gradient(15deg, var(--clr-1e) -6%, var(--clr-1f) 66%);
 
 	cursor: pointer;
 	position: relative;
@@ -26,7 +22,9 @@
 		background-image: var(--btn-bg);
 		background-size: 200% auto;
 		transform-style: preserve-3d;
-		transition: background-position var(--time) ease, opacity var(--time) ease,
+		transition:
+			background-position var(--time) ease,
+			opacity var(--time) ease,
 			filter var(--time) ease;
 	}
 }

@@ -1,6 +1,6 @@
 .form {
-	--clr-txt: hsl(var(--clr-0a-hsl), 0.6);
-	--clr-bg-active: hsl(from var(--clr-1d) h s l / 0.2);
+	--clr-txt: oklch(from var(--white) l c h / 0.6);
+	--clr-bg-active: oklch(from var(--clr-1d) l c h / 0.2);
 	--clr-active: var(--clr-1e-1f);
 	--clr-success: radial-gradient(
 		circle at bottom left,
@@ -58,10 +58,10 @@
 		inset: 0;
 		border-radius: inherit;
 		border: var(--border-width) solid transparent;
-		background: hsl(var(--clr-0a-hsl), 0.2) border-box;
+		background: oklch(from var(--white) l c h / 0.2) border-box;
 		mask:
-			var(--clr-1b-1a) border-box,
-			var(--clr-1b-1a) padding-box;
+			conic-gradient(#000 0 0) content-box,
+			conic-gradient(#000 0 0) border-box;
 		mask-composite: subtract;
 		z-index: 1;
 		pointer-events: none;

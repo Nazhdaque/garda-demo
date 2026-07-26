@@ -12,13 +12,14 @@
 	--col-3-of-12: calc(var(--col-1-of-12) * 3 + var(--gap-x) * 2);
 	--col-4-of-12: calc(var(--col-1-of-12) * 4 + var(--gap-x) * 3);
 	--col-5-of-12: calc(var(--col-1-of-12) * 5 + var(--gap-x) * 4);
+	--col-6-of-12: calc(var(--col-1-of-12) * 6 + var(--gap-x) * 5);
 
-	/* --col-1-of-2: calc((var(--max-content-width) - var(--gap-x)) / 2);
+	--col-1-of-2: calc((var(--max-content-width) - var(--gap-x)) / 2);
 	--col-1-of-3: calc((var(--max-content-width) - var(--gap-x) * 2) / 3);
 	--col-1-of-4: calc((var(--max-content-width) - var(--gap-x) * 3) / 4);
 	--col-1-of-5: calc((var(--max-content-width) - var(--gap-x) * 4) / 5);
 	--col-1-of-6: calc((var(--max-content-width) - var(--gap-x) * 5) / 6);
-	--col-1-of-7: calc((var(--max-content-width) - var(--gap-x) * 6) / 7); */
+	--col-1-of-7: calc((var(--max-content-width) - var(--gap-x) * 6) / 7);
 
 	/* |||||||||| |||||||||| |||||||||| |||||||||| sizes */
 	/* 24px@1280px -> 16px@1024px */
@@ -30,45 +31,77 @@
 	--arw-size: clamp(1.5rem, 3.125vw + -0.5rem, 2rem);
 
 	/* |||||||||| |||||||||| |||||||||| |||||||||| garda brand palette */
-	--white: #ffffff;
-	--graphit-700: #292c42;
 
-	--cyan-100: #9cdeff;
-	--cyan-200: #59d7ff;
-	--cyan-300: #45cdff;
-	--cyan-400: #30c4ff;
-	--cyan-500: #15b8ff;
-	--cyan-600: #159be8;
-	--cyan-700: #0e7cd0;
-	--cyan-800: #075db9;
-	--cyan-900: #003ea1;
-
-	--violet-100: #ffb3fe;
-	--violet-200: #f79cff;
-	--violet-300: #e481ff;
-	--violet-400: #d265ff;
-	--violet-500: #bf4aff;
-	--violet-600: #ac38f0;
-	--violet-700: #9825e1;
-	--violet-800: #8413d1;
-	--violet-900: #7100c2;
-
-	--warm-100: #ffd754;
-	--warm-200: #fbba5e;
-	--warm-300: #f89e68;
-	--warm-400: #f48171;
-	--warm-500: #f0647b;
-	--warm-600: #d9587a;
-	--warm-700: #c34c79;
-	--warm-800: #ac4077;
-	--warm-900: #953476;
-
-	--cyan-300-alt: #8baaff;
-	--cyan-500-alt: #6786ff;
-	--violet-300-alt: #b198ff;
-	--violet-500-alt: #9964ff;
-	--sapphire-200: #ced5f0;
-	--sapphire-800: #2b367a;
+	/* --white: #ffffff; */
+	--white: oklch(1 0 0);
+	/* --graphit-700: #292c42; */
+	--graphit-700: oklch(0.3006 0.04 277.72);
+	/* --cyan-100: #9cdeff; */
+	--cyan-100: oklch(0.8678 0.0807 230.52);
+	/* --cyan-200: #59d7ff; */
+	--cyan-200: oklch(0.8243 0.1233 222.41);
+	/* --cyan-300: #45cdff; */
+	--cyan-300: oklch(0.7962 0.1339 227.11);
+	/* --cyan-400: #30c4ff; */
+	--cyan-400: oklch(0.7713 0.144 230.84);
+	/* --cyan-500: #15b8ff; */
+	--cyan-500: oklch(0.7404 0.1558 235.93);
+	/* --cyan-600: #159be8; */
+	--cyan-600: oklch(0.6616 0.1537 242.52);
+	/* --cyan-700: #0e7cd0; */
+	--cyan-700: oklch(0.5754 0.156 249.45);
+	/* --cyan-800: #075db9; */
+	--cyan-800: oklch(0.4885 0.1625 255.98);
+	/* --cyan-900: #003ea1; */
+	--cyan-900: oklch(0.4006 0.1701 260.71);
+	/* --violet-100: #ffb3fe; */
+	--violet-100: oklch(0.8621 0.1297 327.07);
+	/* --violet-200: #f79cff; */
+	--violet-200: oklch(0.8176 0.1647 324.05);
+	/* --violet-300: #e481ff; */
+	--violet-300: oklch(0.757 0.1984 318.72);
+	/* --violet-400: #d265ff; */
+	--violet-400: oklch(0.6995 0.232 314.74);
+	/* --violet-500: #bf4aff; */
+	--violet-500: oklch(0.6471 0.2592 310.66);
+	/* --violet-600: #ac38f0; */
+	--violet-600: oklch(0.5968 0.2588 309.05);
+	/* --violet-700: #9825e1; */
+	--violet-700: oklch(0.546 0.2566 306.82);
+	/* --violet-800: #8413d1; */
+	--violet-800: oklch(0.4973 0.2494 304.21);
+	/* --violet-900: #7100c2; */
+	--violet-900: oklch(0.4529 0.2403 301.06);
+	/* --warm-100: #ffd754; */
+	--warm-100: oklch(0.8902 0.1517 91.86);
+	/* --warm-200: #fbba5e; */
+	--warm-200: oklch(0.8316 0.1318 73.68);
+	/* --warm-300: #f89e68; */
+	--warm-300: oklch(0.7792 0.1282 50.91);
+	/* --warm-400: #f48171; */
+	--warm-400: oklch(0.7284 0.1438 29.25);
+	/* --warm-500: #f0647b; */
+	--warm-500: oklch(0.6842 0.1729 12.86);
+	/* --warm-600: #d9587a; */
+	--warm-600: oklch(0.635 0.164 6.7);
+	/* --warm-700: #c34c79; */
+	--warm-700: oklch(0.5868 0.1579 359.66);
+	/* --warm-800: #ac4077; */
+	--warm-800: oklch(0.5364 0.1525 351.87);
+	/* --warm-900: #953476; */
+	--warm-900: oklch(0.4863 0.1501 342.5);
+	/* --cyan-300-alt: #8baaff; */
+	--cyan-300-alt: oklch(0.7495 0.1279 268.01);
+	/* --cyan-500-alt: #6786ff; */
+	--cyan-500-alt: oklch(0.6566 0.1821 269.97);
+	/* --violet-300-alt: #b198ff; */
+	--violet-300-alt: oklch(0.7431 0.1468 293.68);
+	/* --violet-500-alt: #9964ff; */
+	--violet-500-alt: oklch(0.6368 0.2199 295.18);
+	/* --sapphire-200: #ced5f0; */
+	--sapphire-200: oklch(0.8761 0.038 274.07);
+	/* --sapphire-800: #2b367a; */
+	--sapphire-800: oklch(0.3643 0.1157 272.43);
 
 	--clr-chart-01: var(--violet-500);
 	--clr-chart-02: var(--cyan-500);
@@ -94,35 +127,44 @@
 		var(--violet-300) 100%
 	);
 
-	--clr-0a: #ffffff;
+	/* --clr-0a: #ffffff; */
+	--clr-0a: oklch(1 0 0);
 	--clr-0a-hsl: 0, 0%, 100%;
-	--clr-0b: #010623;
+	/* --clr-0b: #010623; */
+	--clr-0b: oklch(0.1413 0.0478 266.0754);
 	--clr-0b-hsl: 231, 94%, 7%;
-	--clr-0c: #2c313b;
+	/* --clr-0c: #2c313b; */
+	--clr-0c: oklch(0.3125 0.0163 260.6729);
 	--clr-0c-hsl: 220, 15%, 20%;
-	--clr-1a: #4d5bd5;
+	/* --clr-1a: #4d5bd5; */
+	--clr-1a: oklch(0.5303 0.1702 273.7431);
 	--clr-1a-hsl: 234, 62%, 57%;
-	--clr-1b: #d21fff;
+	/* --clr-1b: #d21fff; */
+	--clr-1b: oklch(0.6431 0.2889 317.5878);
 	--clr-1b-hsl: 288, 100%, 56%;
-	--clr-1c: #b881db;
+	/* --clr-1c: #b881db; */
+	--clr-1c: oklch(0.692 0.1441 313.2355);
 	--clr-1c-hsl: 277, 56%, 68%;
-	--clr-1d: #9a4dd5;
+	/* --clr-1d: #9a4dd5; */
+	--clr-1d: oklch(0.578 0.2038 307.1856);
 	--clr-1d-hsl: 274, 62%, 57%;
-	--clr-1e: #2baae2;
+	/* --clr-1e: #2baae2; */
+	--clr-1e: oklch(0.6965 0.1342 233.1118);
 	--clr-1e-hsl: 198, 76%, 53%;
-	--clr-1f: #9b4fd6;
+	/* --clr-1f: #9b4fd6; */
+	--clr-1f: oklch(0.5824 0.2023 307.1084);
 	--clr-1f-hsl: 274, 62%, 57%;
 
 	--clr-1e-1f: linear-gradient(
 		var(--deg, 15deg),
-		hsl(var(--clr-1e-hsl), var(--alpha, 1)) 0%,
-		hsl(var(--clr-1f-hsl), var(--alpha, 1)) 100%
+		oklch(from var(--clr-1e) l c h / var(--alpha, 1)) 0%,
+		oklch(from var(--clr-1f) l c h / var(--alpha, 1)) 100%
 	);
 
 	--clr-1b-1a: linear-gradient(
 		var(--deg, 30deg),
-		hsl(var(--clr-1b-hsl), var(--alpha, 1)) 25%,
-		hsl(var(--clr-1a-hsl), var(--alpha, 1)) 125%
+		oklch(from var(--clr-1b) l c h / var(--alpha, 1)) 25%,
+		oklch(from var(--clr-1a) l c h / var(--alpha, 1)) 125%
 	);
 
 	--clr-txt: var(--white);

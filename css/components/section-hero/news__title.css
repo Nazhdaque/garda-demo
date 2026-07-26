@@ -5,5 +5,5 @@
 	padding: 1em;
 	border-radius: var(--rad-inner);
 	backdrop-filter: blur(5px);
-	background-color: hsl(var(--clr-0a-hsl), 0.2);
+	background-color: oklch(from var(--white) l c h / 0.2);
 }

@@ -23,7 +23,7 @@ class ProgramDataService {
 		const parsed = Papa.parse(tsvData, { header: true, skipEmptyLines: true });
 		const sessionsMap = new Map();
 		const hallsMap = new Map();
-		const speakersMap = new Map(); // Карта для моментального поиска спикеров при клике
+		const speakersMap = new Map();
 
 		parsed.data.forEach(row => {
 			const sessionId = this._sanitizeText(row.sessionId);
@@ -63,7 +63,6 @@ class ProgramDataService {
 				};
 
 				sessionsMap.get(sessionId).speakers.push(speakerData);
-				// Сохраняем уникальный ключ "сессия-спикер" для O(1) поиска
 				speakersMap.set(`${sessionId}-${memberId}`, speakerData);
 			}
 		});
@@ -99,7 +98,6 @@ class EventProgramView {
 	}
 
 	updateUI() {
-		// Безопасная числовая сортировка времени (например, "9:00" встанет раньше "10:00")
 		const timeSlots = [...new Set(this.sessions.map(s => s.start))].sort(
 			(a, b) => a.localeCompare(b, undefined, { numeric: true }),
 		);

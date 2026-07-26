@@ -29,7 +29,7 @@
 
 	&:has(.form__checkbox:disabled) {
 		.checkbox-txt {
-			--clr-txt: hsl(from var(--white) h s l / 0.4);
+			--clr-txt: oklch(from var(--white) l c h / 0.4);
 		}
 		.input-wrapper,
 		.checkbox-txt {
@@ -186,7 +186,7 @@
 }
 
 .checkbox-wrapper:where(:has(.form__checkbox:disabled), :hover) {
-	--clr-txt: hsl(from var(--white) h s l / 0.4);
+	--clr-txt: oklch(from var(--white) l c h / 0.6);
 
 	.form__input {
 		background-color: transparent;

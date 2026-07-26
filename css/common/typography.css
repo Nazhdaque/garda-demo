@@ -83,10 +83,10 @@
 }
 
 .txt-clr-6 {
-	color: hsl(from var(--white) h s l / 0.6);
+	color: oklch(from var(--white) l c h / 0.6);
 }
 .txt-clr-4 {
-	color: hsl(from var(--white) h s l / 0.4);
+	color: oklch(from var(--white) l c h / 0.4);
 }
 
 /* |||||||||| |||||||||| |||||||||| |||||||||| font mods */
