@@ -199,6 +199,7 @@ body:has(.person:popover-open) {
 	background-repeat: no-repeat;
 	box-sizing: border-box;
 	backdrop-filter: blur(8px);
+	transition: background-color 0.2s ease-in;
 
 	&.gradient-border::before {
 		padding: 1px 0 0 0;
@@ -316,7 +317,8 @@ body:has(.person:popover-open) {
 	display: inline-block;
 }
 
-.gradient-border {
+.gradient-border,
+.active-tag {
 	position: relative;
 	isolation: isolate;
 
@@ -338,6 +340,15 @@ body:has(.person:popover-open) {
 	}
 }
 
+.active-tag {
+	cursor: pointer;
+	color: var(--clr-txt);
+}
+
+.active-slot {
+	background-color: oklch(from black l c h / 0.15);
+}
+
 /* |||||||||| |||||||||| |||||||||| |||||||||| media */
 @media (width <= 768px) {
 	.program {
@@ -349,6 +360,7 @@ body:has(.person:popover-open) {
 		}
 		tr {
 			display: block;
+			/* scroll-margin-top: var(--size); */
 		}
 		td:not(:first-child) {
 			margin-top: var(--gap-sm);
