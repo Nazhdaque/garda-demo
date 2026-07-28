@@ -41,8 +41,8 @@
 	<link rel="icon"
 				type="image/svg+xml"
 				href="./images/icons/vite.svg">
-  <script type="module" crossorigin src="/garda-demo/assets/index-BL6GXjjb.js"></script>
-  <link rel="stylesheet" crossorigin href="/garda-demo/assets/index-BXJ061yn.css">
+  <script type="module" crossorigin src="/garda-demo/assets/index-PGaT1l02.js"></script>
+  <link rel="stylesheet" crossorigin href="/garda-demo/assets/index-DDts-Of0.css">
 </head>
 
 <body class="layout-body demo-bg">
@@ -58,7 +58,884 @@
 		</div>
 	</header>
 
-	<main class="main-content demo-box"></main>
+	<main class="main-content demo-box">
+		<!-- <div class="full-bleed"
+				 id="program"></div> -->
+		<div class="full-bleed garda-bg">
+	<form class="form settings">
+		<p>Как управлять карточками, не привлекая внимания санитаров? Выбирайте по порядку слева направо. Если запутались,
+			жмите reset.</p>
+		<div class="scroll-snap-inline">
+			<div class="settings-group-wrapper">
+				<fieldset class="settings-group grid-x"
+									id="settings-content">
+					<legend class="txt-trunc fnt-md">Section</legend>
+
+					<div class="checkbox-wrapper fnt-rg form-toggle">
+						<label>
+							<div class="input-wrapper">
+								<div class="form__input">
+									<input class="form__checkbox"
+												 id="option-section-header"
+												 type="checkbox"
+												 checked>
+								</div>
+							</div>
+							<p class="checkbox-txt txt-trunc">Header</p>
+						</label>
+					</div>
+
+					<div class="checkbox-wrapper fnt-rg form-toggle">
+						<label>
+							<div class="input-wrapper">
+								<div class="form__input">
+									<input class="form__checkbox"
+												 id="option-section-subtitle"
+												 type="checkbox"
+												 checked>
+								</div>
+							</div>
+							<p class="checkbox-txt txt-trunc">Subtitle</p>
+						</label>
+					</div>
+				</fieldset>
+
+				<fieldset class="settings-group grid-x">
+					<legend class="txt-trunc fnt-md">Title Size</legend>
+
+					<div class="checkbox-wrapper fnt-rg">
+						<label>
+							<div class="input-wrapper">
+								<div class="form__input">
+									<input class="form__checkbox"
+												 name="section-card-title-size"
+												 type="radio"
+												 id="option-section-title-lg"
+												 checked>
+								</div>
+							</div>
+							<p class="checkbox-txt ellipsis fnt-rg">L</p>
+						</label>
+					</div>
+
+					<div class="checkbox-wrapper fnt-rg">
+						<label>
+							<div class="input-wrapper">
+								<div class="form__input">
+									<input class="form__checkbox"
+												 name="section-card-title-size"
+												 type="radio"
+												 id="option-section-title-md">
+								</div>
+							</div>
+							<p class="checkbox-txt ellipsis fnt-rg">M</p>
+						</label>
+					</div>
+				</fieldset>
+			</div>
+
+			<div class="settings-group-wrapper">
+				<fieldset class="settings-group grid-x">
+					<legend class="txt-trunc fnt-md">Section Settings</legend>
+					<div class="checkbox-wrapper fnt-rg form-toggle">
+						<label>
+							<div class="input-wrapper">
+								<div class="form__input">
+									<input class="form__checkbox"
+												 name="background"
+												 type="checkbox"
+												 id="option-background">
+								</div>
+							</div>
+							<p class="checkbox-txt ellipsis fnt-rg">Background</p>
+						</label>
+					</div>
+
+					<div class="checkbox-wrapper fnt-rg form-toggle">
+						<label>
+							<div class="input-wrapper">
+								<div class="form__input">
+									<input class="form__checkbox"
+												 id="option-subgrid"
+												 name="subgrid"
+												 type="checkbox">
+								</div>
+							</div>
+							<p class="checkbox-txt txt-trunc">Subgrid</p>
+						</label>
+					</div>
+
+					<div class="checkbox-wrapper fnt-rg form-toggle">
+						<label>
+							<div class="input-wrapper">
+								<div class="form__input">
+									<input class="form__checkbox"
+												 id="option-scroll-snap"
+												 type="checkbox">
+								</div>
+							</div>
+							<p class="checkbox-txt txt-trunc">Scroll-snap</p>
+						</label>
+					</div>
+
+					<div class="checkbox-wrapper fnt-rg form-toggle">
+						<label>
+							<div class="input-wrapper">
+								<div class="form__input">
+									<input class="form__checkbox"
+												 type="checkbox"
+												 id="option-list">
+								</div>
+							</div>
+							<p class="checkbox-txt ellipsis fnt-rg">Ordered list</p>
+						</label>
+					</div>
+
+					<div class="checkbox-wrapper fnt-rg form-toggle">
+						<label>
+							<div class="input-wrapper">
+								<div class="form__input">
+									<input class="form__checkbox"
+												 type="checkbox"
+												 id="option-flex-list">
+								</div>
+							</div>
+							<p class="checkbox-txt ellipsis fnt-rg">Flex List</p>
+						</label>
+					</div>
+				</fieldset>
+
+				<fieldset class="settings-group grid-x">
+					<legend class="txt-trunc fnt-md">Columns</legend>
+					<div class="checkbox-wrapper fnt-rg">
+						<label>
+							<div class="input-wrapper">
+								<div class="form__input">
+									<input class="form__checkbox"
+												 name="columns"
+												 type="radio"
+												 id="option-col-2">
+								</div>
+							</div>
+							<p class="checkbox-txt ellipsis fnt-rg">2</p>
+						</label>
+					</div>
+
+					<div class="checkbox-wrapper fnt-rg">
+						<label>
+							<div class="input-wrapper">
+								<div class="form__input">
+									<input class="form__checkbox"
+												 name="columns"
+												 type="radio"
+												 id="option-col-3"
+												 checked>
+								</div>
+							</div>
+							<p class="checkbox-txt ellipsis fnt-rg">3</p>
+						</label>
+					</div>
+
+					<div class="checkbox-wrapper fnt-rg">
+						<label>
+							<div class="input-wrapper">
+								<div class="form__input">
+									<input class="form__checkbox"
+												 name="columns"
+												 type="radio"
+												 id="option-col-4">
+								</div>
+							</div>
+							<p class="checkbox-txt ellipsis fnt-rg">4</p>
+						</label>
+					</div>
+
+					<div class="checkbox-wrapper fnt-rg">
+						<label>
+							<div class="input-wrapper">
+								<div class="form__input">
+									<input class="form__checkbox"
+												 name="columns"
+												 type="radio"
+												 id="option-col-5">
+								</div>
+							</div>
+							<p class="checkbox-txt ellipsis fnt-rg">5</p>
+						</label>
+					</div>
+				</fieldset>
+			</div>
+
+			<div class="settings-group-wrapper">
+				<fieldset class="settings-group grid-x">
+					<legend class="txt-trunc fnt-md">Figure Type</legend>
+
+					<div class="checkbox-wrapper fnt-rg">
+						<label>
+							<div class="input-wrapper">
+								<div class="form__input">
+									<input class="form__checkbox"
+												 name="image-type"
+												 type="radio"
+												 id="option-img-top"
+												 checked>
+								</div>
+							</div>
+							<p class="checkbox-txt ellipsis fnt-rg">Icon / Num Top</p>
+						</label>
+					</div>
+
+					<div class="checkbox-wrapper fnt-rg">
+						<label>
+							<div class="input-wrapper">
+								<div class="form__input">
+									<input class="form__checkbox"
+												 name="image-type"
+												 type="radio"
+												 id="option-img-left">
+								</div>
+							</div>
+							<p class="checkbox-txt ellipsis fnt-rg">Icon / Num Left</p>
+						</label>
+					</div>
+
+					<div class="checkbox-wrapper fnt-rg">
+						<label>
+							<div class="input-wrapper">
+								<div class="form__input">
+									<input class="form__checkbox"
+												 name="image-type"
+												 type="radio"
+												 id="option-img-cover">
+								</div>
+							</div>
+							<p class="checkbox-txt ellipsis fnt-rg">Picture<br><span class="txt-gradient">(one size —
+									16:9)</span> <br>
+								or Num / Arrow Right</p>
+						</label>
+					</div>
+
+					<div class="checkbox-wrapper fnt-rg">
+						<label>
+							<div class="input-wrapper">
+								<div class="form__input">
+									<input class="form__checkbox"
+												 name="image-type"
+												 type="radio"
+												 id="option-img-none">
+								</div>
+							</div>
+							<p class="checkbox-txt txt-trunc">None</p>
+						</label>
+					</div>
+				</fieldset>
+
+				<fieldset class="settings-group grid-x">
+					<legend class="txt-trunc fnt-md">Figure Size</legend>
+					<div class="checkbox-wrapper fnt-rg">
+						<label>
+							<div class="input-wrapper">
+								<div class="form__input">
+									<input class="form__checkbox"
+												 name="image-size"
+												 type="radio"
+												 id="option-img-lg">
+								</div>
+							</div>
+							<p class="checkbox-txt ellipsis fnt-rg">L</p>
+						</label>
+					</div>
+
+					<div class="checkbox-wrapper fnt-rg">
+						<label>
+							<div class="input-wrapper">
+								<div class="form__input">
+									<input class="form__checkbox"
+												 name="image-size"
+												 type="radio"
+												 id="option-img-md"
+												 checked>
+								</div>
+							</div>
+							<p class="checkbox-txt ellipsis fnt-rg">M</p>
+						</label>
+					</div>
+
+					<div class="checkbox-wrapper fnt-rg">
+						<label>
+							<div class="input-wrapper">
+								<div class="form__input">
+									<input class="form__checkbox"
+												 name="image-size"
+												 type="radio"
+												 id="option-img-sm">
+								</div>
+							</div>
+							<p class="checkbox-txt ellipsis fnt-rg">S</p>
+						</label>
+					</div>
+
+					<div class="checkbox-wrapper fnt-rg">
+						<label>
+							<div class="input-wrapper">
+								<div class="form__input">
+									<input class="form__checkbox"
+												 name="image-size"
+												 type="radio"
+												 id="option-img-xs">
+								</div>
+							</div>
+							<p class="checkbox-txt ellipsis fnt-rg">XS</p>
+						</label>
+					</div>
+				</fieldset>
+			</div>
+
+			<div class="settings-group-wrapper">
+				<fieldset class="settings-group grid-x"
+									id="settings-content">
+					<legend class="txt-trunc fnt-md">Card Content</legend>
+
+					<div class="checkbox-wrapper fnt-rg form-toggle">
+						<label>
+							<div class="input-wrapper">
+								<div class="form__input">
+									<input class="form__checkbox"
+												 id="option-card-title"
+												 type="checkbox"
+												 checked>
+								</div>
+							</div>
+							<p class="checkbox-txt txt-trunc">Title</p>
+						</label>
+					</div>
+
+					<div class="checkbox-wrapper fnt-rg form-toggle">
+						<label>
+							<div class="input-wrapper">
+								<div class="form__input">
+									<input class="form__checkbox"
+												 id="option-card-subtitle"
+												 type="checkbox"
+												 checked>
+								</div>
+							</div>
+							<p class="checkbox-txt txt-trunc">Subtitle</p>
+						</label>
+					</div>
+
+					<div class="checkbox-wrapper fnt-rg form-toggle">
+						<label for="option-card-text">
+							<div class="input-wrapper">
+								<div class="form__input">
+									<input class="form__checkbox"
+												 id="option-card-text"
+												 type="checkbox"
+												 checked>
+								</div>
+							</div>
+							<p class="checkbox-txt txt-trunc">Text</p>
+						</label>
+					</div>
+
+					<div class="checkbox-wrapper fnt-rg form-toggle">
+						<label for="option-one-line-title">
+							<div class="input-wrapper">
+								<div class="form__input">
+									<input class="form__checkbox"
+												 id="option-one-line-title"
+												 type="checkbox">
+								</div>
+							</div>
+							<p class="checkbox-txt txt-trunc">1-line Title</p>
+						</label>
+					</div>
+				</fieldset>
+
+				<fieldset class="settings-group grid-x">
+					<legend class="txt-trunc fnt-md">Title Size</legend>
+
+					<div class="checkbox-wrapper fnt-rg">
+						<label>
+							<div class="input-wrapper">
+								<div class="form__input">
+									<input class="form__checkbox"
+												 name="card-title-size"
+												 type="radio"
+												 id="option-card-title-lg">
+								</div>
+							</div>
+							<p class="checkbox-txt ellipsis fnt-rg">L</p>
+						</label>
+					</div>
+
+					<div class="checkbox-wrapper fnt-rg">
+						<label>
+							<div class="input-wrapper">
+								<div class="form__input">
+									<input class="form__checkbox"
+												 name="card-title-size"
+												 type="radio"
+												 id="option-card-title-md"
+												 checked>
+								</div>
+							</div>
+							<p class="checkbox-txt ellipsis fnt-rg">M</p>
+						</label>
+					</div>
+
+					<div class="checkbox-wrapper fnt-rg">
+						<label>
+							<div class="input-wrapper">
+								<div class="form__input">
+									<input class="form__checkbox"
+												 name="card-title-size"
+												 type="radio"
+												 id="option-card-title-sm"
+												 disabled>
+								</div>
+							</div>
+							<p class="checkbox-txt ellipsis fnt-rg">S</p>
+						</label>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+
+		<button class="reset focus-outline"
+						id="demo-cards-reset">Reset</button>
+	</form>
+
+	<article class="
+					demo-cards
+					section-header
+					section-subtitle
+					section-title-lg
+					col-3
+					img-size-md
+					img-pos-top
+					card-title
+					card-subtitle
+					card-text
+					card-title-md">
+		<div class="demo-cards__header width-x">
+			<h2 class="demo-cards__ttl">Все эти карточки&nbsp;— одно и то же</h2>
+			<p class="demo-cards__sub fnt-md txt-clr-6">Дизайн условный. Для удобства оценки происходящего лучше уменьшить
+				масштаб до 67% или 50%</p>
+		</div>
+
+		<div class="nav-btn-wrapper md-d-none">
+			<button class="nav-btn focus-outline"
+							id="btn-prev"
+							disabled></button>
+			<button class="nav-btn focus-outline"
+							id="btn-next"></button>
+		</div>
+		<div class="demo-cards-wrapper scroll-snap-inline focus-outline"></div>
+
+		<div class="demo-cards-nav"></div>
+	</article>
+</div>
+		<div class="full-bleed garda-bg">
+	<section class="hero">
+		<div class="img-box hero-tile hero-motto">
+			<h1 class="fnt-2xl txt-trunc">Безопасность — основа будущего</h1>
+			<p class="sub fnt-md txt-clr-6 txt-trunc">Создаем решения в сфере безопасности данных
+				и сетевой инфраструктуры</p>
+
+			<a class="hero-motto__arrow-link fnt-rg focus-outline sm-focus"
+				 href="#">
+				<span class="img-box arrow">
+					<img loading="lazy"
+							 decoding="async"
+							 src="images/icons/garda-icon-arrow-angled-white.svg"
+							 alt="gradient arrow on white background">
+					<img loading="lazy"
+							 decoding="async"
+							 src="images/icons/garda-icon-arrow-angled-black.svg"
+							 alt="white arrow on black background">
+					<img loading="lazy"
+							 decoding="async"
+							 src="images/icons/garda-icon-arrow-angled-purple.svg"
+							 alt="white arrow on purple background">
+				</span>
+				<span class="ellipsis sm-txt-trunc">Вместо платного Proxima Nova подключен шрифт Geologica</span>
+			</a>
+		</div>
+
+		<div class="news-wrapper scroll-snap-inline sm-d-grid">
+			<a class="img-box hero-tile hero-news focus-outline sm-focus sm-grid-area-auto"
+				 href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fnazhdaque.github.io%2Fgarda-demo%2F"
+				 target="_blank">
+				<picture class="img-box z-down">
+					<img loading="lazy"
+							 decoding="async"
+							 src="images/demo-720p.webp"
+							 alt="demo image">
+				</picture>
+				<div class="hero-news__tag fnt-xs">
+					<span class="ellipsis">Мероприятия</span>
+				</div>
+				<span class="hero-news__date fnt-xs">27.03.2025</span>
+				<div class="hero-news__title cursor-glow">
+					<h2 class="txt-trunc fnt-md">Этот заголовок обрежется
+						троеточием на 4 строке. Длина строк автоматически балансируется. Мелкие несоответствия макету,
+						например, размер стрелок и тегов в адаптивах — <span class="txt-gradient">мне так больше
+							нравится</span>
+					</h2>
+				</div>
+				<div class="img-box arrow">
+					<img loading="lazy"
+							 decoding="async"
+							 src="images/icons/garda-icon-arrow-angled-white.svg"
+							 alt="gradient arrow on white background">
+					<img loading="lazy"
+							 decoding="async"
+							 src="images/icons/garda-icon-arrow-angled-purple.svg"
+							 alt="white arrow on purple background">
+					<img loading="lazy"
+							 decoding="async"
+							 src="images/icons/garda-icon-arrow-angled-black.svg"
+							 alt="white arrow on black background">
+				</div>
+			</a>
+
+			<a class="img-box hero-tile hero-news focus-outline sm-focus sm-grid-area-auto"
+				 href="https://pagespeed.web.dev/analysis/https-nazhdaque-github-io-garda-demo/hrykf4xbyj?form_factor=mobile">
+				<picture class="img-box z-down">
+					<img loading="lazy"
+							 decoding="async"
+							 src="images/demo-720p.webp"
+							 alt="demo image">
+				</picture>
+				<div class="hero-news__tag fnt-xs">
+					<span class="ellipsis">Новости и аналитика</span>
+				</div>
+				<span class="hero-news__date fnt-xs">27.03.2025</span>
+				<div class="hero-news__title cursor-glow">
+					<h2 class="txt-trunc fnt-md">Оценивать надо в динамике, <span class="txt-gradient">плавно</span> изменяя
+						ширину окна просмотра</h2>
+				</div>
+				<div class="img-box arrow">
+					<img loading="lazy"
+							 decoding="async"
+							 src="images/icons/garda-icon-arrow-angled-white.svg"
+							 alt="gradient arrow on white background">
+					<img loading="lazy"
+							 decoding="async"
+							 src="images/icons/garda-icon-arrow-angled-purple.svg"
+							 alt="white arrow on purple background">
+					<img loading="lazy"
+							 decoding="async"
+							 src="images/icons/garda-icon-arrow-angled-black.svg"
+							 alt="white arrow on black background">
+				</div>
+			</a>
+
+			<a class="img-box hero-tile hero-news focus-outline sm-focus sm-grid-area-auto"
+				 href="#">
+				<picture class="img-box z-down">
+					<img loading="lazy"
+							 decoding="async"
+							 src="images/demo-720p.webp"
+							 alt="demo image">
+				</picture>
+				<div class="hero-news__tag fnt-xs">
+					<span class="ellipsis">Видео</span>
+				</div>
+				<span class="hero-news__date fnt-xs">27.03.2025</span>
+				<div class="hero-news__title cursor-glow">
+					<h2 class="txt-trunc fnt-md">Эти тайлы <span class="txt-gradient">на ≤768px</span> будут
+						скроллиться по
+						<span class="caps txt-gradient">shift + mouse wheel</span>, или тачпадом, или
+						свайпаться
+					</h2>
+				</div>
+				<div class="img-box arrow">
+					<img loading="lazy"
+							 decoding="async"
+							 src="images/icons/garda-icon-arrow-angled-white.svg"
+							 alt="gradient arrow on white background">
+					<img loading="lazy"
+							 decoding="async"
+							 src="images/icons/garda-icon-arrow-angled-purple.svg"
+							 alt="white arrow on purple background">
+					<img loading="lazy"
+							 decoding="async"
+							 src="images/icons/garda-icon-arrow-angled-black.svg"
+							 alt="white arrow on black background">
+				</div>
+			</a>
+		</div>
+	</section>
+</div>
+		<div class="full-bleed garda-bg">
+	<section class="cta-protect grid-x">
+		<div class="cta-protect__txt md-js-auto">
+			<h2 class="fnt-xl txt-trunc">Защитите свой бизнес</h2>
+			<p class="fnt-md txt-clr-6 txt-trunc">Заполните форму и мы свяжемся с вами</p>
+		</div>
+
+		<form class="form md-gtc-auto"
+					name="form-send-request"
+					id="form-send-request"
+					autocomplete>
+			<div class="input-wrapper">
+				<label for="first-name"
+							 class="sr-only">Имя</label>
+				<input class="form__input fnt-rg ellipsis"
+							 id="first-name"
+							 name="first-name"
+							 type="text"
+							 inputmode="text"
+							 autocomplete="on"
+							 placeholder="Имя"
+							 required>
+			</div>
+
+			<div class="input-wrapper">
+				<label for="last-name"
+							 class="sr-only">Фамилия</label>
+				<input class="form__input fnt-rg ellipsis"
+							 id="last-name"
+							 name="last-name"
+							 type="text"
+							 inputmode="text"
+							 autocomplete="on"
+							 placeholder="Фамилия"
+							 required>
+			</div>
+
+			<div class="input-wrapper">
+				<label for="job-title"
+							 class="sr-only">Должность</label>
+				<input class="form__input fnt-rg ellipsis"
+							 id="job-title"
+							 name="job-title"
+							 type="text"
+							 inputmode="text"
+							 autocomplete="on"
+							 placeholder="Должность"
+							 required>
+			</div>
+
+			<div class="input-wrapper">
+				<label for="company"
+							 class="sr-only">Компания</label>
+				<input class="form__input fnt-rg ellipsis"
+							 id="company"
+							 name="company"
+							 type="text"
+							 inputmode="text"
+							 autocomplete="on"
+							 placeholder="Компания"
+							 required>
+			</div>
+
+			<div class="input-wrapper">
+				<label for="email"
+							 class="sr-only">Email</label>
+				<input class="form__input fnt-rg ellipsis"
+							 id="email"
+							 name="email"
+							 type="email"
+							 inputmode="email"
+							 autocomplete="on"
+							 placeholder="Email"
+							 required>
+			</div>
+
+			<div class="input-wrapper">
+				<label for="phone"
+							 class="sr-only">Телефон</label>
+				<input class="form__input fnt-rg ellipsis"
+							 id="phone"
+							 name="phone"
+							 type="text"
+							 inputmode="numeric"
+							 autocomplete="on"
+							 placeholder="Телефон"
+							 required>
+			</div>
+
+			<fieldset class="radio-group grid-x"
+								id="radio-group">
+				<legend class="txt-trunc">Предпочитаемый способ связи</legend>
+
+				<div class="checkbox-wrapper fnt-rg">
+					<label>
+						<div class="input-wrapper">
+							<div class="form__input">
+								<input class="form__checkbox"
+											 name="communication"
+											 type="radio"
+											 value="Email"
+											 required>
+							</div>
+						</div>
+						<p class="checkbox-txt ellipsis fnt-rg">Email</p>
+					</label>
+				</div>
+
+				<div class="checkbox-wrapper fnt-rg">
+					<label>
+						<div class="input-wrapper">
+							<div class="form__input">
+								<input class="form__checkbox"
+											 name="communication"
+											 type="radio"
+											 value="Телефон"
+											 required>
+							</div>
+						</div>
+						<p class="checkbox-txt ellipsis fnt-rg">Телефон</p>
+					</label>
+				</div>
+
+				<div class="checkbox-wrapper fnt-rg">
+					<label>
+						<div class="input-wrapper">
+							<div class="form__input">
+								<input class="form__checkbox"
+											 name="communication"
+											 type="radio"
+											 value="Мессенджер"
+											 required>
+							</div>
+						</div>
+						<p class="checkbox-txt ellipsis fnt-rg">Мессенджер</p>
+					</label>
+				</div>
+			</fieldset>
+
+			<div class="select-wrapper">
+				<select id="form-select"
+								class="form-select"
+								placeholder="Какую ERP-систему вы используете?"
+								autocomplete="off">
+					<option value="">Какую ERP-систему вы используете?</option>
+					<option value="SAP">SAP</option>
+					<option value="Oracle">Oracle</option>
+					<option value="MS Dynamics">MS Dynamics</option>
+					<option value="1С:Предприятие">1С:Предприятие</option>
+					<option value="Другая система">Другая система</option>
+					<option value="Не используем">Не используем</option>
+				</select>
+			</div>
+
+			<div class="input-wrapper">
+				<label for="comment"
+							 class="sr-only">Комментарий</label>
+				<textarea class="form__input fnt-rg"
+									id="comment"
+									name="comment"
+									type="text"
+									inputmode="text"
+									autocomplete="on"
+									placeholder="Комментарий"></textarea>
+			</div>
+
+			<div class="checkbox-wrapper fnt-xs form-toggle">
+				<label for="subscription">
+					<div class="input-wrapper">
+						<div class="form__input">
+							<input class="form__checkbox"
+										 id="subscription"
+										 name="subscription"
+										 type="checkbox"
+										 value="Рассылка"
+										 required>
+						</div>
+					</div>
+					<p class="checkbox-txt txt-trunc fnt-xs">Я хочу подписаться на рассылку.</p>
+				</label>
+			</div>
+
+			<div class="checkbox-wrapper fnt-xs">
+				<label for="privacy-policy">
+					<div class="input-wrapper">
+						<div class="form__input">
+							<input class="form__checkbox"
+										 id="privacy-policy"
+										 name="privacy-policy"
+										 type="checkbox"
+										 value="Согласен"
+										 required>
+						</div>
+					</div>
+					<p class="checkbox-txt txt-trunc fnt-xs">Я соглашаюсь с <a href="#"
+							 target="_blank"
+							 class="txt-link"
+							 tabindex="-1">политикой конфиденциальности</a> и <a href="#"
+							 target="_blank"
+							 class="txt-link"
+							 tabindex="-1">политикой обработки
+							персональных данных</a>.
+						Форма
+						защищена от спама
+						сервисом SmartCaptcha от Яндекс.</p>
+				</label>
+			</div>
+
+			<div class="
+								 button-wrapper
+								 z-up">
+				<button class="btn-gradient ellipsis"
+								id="submit-form"
+								type="submit">Отправить заявку</button>
+			</div>
+		</form>
+	</section>
+</div>
+		<div class="full-bleed garda-bg">
+
+	<ol class="cards grid-x width-x">
+		<li class="card fnt-xs">
+			<picture class="img-box card__icon">
+				<img src="images/icons/garda-icon-users.svg"
+						 alt="icon badge">
+			</picture>
+			<p class="card__txt fnt-md txt-trunc">Lorem ipsum dolor sit amet consectetur.</p>
+		</li>
+
+		<li class="card fnt-xs">
+			<picture class="img-box card__icon">
+				<img src="images/icons/garda-icon-users.svg"
+						 alt="icon badge">
+			</picture>
+			<p class="card__txt fnt-md txt-trunc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+		</li>
+
+		<li class="card fnt-xs">
+			<picture class="img-box card__icon">
+				<img src="images/icons/garda-icon-users.svg"
+						 alt="icon badge">
+			</picture>
+			<p class="card__txt fnt-md txt-trunc">Lorem ipsum dolor sit amet consectetur, adipisicing elit accusamus!</p>
+		</li>
+
+		<li class="card fnt-xs">
+			<picture class="img-box card__icon">
+				<img src="images/icons/garda-icon-users.svg"
+						 alt="icon badge">
+			</picture>
+			<p class="card__txt fnt-md txt-trunc">Поворот градиента, ограничение ширины, белые цифры, выравнивание
+				текста по центру и стрелка вниз на ≤1024px
+				— <span class="txt-gradient">мне
+					так больше нравится.</span></p>
+		</li>
+
+		<li class="card fnt-xs">
+			<picture class="img-box card__icon">
+				<img src="images/icons/garda-icon-users.svg"
+						 alt="icon badge">
+			</picture>
+			<p class="card__txt fnt-md txt-trunc">Lorem ipsum dolor sit.
+			</p>
+		</li>
+	</ol>
+</div>
+	</main>
 
 	<footer class="main-footer xxx">
 		<div class="main-footer__group xxx"></div>
