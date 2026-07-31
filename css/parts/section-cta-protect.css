@@ -6,7 +6,7 @@
 	/* 16px@1280px -> 8px@1024px */
 	--form-gap: clamp(0.5rem, 3.125vw + -1.5rem, 1rem);
 
-	background-color: oklch(from var(--clr-0a) l c h / 0.05);
+	background-color: var(--white-alpha-0);
 	border-radius: var(--rad);
 	padding: var(--pad-xl) calc(var(--gap-x) + var(--col-1-of-12));
 

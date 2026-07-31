@@ -74,19 +74,23 @@
 
 /* |||||||||| |||||||||| |||||||||| |||||||||| txt colors */
 .txt-gradient {
-	background-image: var(--clr-1b-1a);
+	background-image: linear-gradient(
+		var(--deg, 30deg),
+		oklch(from var(--cyan-300) l c h / var(--alpha, 1)) 0%,
+		oklch(from var(--violet-300) l c h / var(--alpha, 1)) 66%
+	);
 	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 
-	filter: drop-shadow(1px 1px 1px var(--clr-0b));
+	filter: drop-shadow(1px 1px 1px var(--graphit-700));
 }
 
 .txt-clr-6 {
-	color: oklch(from var(--white) l c h / 0.6);
+	color: var(--white-alpha-6);
 }
 .txt-clr-4 {
-	color: oklch(from var(--white) l c h / 0.4);
+	color: var(--white-alpha-4);
 }
 
 /* |||||||||| |||||||||| |||||||||| |||||||||| font mods */

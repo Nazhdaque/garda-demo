@@ -9,7 +9,7 @@
 }
 
 .garda-bg {
-	background-color: var(--clr-0b);
+	background-color: oklch(0.1413 0.0478 266.0754);
 	padding-block: var(--main-content-pad-x);
 	/* place-items: center; */
 	position: relative;
@@ -23,7 +23,8 @@
 	--c3: hsl(0, 0%, 6%);
 
 	--_g: 0 120deg, #0000 0;
-	background: conic-gradient(
+	background:
+		conic-gradient(
 			from 0deg at calc(500% / 6) calc(100% / 3),
 			var(--c3) var(--_g)
 		),

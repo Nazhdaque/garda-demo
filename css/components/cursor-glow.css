@@ -11,7 +11,7 @@
 		inset: 0;
 		background: radial-gradient(
 			30rem circle at var(--x-px) var(--y-px),
-			oklch(from var(--clr-1b) l c h / 0.2),
+			oklch(from var(--cyan-500-alt) l c h / 0.2),
 			transparent 66%
 		);
 		z-index: -2;

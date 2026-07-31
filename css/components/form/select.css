@@ -9,12 +9,16 @@
 		position: absolute;
 		inset: 0;
 		border-radius: inherit;
-		border: var(--border-width) solid transparent;
-		background: oklch(from var(--white) l c h / 0.2) border-box;
+		padding: var(--border-width);
+		background: var(--white-alpha-2);
+		-webkit-mask:
+			linear-gradient(#000 0 0) content-box,
+			linear-gradient(#000 0 0);
 		mask:
-			conic-gradient(#000 0 0) content-box,
-			conic-gradient(#000 0 0) border-box;
-		mask-composite: subtract;
+			linear-gradient(#000 0 0) content-box,
+			linear-gradient(#000 0 0);
+		-webkit-mask-composite: xor;
+		mask-composite: exclude;
 		z-index: 2;
 		pointer-events: none;
 	}
@@ -75,13 +79,16 @@
 		position: absolute;
 		inset: 0;
 		border-radius: inherit;
-		border: var(--border-width) solid transparent;
-
-		background: var(--clr-active) border-box;
+		padding: var(--border-width);
+		background: var(--clr-active);
+		-webkit-mask:
+			linear-gradient(#000 0 0) content-box,
+			linear-gradient(#000 0 0);
 		mask:
-			var(--clr-1b-1a) border-box,
-			var(--clr-1b-1a) padding-box;
-		mask-composite: subtract;
+			linear-gradient(#000 0 0) content-box,
+			linear-gradient(#000 0 0);
+		-webkit-mask-composite: xor;
+		mask-composite: exclude;
 		z-index: 1;
 		pointer-events: none;
 	}
@@ -137,7 +144,7 @@
 }
 .ts-wrapper:is(.focus.input-active, :hover) {
 	.ts-control {
-		--clr-txt: var(--clr-0a);
+		--clr-txt: var(--white);
 
 		background-color: var(--clr-bg-active);
 		backdrop-filter: blur(5px);
@@ -145,7 +152,7 @@
 }
 
 .option.active {
-	--clr-txt: var(--clr-0a);
+	--clr-txt: var(--white);
 
 	background-image: var(--clr-active);
 }

@@ -17,10 +17,14 @@
 	content: "";
 	position: absolute;
 	inset: calc(var(--border-width) * -1);
-	background-image: var(--clr-1e-1f);
+	background-image: linear-gradient(
+		var(--deg, 15deg),
+		oklch(from var(--cyan-500) l c h / var(--alpha, 1)) 0%,
+		oklch(from var(--violet-500) l c h / var(--alpha, 1)) 100%
+	);
 	border-radius: var(--rad);
 	z-index: -1;
-	box-shadow: 0.5em 0.5em 1em oklch(from var(--clr-0b) l c h / 0.33);
+	box-shadow: 0.5em 0.5em 1em oklch(from var(--graphit-700) l c h / 0.33);
 }
 .modal::backdrop {
 	--alpha: 0.5;
@@ -30,8 +34,8 @@
 	inset: 0;
 	background-image: linear-gradient(
 		var(--deg, 0deg),
-		oklch(from var(--clr-1a) l c h / var(--alpha, 1)) 0%,
-		oklch(from var(--clr-1b) l c h / var(--alpha, 1)) 100%
+		oklch(from var(--cyan-500-alt) l c h / var(--alpha, 1)) 0%,
+		oklch(from var(--violet-500) l c h / var(--alpha, 1)) 100%
 	);
 	backdrop-filter: blur(5px);
 	transition: background-position var(--time) ease;
@@ -41,7 +45,7 @@
 	--input-h: clamp(3rem, 6.25vw + -1rem, 4rem);
 
 	border-radius: var(--rad);
-	background-color: var(--clr-0b);
+	background-color: var(--clr-garda-bg);
 	z-index: 1;
 	padding: var(--gap-x);
 	display: grid;
@@ -71,7 +75,11 @@
 		content: "";
 		position: absolute;
 		inset: 0;
-		background-image: var(--clr-1e-1f);
+		background-image: linear-gradient(
+			var(--deg, 15deg),
+			oklch(from var(--cyan-500) l c h / var(--alpha, 1)) 0%,
+			oklch(from var(--violet-500) l c h / var(--alpha, 1)) 100%
+		);
 		border-radius: 50%;
 		filter: blur(3rem) contrast(2);
 	}
@@ -83,20 +91,28 @@
 
 .fail.modal {
 	&::before {
-		background-image: var(--clr-1b-1a);
+		background-image: linear-gradient(
+			var(--deg, 30deg),
+			oklch(from var(--cyan-500) l c h / var(--alpha, 1)) 0%,
+			oklch(from var(--violet-500) l c h / var(--alpha, 1)) 66%
+		);
 	}
 
 	&::backdrop {
 		background-image: linear-gradient(
 			var(--deg, 0deg),
-			oklch(from var(--clr-1b) l c h / var(--alpha, 1)) 50%,
-			oklch(from var(--clr-1a) l c h / var(--alpha, 1)) 100%
+			oklch(from var(--cyan-500) l c h / var(--alpha, 1)) 50%,
+			oklch(from var(--cyan-500) l c h / var(--alpha, 1)) 100%
 		);
 	}
 
 	.modal-icon {
 		&::before {
-			background-image: var(--clr-1b-1a);
+			background-image: linear-gradient(
+				var(--deg, 30deg),
+				oklch(from var(--cyan-500) l c h / var(--alpha, 1)) 0%,
+				oklch(from var(--violet-500) l c h / var(--alpha, 1)) 66%
+			);
 		}
 		& > :first-child {
 			display: none;

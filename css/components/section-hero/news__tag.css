@@ -1,5 +1,5 @@
 .hero-news__tag {
-	--clr-txt: var(--clr-0b);
+	--clr-txt: var(--graphit-700);
 
 	grid-area: tag;
 	width: min(12em, 100%);
@@ -10,5 +10,5 @@
 	padding-inline: 1em;
 
 	border-radius: var(--rad-inner);
-	background-color: var(--clr-0a);
+	background-color: var(--white);
 }

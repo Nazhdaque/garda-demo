@@ -27,7 +27,7 @@
 .hero-news:where(:focus-visible, :hover),
 .hero-motto__arrow-link:where(:focus-visible, :hover),
 .demo-card:where(:focus-visible, :hover) {
-	--arw-bg: #b881db;
+	--arw-bg: var(--violet-300-alt);
 
 	.arrow > :nth-child(1) {
 		left: 100% !important;
@@ -46,7 +46,7 @@
 .hero-news:active,
 .hero-motto__arrow-link:active,
 .demo-card:active {
-	--arw-bg: #2c313b;
+	--arw-bg: var(--graphit-700);
 
 	.arrow > :nth-child(1) {
 		left: 200% !important;

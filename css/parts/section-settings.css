@@ -1,5 +1,5 @@
 .settings {
-	--clr-bg: oklch(from var(--white) l c h / 0.05);
+	--clr-bg: var(--white-alpha-0);
 	--gap-x: clamp(0.5rem, 3.125vw + -1.5rem, 1rem);
 	--form-gap: var(--gap-x);
 

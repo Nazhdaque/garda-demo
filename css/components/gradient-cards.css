@@ -12,7 +12,7 @@
 	overflow: hidden;
 }
 .cards > *:not(:last-child) {
-	border: solid oklch(from var(--white) l c h / 0.2);
+	border: solid var(--white-alpha-2);
 	border-width: var(--border);
 }
 .cards > :nth-child(1) {
@@ -40,8 +40,8 @@
 	counter-increment: tile-num 1;
 	background-image: linear-gradient(
 		var(--deg, 0deg),
-		oklch(from var(--clr-1a) l c h / var(--alpha, 1)) 0%,
-		oklch(from var(--clr-1b) l c h / var(--alpha, 1)) 100%
+		oklch(from var(--cyan-500-alt) l c h / var(--alpha, 1)) 0%,
+		oklch(from var(--violet-500) l c h / var(--alpha, 1)) 100%
 	);
 	padding: calc(var(--pad) / 1.25) var(--pad) calc(var(--pad) / 0.75);
 	display: grid;

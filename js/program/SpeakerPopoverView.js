@@ -3,20 +3,25 @@ import { unsafeHTML } from "lit-html/directives/unsafe-html.js";
 
 export class SpeakerPopoverView {
 	constructor() {
-		this.photoBaseUrl =
-			"https://garda.ai/upload/save-all/2027/photo/participants/";
-		this.container = document.createElement("div");
-		document.body.appendChild(this.container);
+		const popoverId = "speaker-global-popover";
+		let existingContainer = document.getElementById(popoverId);
+
+		if (!existingContainer) {
+			this.container = document.createElement("div");
+			this.container.id = popoverId;
+			this.container.setAttribute("popover", "auto");
+			this.container.className = "speaker-popover width-x";
+			document.body.appendChild(this.container);
+		} else {
+			this.container = existingContainer;
+		}
+
+		this.photoBaseUrl = "images/persons/";
 	}
 
 	open(speaker) {
-		const popoverId = `popover-${speaker.id}`;
-
 		const template = html`
-			<article
-				id="${popoverId}"
-				popover="auto"
-				class="person slot gradient-border width-x">
+			<article class="person slot gradient-border">
 				<div class="img-box person__photo">
 					${speaker.photo
 						? html`<img
@@ -27,9 +32,8 @@ export class SpeakerPopoverView {
 
 				<header class="person__header">
 					<h1 class="fnt-lg">
-						<span>${speaker.firstName}</span><br /><span
-							>${speaker.lastName}</span
-						>
+						<span>${speaker.firstName}</span><br />
+						<span>${speaker.lastName}</span>
 					</h1>
 					${speaker.job ? html`<p class="fnt-rg">${speaker.job}</p>` : ""}
 				</header>
@@ -39,8 +43,7 @@ export class SpeakerPopoverView {
 				<button
 					type="button"
 					class="gradient-border gradient-text"
-					popovertarget="${popoverId}"
-					popovertargetaction="hide"
+					@click="${() => this.container.hidePopover()}"
 					aria-label="Закрыть">
 					&times;
 				</button>
@@ -48,16 +51,13 @@ export class SpeakerPopoverView {
 		`;
 
 		render(template, this.container);
-
-		const element = this.container.querySelector(`[popover]`);
-		if (element) {
-			element.showPopover();
-		}
+		this.container.showPopover();
 	}
 
 	destroy() {
 		if (this.container && this.container.parentNode) {
 			this.container.parentNode.removeChild(this.container);
+			this.container = null;
 		}
 	}
 }

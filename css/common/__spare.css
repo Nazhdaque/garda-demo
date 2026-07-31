@@ -1,0 +1,68 @@
+:root {
+	--white: #ffffff;
+	--graphit-700: #292c42;
+	--cyan-100: #9cdeff;
+	--cyan-200: #59d7ff;
+	--cyan-300: #45cdff;
+	--cyan-400: #30c4ff;
+	--cyan-500: #15b8ff;
+	--cyan-600: #159be8;
+	--cyan-700: #0e7cd0;
+	--cyan-800: #075db9;
+	--cyan-900: #003ea1;
+	--violet-100: #ffb3fe;
+	--violet-200: #f79cff;
+	--violet-300: #e481ff;
+	--violet-400: #d265ff;
+	--violet-500: #bf4aff;
+	--violet-600: #ac38f0;
+	--violet-700: #9825e1;
+	--violet-800: #8413d1;
+	--violet-900: #7100c2;
+	--warm-100: #ffd754;
+	--warm-200: #fbba5e;
+	--warm-300: #f89e68;
+	--warm-400: #f48171;
+	--warm-500: #f0647b;
+	--warm-600: #d9587a;
+	--warm-700: #c34c79;
+	--warm-800: #ac4077;
+	--warm-900: #953476;
+	--cyan-300-alt: #8baaff;
+	--cyan-500-alt: #6786ff;
+	--violet-300-alt: #b198ff;
+	--violet-500-alt: #9964ff;
+	--sapphire-200: #ced5f0;
+	--sapphire-800: #2b367a;
+
+	--clr-0a: #ffffff;
+	--clr-0a-hsl: 0, 0%, 100%;
+	--clr-0b: #010623;
+	--clr-0b-hsl: 231, 94%, 7%;
+	--clr-0c: #2c313b;
+	--clr-0c-hsl: 220, 15%, 20%;
+	--clr-1a: #4d5bd5;
+	--clr-1a-hsl: 234, 62%, 57%;
+	--clr-1b: #d21fff;
+	--clr-1b-hsl: 288, 100%, 56%;
+	--clr-1c: #b881db;
+	--clr-1c-hsl: 277, 56%, 68%;
+	--clr-1d: #9a4dd5;
+	--clr-1d-hsl: 274, 62%, 57%;
+	--clr-1e: #2baae2;
+	--clr-1e-hsl: 198, 76%, 53%;
+	--clr-1f: #9b4fd6;
+	--clr-1f-hsl: 274, 62%, 57%;
+
+	--clr-1e-1f: linear-gradient(
+		var(--deg, 15deg),
+		oklch(from var(--clr-1e) l c h / var(--alpha, 1)) 0%,
+		oklch(from var(--clr-1f) l c h / var(--alpha, 1)) 100%
+	);
+
+	--clr-1b-1a: linear-gradient(
+		var(--deg, 30deg),
+		oklch(from var(--cyan-300) l c h / var(--alpha, 1)) 0%,
+		oklch(from var(--violet-300) l c h / var(--alpha, 1)) 66%
+	);
+}

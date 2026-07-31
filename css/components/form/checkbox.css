@@ -29,7 +29,7 @@
 
 	&:has(.form__checkbox:disabled) {
 		.checkbox-txt {
-			--clr-txt: oklch(from var(--white) l c h / 0.4);
+			--clr-txt: var(--white-alpha-4);
 		}
 		.input-wrapper,
 		.checkbox-txt {
@@ -93,8 +93,8 @@
 		to left,
 		var(--clr-txt) 0%,
 		var(--clr-txt) 51%,
-		var(--clr-1e) 76%,
-		var(--clr-1b) 100%
+		var(--violet-300) 76%,
+		var(--cyan-300) 100%
 	);
 	background-position: right center;
 	background-size: 400% auto;
@@ -153,10 +153,10 @@
 			margin: var(--border);
 			background-image: linear-gradient(
 				to right,
-				var(--clr-1f) 0%,
-				var(--clr-1f) 50%,
-				var(--clr-1e) 51%,
-				var(--clr-1e) 100%
+				var(--violet-300) 0%,
+				var(--violet-300) 50%,
+				var(--cyan-300) 51%,
+				var(--cyan-300) 100%
 			);
 			background-size: 200% auto;
 			transition:
@@ -186,7 +186,7 @@
 }
 
 .checkbox-wrapper:where(:has(.form__checkbox:disabled), :hover) {
-	--clr-txt: oklch(from var(--white) l c h / 0.6);
+	--clr-txt: var(--white-alpha-6);
 
 	.form__input {
 		background-color: transparent;
@@ -195,7 +195,7 @@
 .checkbox-wrapper:where(:has(.form__checkbox:focus-visible), :hover):not(
 		:has(.form__checkbox:disabled)
 	) {
-	--clr-txt: var(--clr-0a);
+	--clr-txt: var(--white);
 
 	.form__input {
 		background-color: var(--clr-bg-active);

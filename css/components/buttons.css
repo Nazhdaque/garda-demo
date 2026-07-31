@@ -1,5 +1,5 @@
 .btn-gradient {
-	--btn-bg: linear-gradient(15deg, var(--clr-1e) -6%, var(--clr-1f) 66%);
+	--btn-bg: linear-gradient(15deg, var(--cyan-500) -6%, var(--violet-500) 66%);
 
 	cursor: pointer;
 	position: relative;
@@ -18,7 +18,6 @@
 		z-index: -1;
 		opacity: 0.75;
 		border-radius: var(--rad-inner);
-		background-color: var(--clr-0b);
 		background-image: var(--btn-bg);
 		background-size: 200% auto;
 		transform-style: preserve-3d;
@@ -31,11 +30,10 @@
 
 /* |||||||||| |||||||||| |||||||||| |||||||||| states */
 .btn-gradient:not(:disabled):where(:focus-visible, :hover) {
-	--clr-txt: var(--clr-0a);
+	--clr-txt: var(--white);
 
 	&::before {
 		background-position: 51%;
-		filter: brightness(1.125);
 		opacity: 1;
 	}
 }

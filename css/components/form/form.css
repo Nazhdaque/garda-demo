@@ -1,16 +1,20 @@
 .form {
-	--clr-txt: oklch(from var(--white) l c h / 0.6);
-	--clr-bg-active: oklch(from var(--clr-1d) l c h / 0.2);
-	--clr-active: var(--clr-1e-1f);
+	--clr-txt: var(--white-alpha-6);
+	--clr-bg-active: oklch(from var(--violet-500) l c h / 0.05);
+	--clr-active: linear-gradient(
+		15deg,
+		var(--cyan-500) 0%,
+		var(--violet-500) 100%
+	);
 	--clr-success: radial-gradient(
 		circle at bottom left,
-		var(--clr-1e) 25%,
-		var(--clr-1a) 100%
+		var(--cyan-300) 25%,
+		var(--cyan-900) 125%
 	);
 	--clr-failure: radial-gradient(
 		circle at bottom left,
-		var(--clr-1b) 25%,
-		var(--clr-1a) 125%
+		var(--violet-300) 25%,
+		var(--warm-900) 125%
 	);
 	--check-mark: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
 	--cross-mark: polygon(
@@ -57,12 +61,16 @@
 		position: absolute;
 		inset: 0;
 		border-radius: inherit;
-		border: var(--border-width) solid transparent;
-		background: oklch(from var(--white) l c h / 0.2) border-box;
+		padding: var(--border-width);
+		background: var(--white-alpha-2);
+		-webkit-mask:
+			linear-gradient(#000 0 0) content-box,
+			linear-gradient(#000 0 0);
 		mask:
-			conic-gradient(#000 0 0) content-box,
-			conic-gradient(#000 0 0) border-box;
-		mask-composite: subtract;
+			linear-gradient(#000 0 0) content-box,
+			linear-gradient(#000 0 0);
+		-webkit-mask-composite: xor;
+		mask-composite: exclude;
 		z-index: 1;
 		pointer-events: none;
 	}
@@ -116,7 +124,7 @@ textarea.form__input {
 
 /* |||||||||| |||||||||| |||||||||| |||||||||| */
 .labels {
-	color: var(--clr-0a) !important;
+	color: var(--white) !important;
 	font-size: var(--fs-xs) !important;
 	font-weight: var(--fw-rg);
 	font-style: italic;
@@ -153,7 +161,7 @@ textarea.form__input {
 }
 
 .form__input:where(:hover, :focus-visible) {
-	--clr-txt: var(--clr-0a);
+	--clr-txt: var(--white);
 
 	background-color: var(--clr-bg-active);
 	backdrop-filter: blur(5px);

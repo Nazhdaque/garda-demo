@@ -12,7 +12,7 @@
 	display: grid;
 	border-width: 0.075em;
 	border-style: solid;
-	border-color: var(--clr-1e) transparent;
+	border-color: var(--cyan-500) transparent;
 	border-radius: 50%;
 	animation: rotate var(--time) infinite linear;
 }
@@ -25,14 +25,14 @@
 	border-radius: inherit;
 }
 .loader::before {
-	border-color: var(--clr-1f) transparent;
+	border-color: var(--violet-500) transparent;
 	margin: 0.0375em;
 	animation: inherit;
 	animation-duration: calc(var(--time) / 2);
 	animation-direction: reverse;
 }
 .loader::after {
-	border-color: var(--clr-1a) transparent;
+	border-color: var(--cyan-500-alt) transparent;
 
 	margin: 0.15em;
 }
