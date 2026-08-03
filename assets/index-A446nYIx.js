@@ -161,6 +161,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
 			`}di(Y`
 			<table
 				class="program"
+				style="--halls-count: ${this.halls.length};"
 				aria-label="Программа мероприятия"
 				data-sorted="${n?this.selectedHallId:`false`}">
 				<thead>
