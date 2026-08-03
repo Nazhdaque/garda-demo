@@ -15,7 +15,9 @@ import "/js/program/program.js";
 slideHeader("main-header", "-slide-up");
 
 // --
-cursorGlow("hero-news", "cursor-glow");
+["hero-news", "slot", "person"].forEach(cls => {
+	cursorGlow(cls, "cursor-glow");
+});
 
 // --
 createDelBtn("garda-bg", "del-section-btn");

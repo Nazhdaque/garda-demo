@@ -189,7 +189,7 @@ class EventProgramView {
 							hall => html`
 								<th
 									role="columnheader"
-									class="track slot gradient-border"
+									class="track cursor-glow slot gradient-border"
 									data-hall="${hall.id}">
 									${hall.name}
 								</th>

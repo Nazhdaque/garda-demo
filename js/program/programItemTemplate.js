@@ -12,7 +12,7 @@ export const programItemTemplate = (
 
 	if (isPause) {
 		return html`
-			<td role="cell" class="slot gradient-border" data-hall="all">
+			<td role="cell" class="slot cursor-glow gradient-border" data-hall="all">
 				<header class="slot__header">
 					<time class="slot__time" datetime="${session.start}:00+03:00"
 						>${session.start}</time
@@ -50,7 +50,7 @@ export const programItemTemplate = (
 	return html`
 		<td
 			role="cell"
-			class="slot gradient-border ${isActive ? "active-slot" : ""}"
+			class="slot cursor-glow gradient-border ${isActive ? "active-slot" : ""}"
 			data-time="${session.start ? session.start.replace(":", "-") : ""}"
 			data-hall="${session.placeId ?? ""}"
 			aria-labelledby="talk-title-${session.id}">

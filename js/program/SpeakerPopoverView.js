@@ -21,7 +21,7 @@ export class SpeakerPopoverView {
 
 	open(speaker) {
 		const template = html`
-			<article class="person slot gradient-border">
+			<article class="person slot cursor-glow gradient-border">
 				<div class="img-box person__photo">
 					${speaker.photo
 						? html`<img
