@@ -153,14 +153,18 @@ export const getElements = array => {
 };
 
 //---
-export const throttle = (fn, delay = 50) => {
-	let lastCall = 0;
+export const throttle = fn => {
+	let requestId = null;
+	let lastArgs = null;
+
 	return (...args) => {
-		const now = new Date().getTime();
-		if (now - lastCall < delay) {
-			return;
-		}
-		lastCall = now;
-		return fn(...args);
+		lastArgs = args;
+
+		if (requestId) return;
+
+		requestId = requestAnimationFrame(() => {
+			fn(...lastArgs);
+			requestId = null;
+		});
 	};
 };

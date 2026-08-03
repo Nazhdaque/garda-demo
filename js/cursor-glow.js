@@ -4,20 +4,22 @@ const registeredSelectors = new Map();
 let isListening = false;
 
 const globalPointerMoveHandler = e => {
-	for (const [parentSelector, childClass] of registeredSelectors.entries()) {
-		const parentEl = e.target.closest(`.${parentSelector}`);
+	if (!e.target || typeof e.target.closest !== "function") return;
+
+	for (const [parentClass, childClass] of registeredSelectors.entries()) {
+		const parentEl = e.target.closest(`.${parentClass}`);
 		if (!parentEl) continue;
 
-		const childEl = parentEl.classList.contains(childClass)
+		const targetEl = parentEl.classList.contains(childClass)
 			? parentEl
 			: parentEl.querySelector(`.` + childClass);
 
-		if (!childEl) continue;
+		if (!targetEl) continue;
 
 		try {
-			const rect = childEl.getBoundingClientRect();
-			childEl.style.setProperty("--x", e.clientX - rect.left);
-			childEl.style.setProperty("--y", e.clientY - rect.top);
+			const rect = targetEl.getBoundingClientRect();
+			targetEl.style.setProperty("--x", e.clientX - rect.left);
+			targetEl.style.setProperty("--y", e.clientY - rect.top);
 		} catch (err) {
 			console.error(err);
 		}

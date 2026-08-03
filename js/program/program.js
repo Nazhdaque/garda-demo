@@ -181,6 +181,7 @@ class EventProgramView {
 		const mainTemplate = html`
 			<table
 				class="program"
+				style="--halls-count: ${this.halls.length};"
 				aria-label="Программа мероприятия"
 				data-sorted="${isSorted ? this.selectedHallId : "false"}">
 				<thead>
