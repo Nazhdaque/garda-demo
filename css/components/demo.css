@@ -13,6 +13,7 @@
 	padding-block: var(--main-content-pad-x);
 	/* place-items: center; */
 	position: relative;
+	overflow-anchor: none;
 }
 
 .demo-bg {

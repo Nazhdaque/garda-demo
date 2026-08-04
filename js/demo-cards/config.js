@@ -1,5 +1,9 @@
-import { toggleClass, swapClasses, handleSwitches } from "./handlers.js";
+import { toggleClass, swapClasses } from "./handlers.js";
 import { resetSlider } from "./slider.js";
+import { SwitchesManager } from "./SwitchesManager.js";
+
+const configurator = document.querySelector("#configurator");
+if (configurator) configurator.reset();
 
 const cards = document.querySelector(".demo-cards");
 const resetBtn = document.querySelector("#demo-cards-reset");
@@ -68,42 +72,43 @@ const switches = [
 ].filter(Boolean);
 
 const config = [
-	[[idFlexList], [idScrollSnap, idSubgrid, idCardText]],
-
-	[[idImageLeft], [idCol4, idCol5]],
-	[[idCol4], [idImageLeft]],
-	[[idCol5], [idImageLeft]],
-
-	[[idCardTitleLg], [idSectionTitleMd]],
-	[[idSectionTitleMd], [idCardTitleLg]],
-
-	[[idCardSubtitle], [idCardTitleSm]],
-	[[idCardTitleSm], [idCardSubtitle]],
+	{
+		ifMediaQuery: "(max-width: 768px)",
+		disable: [idScrollSnap],
+	},
+	{
+		ifChecked: [idFlexList],
+		disable: [idScrollSnap, idSubgrid, idCardText],
+	},
+	{ mutuallyDisable: [[idImageLeft], [idCol4, idCol5]] },
+	{ mutuallyDisable: [[idCardTitleLg], [idSectionTitleMd]] },
+	{ mutuallyDisable: [[idCardSubtitle], [idCardTitleSm]] },
 ];
 
 const initialDisabled = new Map();
 switches.forEach(input => initialDisabled.set(input, input.disabled));
 
-document.addEventListener("DOMContentLoaded", () => handleSwitches(config));
+const switchesManager = new SwitchesManager(config);
+switchesManager.init(switches);
 
 switches.forEach(el =>
 	el.addEventListener("change", () => {
 		if (el === idFlexList) {
-			toggleClass(settings, "flex-list");
+			toggleClass(settings, "flex-list", el);
 			swapClasses(settings, "subgrid scroll-snap card-text", "");
 		}
-		if (el === idOneLineTitle) toggleClass(settings, "one-line-title");
-		if (el === idSectionHeader) toggleClass(settings, "section-header");
-		if (el === idSectionSubtitle) toggleClass(settings, "section-subtitle");
+		if (el === idOneLineTitle) toggleClass(settings, "one-line-title", el);
+		if (el === idSectionHeader) toggleClass(settings, "section-header", el);
+		if (el === idSectionSubtitle) toggleClass(settings, "section-subtitle", el);
 		if (el === idSectionTitleMd)
 			swapClasses(settings, "section-title-", "section-title-md");
 		if (el === idSectionTitleLg)
 			swapClasses(settings, "section-title-", "section-title-lg");
-		if (el === idSectionBackground) toggleClass(settings, "section-bg");
-		if (el === idSubgrid) toggleClass(settings, "subgrid");
+		if (el === idSectionBackground) toggleClass(settings, "section-bg", el);
+		if (el === idSubgrid) toggleClass(settings, "subgrid", el);
 		if (el === idScrollSnap)
-			(toggleClass(settings, "scroll-snap"), resetSlider());
-		if (el === idOrderedList) toggleClass(settings, "ordered-list");
+			(toggleClass(settings, "scroll-snap", el), resetSlider());
+		if (el === idOrderedList) toggleClass(settings, "ordered-list", el);
 		if (el === idCol2) (swapClasses(settings, "col-", "col-2"), resetSlider());
 		if (el === idCol3) (swapClasses(settings, "col-", "col-3"), resetSlider());
 		if (el === idCol4) (swapClasses(settings, "col-", "col-4"), resetSlider());
@@ -117,16 +122,15 @@ switches.forEach(el =>
 		if (el === idImageCover)
 			swapClasses(settings, "img-pos-", "img-pos-top img-pos-cover");
 		if (el === idImageNone) swapClasses(settings, "img-pos-");
-		if (el === idCardTitle) toggleClass(settings, "card-title");
-		if (el === idCardSubtitle) toggleClass(settings, "card-subtitle");
-		if (el === idCardText) toggleClass(settings, "card-text");
+		if (el === idCardTitle) toggleClass(settings, "card-title", el);
+		if (el === idCardSubtitle) toggleClass(settings, "card-subtitle", el);
+		if (el === idCardText) toggleClass(settings, "card-text", el);
 		if (el === idCardTitleSm)
 			swapClasses(settings, "card-title-", "card-title-sm");
 		if (el === idCardTitleMd)
 			swapClasses(settings, "card-title-", "card-title-md");
 		if (el === idCardTitleLg)
 			swapClasses(settings, "card-title-", "card-title-lg");
-		handleSwitches(config);
 	}),
 );
 
@@ -137,4 +141,5 @@ resetBtn.addEventListener("click", e => {
 		input.checked = input.defaultChecked;
 		input.disabled = initialDisabled.get(input);
 	});
+	switchesManager.handle(switches);
 });

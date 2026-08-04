@@ -85,7 +85,6 @@ export class ScrollSnapSlider {
 
 	reset() {
 		this.navLinks.forEach(item => item.classList.remove("active"));
-		// ✅ ИСПРАВЛЕНО: Добавлено обращение к первому элементу коллекции по индексу [0]
 		if (this.navLinks && this.navLinks[0]) {
 			this.navLinks[0].classList.add("active");
 		}

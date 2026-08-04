@@ -21,20 +21,24 @@ export const card = (index, url, img, ttl, sub, txt) => {
 				alt="white arrow on black background" />
 		</div>
 	`;
+
 	const image = html`
 		<picture class="img-box demo-card__img">
-			<img src=${img} alt="demo image" />
+			<img src="${img}" alt="demo image" />
 		</picture>
 	`;
-	const title = html`<h3 class="demo-card__ttl">${unsafeHTML(ttl)}</h3>`;
+
+	const title = html`<h3 class="demo-card__ttl">${ttl}</h3>`;
 	const subtitle = html`<p class="demo-card__sub fnt-md">
 		${unsafeHTML(sub)}
 	</p>`;
 	const text = html`<div class="demo-card__txt">${unsafeHTML(txt)}</div>`;
+
 	const body = html`
-		${img ? image : url && arrow} ${ttl && title} ${sub && subtitle}
-		${txt && text}
+		${img ? image : url && arrow} ${ttl ? title : ""} ${sub ? subtitle : ""}
+		${txt ? text : ""}
 	`;
+
 	const linkCard = html`
 		<a
 			class="demo-card link focus-outline"
@@ -45,6 +49,7 @@ export const card = (index, url, img, ttl, sub, txt) => {
 			${body}
 		</a>
 	`;
+
 	const plainCard = html`
 		<section class="demo-card" id="demo-card-${index + 1}">${body}</section>
 	`;

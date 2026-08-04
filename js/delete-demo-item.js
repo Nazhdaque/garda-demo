@@ -1,14 +1,25 @@
 export const createDelBtn = (el, cls) => {
-	document.querySelectorAll("." + el).forEach(item => {
-		// getGrid(item);
-		getBtn(item, cls);
-		delSection(cls);
+	document.querySelectorAll(`.${el}`).forEach(item => {
+		const btn = document.createElement("button");
+		btn.classList.add(cls);
+
+		btn.addEventListener("click", () => {
+			const grid = item.nextElementSibling;
+
+			if (grid?.classList.contains("garda-demo-grid")) {
+				grid.remove();
+			}
+			item.remove();
+		});
+
+		item.appendChild(btn);
 	});
 };
 
 const getGrid = item => {
 	const grid = document.createElement("ol");
 	grid.classList.add("demo", "grid-x", "garda-demo-grid");
+
 	for (let i = 12; i > 0; i--) {
 		const gridItem = document.createElement("li");
 		if (i > 8) {
@@ -20,22 +31,3 @@ const getGrid = item => {
 	}
 	item.insertAdjacentElement("afterend", grid);
 };
-
-const getBtn = (item, cls) => {
-	const btn = document.createElement("button");
-	btn.classList.add(cls);
-	item.appendChild(btn);
-};
-
-const delSection = cls =>
-	document.querySelectorAll("." + cls).forEach(item => {
-		item.addEventListener("click", e => {
-			const box = e.currentTarget.parentElement;
-			const grid = box.nextElementSibling;
-			const del = elements =>
-				elements.forEach(item => item.classList.add("d-none"));
-			grid && grid.classList.contains("garda-demo-grid")
-				? del([box, grid])
-				: del([box]);
-		});
-	});

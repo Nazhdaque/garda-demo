@@ -1,0 +1,18 @@
+{
+  "requests": [
+    {
+      "first-name": "Goro",
+      "last-name": "Takemura",
+      "job-title": "Hatamoto",
+      "company": "Arasaka Corporation",
+      "email": "goro-takemura@arasaka.net",
+      "phone": "+7 (985) 285‒66‒68",
+      "communication": "Email",
+      "comment": "hua!",
+      "subscription": "Рассылка",
+      "privacy-policy": "Согласен",
+      "id": "xhSCAO6W4hA"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

@@ -1,10 +1,11 @@
 import { getFormData } from "./helpers.js";
+import { FetchWrapper } from "./helpers.js";
 import JustValidate from "just-validate";
 import IMask from "imask";
 import TomSelect from "tom-select";
 import "tom-select/dist/css/tom-select.css";
 import "../css/components/form/select.css";
-import { showModalText } from "./modal.js";
+import { showModalText, modal } from "./modal.js";
 
 const form = document.querySelector("#form-send-request");
 const submitButton = document.querySelector("#submit-form");
@@ -17,49 +18,70 @@ const disableSubmitButton = () =>
 const enableSubmitButton = () =>
 	submitButton && (submitButton.disabled = false);
 
+// const testServerBaseUrl = "https://jsonplaceholder.typicode.com";
+// const testServerEndPoint = "/posts";
+const testServerBaseUrl = "https://httpbin.org";
+const testServerEndPoint = "/post";
+// const testServerBaseUrl = "https://reqres.in/";
+// const testServerEndPoint = "/api/users";
+
+// npx json-server db.json --port 3000
+// const testServerBaseUrl = "http://localhost:3000";
+// const testServerEndPoint = "/requests";
+
+const api = new FetchWrapper(testServerBaseUrl, {
+	onSuccess: () => showModalText(true),
+	onFail: () => showModalText(false),
+});
+
 const handleFormSubmit = async e => {
-	const form = e.target;
+	const currentForm = e.target;
 	const clearForm = () => {
-		tomSelect.clear();
+		tomSelect.clear(true);
 		validator.refresh();
-		form.reset();
+		currentForm.reset();
 	};
 
 	e.preventDefault();
 	disableSubmitButton();
+	toggleLoader();
 
 	try {
-		toggleLoader();
-		const response = await fetch("https://httpbin.org/post", {
-			method: "post",
-			body: JSON.stringify(getFormData(new FormData(form))),
-		});
-		const result = await response.json();
-		showModalText(response.ok);
+		// Имитируем успешный ответ от сервера:
+		// showModalText(true);
+		// console.log(
+		// 	"%cФорма успешно обработана локально. Данные в JSON:",
+		// 	"background: #292c42; color: #45cdff;",
+		// 	getFormData(new FormData(currentForm)),
+		// );
+
+		const result = await api.post(
+			testServerEndPoint,
+			getFormData(new FormData(currentForm)),
+		);
 		console.log(
 			"%cФорма успешно отправилась на тестовый сервер. Он ответил:",
 			"background: #292c42; color: #45cdff;",
 			result,
 		);
-	} catch {
-		showModalText();
-		throw new Error("Соединение с сервером не установлено!");
+	} catch (error) {
+		console.error(error.message);
 	} finally {
 		toggleLoader();
 		clearForm();
 		enableSubmitButton();
-		modal.showModal();
+		modal?.showModal();
 	}
 };
 
 IMask(form.querySelector("#phone"), { mask: "+{7} (000) 000‒00‒00" });
 
 const validator = new JustValidate(form, {
-	// successFieldCssClass: ["success-field"],
 	errorFieldCssClass: ["error-field"],
 	successLabelCssClass: ["labels", "success-label", "ellipsis"],
 	errorLabelCssClass: ["labels", "error-label", "ellipsis"],
 	validateBeforeSubmitting: true,
+	focusInvalidField: false,
 });
 
 validator
@@ -141,7 +163,6 @@ validator
 			{ rule: "email", errorMessage: "Неправильный email!" },
 			{
 				rule: "customRegexp",
-				// value: /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/gi,
 				value:
 					/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/gi,
 				errorMessage: "Неправильный email!",
@@ -183,3 +204,5 @@ validator
 		{ errorsContainer: document.querySelector(".select-wrapper") },
 		{ successMessage: "Отлично!" },
 	);
+
+tomSelect.on("change", () => validator.revalidateField("#form-select"));

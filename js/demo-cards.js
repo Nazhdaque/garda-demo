@@ -8,38 +8,41 @@ const scrollContainer = document.querySelector(".demo-cards-wrapper");
 const cardsNavPanel = document.querySelector(".demo-cards-nav");
 const API = new FetchWrapper("data/");
 const getCards = async () => {
-	const json = await API.get("cards-data.json");
-	const cards = [];
-	const cardsNavPoints = [];
+	try {
+		const json = await API.get("cards-data.json");
+		if (!json || !Array.isArray(json)) return;
 
-	json.forEach((dataset, index) => {
-		const { url, img, ttl, sub, txt } = dataset;
-		cards.push(card(index, url, img, ttl, sub, txt));
-		cardsNavPoints.push(navPoint(index));
-	});
+		const cards = json.map((dataset, index) => {
+			const { url, img, ttl, sub, txt } = dataset;
+			return card(index, url, img, ttl, sub, txt);
+		});
 
-	render(cards, scrollContainer);
-	render(cardsNavPoints, cardsNavPanel);
+		const cardsNavPoints = json.map((_, index) => navPoint(index));
 
-	const setNumberOfColumns = () => {
-		const num = document.querySelectorAll(".demo-card").length;
-		scrollContainer.style.setProperty("--col", num);
-	};
+		render(cards, scrollContainer);
+		render(cardsNavPoints, cardsNavPanel);
 
-	setNumberOfColumns();
+		if (scrollContainer) {
+			const actualCardsCount =
+				scrollContainer.querySelectorAll(".demo-card").length;
+			scrollContainer.style.setProperty("--col", actualCardsCount);
+		}
 
-	const slider = new ScrollSnapSlider({
-		scrollContainer: ".demo-cards-wrapper",
-		btnPrev: "#btn-prev",
-		btnNext: "#btn-next",
-		navContainer: ".demo-cards-nav",
-		navLinksSelector: ".demo-cards-nav a",
-		activeLinkSelector: ".demo-cards-nav a.active",
-		cardsSelector: ".demo-cards",
-		autoplay: true,
-		autoplayInterval: 3000,
-		autoplayBreakpoint: 1024,
-	});
+		new ScrollSnapSlider({
+			scrollContainer: ".demo-cards-wrapper",
+			btnPrev: "#btn-prev",
+			btnNext: "#btn-next",
+			navContainer: ".demo-cards-nav",
+			navLinksSelector: ".demo-cards-nav a",
+			activeLinkSelector: ".demo-cards-nav a.active",
+			cardsSelector: ".demo-cards",
+			autoplay: true,
+			autoplayInterval: 3000,
+			autoplayBreakpoint: 1024,
+		});
+	} catch (error) {
+		console.error("Failed to load cards:", error.message);
+	}
 };
 
 getCards();
